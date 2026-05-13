@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://clean-clean.com.ua/sitemap.xml
+Sitemap: https://chistotak.com.ua/sitemap.xml
