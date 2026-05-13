@@ -1510,17 +1510,57 @@
         arrow.style.transform = content.classList.contains('hidden') ? '' : 'rotate(180deg)';
       });
     });
-    // Upsell checkbox visual feedback
+
+    // Dynamic upsell based on selected service
+    var UPSELL_BY_SERVICE = {
+      'Підтримуюче прибирання': ['Духовка +600₴','Холодильник +500₴','Витяжка +500₴','Миття вікон +80₴/м²','Хімчистка дивана +1100₴','Хімчистка матраця +550₴'],
+      'Генеральне прибирання':  ['Миття вікон +80₴/м²','Хімчистка дивана +1100₴','Хімчистка матраця +550₴'],
+      'Хімчистка диванів':      ['Крісло +400₴','Хімчистка матраця +550₴','Миття вікон +80₴/м²'],
+      'Хімчистка матраців':     ['Хімчистка дивана +1100₴','Крісло +400₴','Миття вікон +80₴/м²'],
+      'Миття вікон':            ['Хімчистка дивана +1100₴','Духовка +600₴','Холодильник +500₴'],
+      'Прибирання кухні':       ['Витяжка +500₴','Холодильник +500₴','Миття вікон +80₴/м²','Хімчистка дивана +1100₴'],
+      'Прибирання ванної':      ['Миття вікон +80₴/м²','Хімчистка дивана +1100₴','Духовка +600₴'],
+      'Прибирання після ремонту':['Миття вікон +80₴/м²','Хімчистка дивана +1100₴','Хімчистка матраця +550₴'],
+      'Клінінг офісів':         ['Миття вікон +80₴/м²','Хімчистка дивана +1100₴'],
+    };
+    var DEFAULT_UPSELL = ['Миття вікон +80₴/м²','Духовка +600₴','Холодильник +500₴','Витяжка +500₴','Хімчистка дивана +1100₴','Хімчистка матраця +550₴'];
+
+    function renderUpsell(serviceName) {
+      var items = UPSELL_BY_SERVICE[serviceName] || DEFAULT_UPSELL;
+      var grid = document.querySelector('.upsell-content .grid');
+      if (!grid) return;
+      grid.innerHTML = items.map(function(extra) {
+        var parts = extra.split(' +');
+        var name = parts[0];
+        var price = '+' + (parts[1] || '');
+        return '<label class="upsell-item flex items-center gap-3 p-3 rounded-xl border border-zinc-700 bg-zinc-800 cursor-pointer hover:border-yellow-600 transition">' +
+          '<input type="checkbox" data-extra="' + extra + '" class="upsell-check w-4 h-4" style="accent-color:#FFD700">' +
+          '<div><div class="text-sm font-semibold text-zinc-100">' + name + '</div>' +
+          '<div class="text-xs" style="color:#FFD700">' + price + '</div></div></label>';
+      }).join('');
+      // Re-attach checkbox listeners
+      grid.querySelectorAll('.upsell-check').forEach(function(cb) {
+        cb.addEventListener('change', function() {
+          var label = this.closest('label');
+          label.style.borderColor = this.checked ? '#FFD700' : '';
+          label.style.background  = this.checked ? '#1a1a00' : '';
+        });
+      });
+    }
+
+    // Update upsell when service changes
+    var formServiceEl = document.getElementById('form-service');
+    if (formServiceEl) {
+      formServiceEl.addEventListener('change', function() { renderUpsell(this.value); });
+      renderUpsell(formServiceEl.value);
+    }
+
+    // Upsell checkbox visual feedback (initial items)
     document.querySelectorAll('.upsell-check').forEach(function(cb) {
       cb.addEventListener('change', function() {
         var label = this.closest('label');
-        if (this.checked) {
-          label.style.borderColor = '#FFD700';
-          label.style.background = '#111100';
-        } else {
-          label.style.borderColor = '';
-          label.style.background = '';
-        }
+        label.style.borderColor = this.checked ? '#FFD700' : '';
+        label.style.background  = this.checked ? '#1a1a00' : '';
       });
     });
 </script>
