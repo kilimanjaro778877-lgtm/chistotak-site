@@ -130,7 +130,7 @@
     .gradient-bg {
       background:
         radial-gradient(ellipse 70% 50% at top right, rgba(212,160,23,0.08), transparent),
-        radial-gradient(ellipse 60% 40% at bottom left, rgba(34,197,94,0.05), transparent),
+        radial-gradient(ellipse 60% 40% at bottom left, rgba(212,160,23,0.05), transparent),
         transparent;
     }
     /* Fix clipping for italic + heavy gradient text:
@@ -139,7 +139,7 @@
        - padding-left small to keep visual balance
        - overflow visible so the box never crops glyphs */
     .gold-gradient-text {
-      background: linear-gradient(135deg, #86efac 0%, #22c55e 50%, #16a34a 100%);
+      background: linear-gradient(135deg, #fde68a 0%, #d4a017 50%, #b7860b 100%);
       -webkit-background-clip: text; background-clip: text; color: transparent;
       display: inline-block;
       padding: 0 0.18em 0.35em 0.05em;
@@ -255,8 +255,8 @@
 
     /* Service selector cards */
     .service-card {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
+      background: #111113;
+      border: 1px solid #2a2a2e;
       transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
       cursor: pointer;
     }
@@ -266,12 +266,12 @@
       box-shadow: 0 0 0 1px rgba(212,160,23,0.15), 0 8px 24px -4px rgba(212,160,23,0.12);
     }
     .service-card.active {
-      background: linear-gradient(145deg, rgba(212,160,23,0.12) 0%, rgba(22,163,74,0.06) 100%);
-      border-color: #22c55e;
-      border-left: 4px solid #16a34a;
-      box-shadow: 0 0 0 1px rgba(34,197,94,0.25), 0 8px 24px -4px rgba(212,160,23,0.18);
+      background: linear-gradient(145deg, rgba(212,160,23,0.12) 0%, rgba(180,130,10,0.06) 100%);
+      border-color: #d4a017;
+      border-left: 4px solid #b7860b;
+      box-shadow: 0 0 0 1px rgba(212,160,23,0.25), 0 8px 24px -4px rgba(212,160,23,0.18);
     }
-    .service-card.active .service-name { color: #15803d; font-weight: 800; }
+    .service-card.active .service-name { color: #92690a; font-weight: 800; }
 
     /* Animated background orbs */
     .orb {
@@ -284,7 +284,7 @@
     }
     .orb-1 {
       width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(51,85,255,0.22), rgba(51,85,255,0) 70%);
+      background: radial-gradient(circle, rgba(212,160,23,0.22), rgba(212,160,23,0) 70%);
       top: -200px; right: -150px;
       animation: orb-drift-1 16s ease-in-out infinite;
     }
@@ -340,6 +340,15 @@
     }
   
     .tabular-nums { font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  
+    /* ЧистоТак — dark theme override */
+    body { background-color: #0a0a0b !important; color: #f5f0e0 !important; }
+    .bg-white, .bg-gray-50, [class*="bg-white"] { background-color: #111113 !important; }
+    .text-gray-900, .text-gray-800, .text-gray-700 { color: #f5f0e0 !important; }
+    .text-gray-500, .text-gray-400 { color: #a09070 !important; }
+    .border-gray-200, .border-gray-100 { border-color: #2a2a2e !important; }
+    input, select, textarea { background-color: #1a1a1d !important; color: #f5f0e0 !important; border-color: #3a3a3f !important; }
+
   </style>
 <!-- Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
 </head>
@@ -356,7 +365,7 @@
   <div class="fixed bottom-6 right-5 z-50 flex flex-col gap-3">
     <a href="https://t.me/jamboss8" target="_blank" rel="noopener noreferrer" aria-label="Написати в Telegram"
        class="w-14 h-14 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-transform flex items-center justify-center"
-       style="background:#2AABEE" title="Telegram">
+       style="background:#d4a017" title="Telegram">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.56 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
     </a>
     <a href="tel:+380731312228" aria-label="Зателефонувати"
@@ -367,23 +376,23 @@
   </div>
 
   <!-- ─── NAV ─────────────────────────────────────── -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-200">
+  <header class="sticky top-0 z-50 bg-zinc-900/95 backdrop-blur-lg border-b border-zinc-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2 font-bold text-xl">
         <span class="w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg text-white" style="background:linear-gradient(135deg,#d4a017,#92690a)">ЧТ</span>
         <span class="tracking-tight">Clean-<span class="text-gold-400">Clean</span></span>
       </a>
       <!-- Hamburger (mobile only) -->
-      <button id="mobile-menu-btn" class="md:hidden p-2 text-zinc-400 hover:text-gray-900 transition" aria-label="Меню" aria-expanded="false" aria-controls="mobile-nav">
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-zinc-400 hover:text-zinc-100 transition" aria-label="Меню" aria-expanded="false" aria-controls="mobile-nav">
         <svg id="icon-open" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
         <svg id="icon-close" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="hidden"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
 
       <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-400">
-        <a href="#services" class="hover:text-gray-900 transition">Послуги</a>
-        <a href="prices.html" class="hover:text-gray-900 transition">Ціни</a>
-        <a href="blog.html" class="hover:text-gray-900 transition">Блог</a>
-        <a href="faq.html" class="hover:text-gray-900 transition">FAQ</a>
+        <a href="#services" class="hover:text-zinc-100 transition">Послуги</a>
+        <a href="prices.html" class="hover:text-zinc-100 transition">Ціни</a>
+        <a href="blog.html" class="hover:text-zinc-100 transition">Блог</a>
+        <a href="faq.html" class="hover:text-zinc-100 transition">FAQ</a>
       </nav>
       <div class="flex items-center gap-3">
         <a href="tel:+380731312228" class="hidden sm:block text-sm font-semibold hover:text-gold-400 transition">
@@ -397,16 +406,16 @@
   </header>
 
   <!-- ─── MOBILE MENU ────────────────────────────── -->
-  <div id="mobile-nav" class="hidden md:hidden sticky top-16 z-40 bg-white/98 backdrop-blur-lg border-b border-gray-200">
+  <div id="mobile-nav" class="hidden md:hidden sticky top-16 z-40 bg-zinc-900/98 backdrop-blur-lg border-b border-zinc-700">
     <nav class="px-4 py-4 flex flex-col gap-1">
-      <a href="#services" class="px-4 py-3 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-white font-medium transition">Послуги</a>
-      <a href="prices.html" class="px-4 py-3 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-white font-medium transition">Ціни</a>
-      <a href="blog.html" class="px-4 py-3 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-white font-medium transition">Блог</a>
-      <a href="faq.html" class="px-4 py-3 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-white font-medium transition">FAQ</a>
-      <a href="#trust" class="px-4 py-3 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-white font-medium transition">Відгуки</a>
+      <a href="#services" class="px-4 py-3 rounded-xl text-zinc-300 hover:text-zinc-100 hover:bg-zinc-900 font-medium transition">Послуги</a>
+      <a href="prices.html" class="px-4 py-3 rounded-xl text-zinc-300 hover:text-zinc-100 hover:bg-zinc-900 font-medium transition">Ціни</a>
+      <a href="blog.html" class="px-4 py-3 rounded-xl text-zinc-300 hover:text-zinc-100 hover:bg-zinc-900 font-medium transition">Блог</a>
+      <a href="faq.html" class="px-4 py-3 rounded-xl text-zinc-300 hover:text-zinc-100 hover:bg-zinc-900 font-medium transition">FAQ</a>
+      <a href="#trust" class="px-4 py-3 rounded-xl text-zinc-300 hover:text-zinc-100 hover:bg-zinc-900 font-medium transition">Відгуки</a>
     </nav>
-    <div class="px-4 pb-5 pt-2 border-t border-gray-200 flex flex-col gap-3">
-      <a href="tel:+380731312228" class="flex items-center gap-2 px-4 py-3 rounded-xl bg-gray-50 text-gray-900 font-semibold">
+    <div class="px-4 pb-5 pt-2 border-t border-zinc-700 flex flex-col gap-3">
+      <a href="tel:+380731312228" class="flex items-center gap-2 px-4 py-3 rounded-xl bg-zinc-900 text-zinc-100 font-semibold">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
         +38 073 131 22 28
       </a>
@@ -441,7 +450,7 @@
   </section>
 
   <!-- ─── SELECTED SERVICE DETAILS ──────────────── -->
-  <section id="service-details" class="py-16 bg-gray-50">
+  <section id="service-details" class="py-16 bg-zinc-900">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
       <div class="text-center max-w-3xl mx-auto">
         <div class="text-5xl mb-4" id="sd-icon">🧹</div>
@@ -452,12 +461,12 @@
       </div>
 
       <!-- CALC BLOCK (visible when needsCalc=true) -->
-      <div id="calc-block" class="mt-10 bg-white border border-gray-200 rounded-3xl p-6 sm:p-10 shadow-lg shadow-gray-200/80">
+      <div id="calc-block" class="mt-10 bg-zinc-900 border border-zinc-700 rounded-3xl p-6 sm:p-10 shadow-lg shadow-gray-200/80">
         <div class="grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <div class="flex items-baseline gap-3">
-              <span class="text-sm text-gray-600" id="calc-label">Площа квартири:</span>
-              <span id="area-value" class="font-sans text-5xl font-extrabold text-gray-900 tabular-nums">60</span>
+              <span class="text-sm text-zinc-400" id="calc-label">Площа квартири:</span>
+              <span id="area-value" class="font-sans text-5xl font-extrabold text-zinc-100 tabular-nums">60</span>
               <span class="text-xl text-zinc-500 font-medium" id="calc-unit">м²</span>
             </div>
             <div class="mt-8">
@@ -473,12 +482,12 @@
             </div>
           </div>
 
-          <div class="bg-white border border-gold-400/30 rounded-2xl p-8 text-center relative overflow-hidden">
+          <div class="bg-zinc-900 border border-gold-400/30 rounded-2xl p-8 text-center relative overflow-hidden">
             <div class="absolute -top-10 -right-10 w-32 h-32 bg-gold-400/10 rounded-full blur-3xl"></div>
             <div class="relative">
               <div class="text-sm uppercase tracking-wider text-gold-400 font-bold">Орієнтовна вартість</div>
               <div class="mt-3 flex items-baseline justify-center gap-2">
-                <span class="font-sans text-5xl font-extrabold text-gray-900 tabular-nums" id="price-value">3 000</span>
+                <span class="font-sans text-5xl font-extrabold text-zinc-100 tabular-nums" id="price-value">3 000</span>
                 <span class="text-xl font-medium text-zinc-500">₴</span>
               </div>
               <p id="price-note" class="mt-3 text-sm text-zinc-500">від 50 ₴/м²</p>
@@ -496,9 +505,9 @@
 
       <!-- FIXED PRICE BLOCK (visible when needsCalc=false) -->
       <div id="fixed-block" class="mt-10 hidden">
-        <div class="bg-white border-2 border-green-400/50 rounded-3xl p-8 sm:p-12 text-center max-w-xl mx-auto shadow-lg shadow-green-100">
+        <div class="bg-zinc-900 border-2 border-green-400/50 rounded-3xl p-8 sm:p-12 text-center max-w-xl mx-auto shadow-lg shadow-yellow-900">
           <div class="text-sm uppercase tracking-wider text-gold-600 font-bold">Вартість послуги</div>
-          <div class="mt-3 font-display text-5xl sm:text-6xl font-black text-gray-900" id="fixed-price">від 1 100 ₴</div>
+          <div class="mt-3 font-display text-5xl sm:text-6xl font-black text-zinc-100" id="fixed-price">від 1 100 ₴</div>
           <p class="mt-3 text-sm text-zinc-400" id="fixed-note">Точну суму погодимо після огляду</p>
           <a href="#order" class="btn-3d mt-8" style="border-radius: 0.75rem">
             Замовити цю послугу
@@ -521,26 +530,26 @@
         Розрахуємо вартість, погодимо час. Жодних спам-дзвінків.
       </p>
 
-      <form id="order-form" class="mt-10 bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 text-left shadow-xl shadow-gray-200/60">
+      <form id="order-form" class="mt-10 bg-zinc-900 border border-zinc-700 rounded-3xl p-6 sm:p-8 text-left shadow-xl shadow-gray-200/60">
         <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true" />
         <div class="grid sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-sm font-semibold mb-2 text-gray-700">Ваше ім'я</label>
-            <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 focus:border-green-400 focus:ring-2 focus:ring-green-400/20 outline-none transition text-gray-900" placeholder="Олена" />
+            <label class="block text-sm font-semibold mb-2 text-zinc-300">Ваше ім'я</label>
+            <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 focus:border-green-400 focus:ring-2 focus:ring-yellow-500/20 outline-none transition text-zinc-100" placeholder="Олена" />
           </div>
           <div>
-            <label class="block text-sm font-semibold mb-2 text-gray-700">Телефон</label>
-            <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 focus:border-green-400 focus:ring-2 focus:ring-green-400/20 outline-none transition text-gray-900" placeholder="+380 50 123 45 67" />
+            <label class="block text-sm font-semibold mb-2 text-zinc-300">Телефон</label>
+            <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 focus:border-green-400 focus:ring-2 focus:ring-yellow-500/20 outline-none transition text-zinc-100" placeholder="+380 50 123 45 67" />
           </div>
           <div>
-            <label class="block text-sm font-semibold mb-2 text-gray-700">Місто</label>
-            <select name="city" class="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 focus:border-green-400 focus:ring-2 focus:ring-green-400/20 outline-none text-gray-900">
+            <label class="block text-sm font-semibold mb-2 text-zinc-300">Місто</label>
+            <select name="city" class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 focus:border-green-400 focus:ring-2 focus:ring-yellow-500/20 outline-none text-zinc-100">
               <option>Київ</option><option>Дніпро</option><option>Львів</option><option>Харків</option><option>Одеса</option>
             </select>
           </div>
           <div>
-            <label class="block text-sm font-semibold mb-2 text-gray-700">Послуга</label>
-            <select name="service" id="form-service" class="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 focus:border-green-400 focus:ring-2 focus:ring-green-400/20 outline-none text-gray-900">
+            <label class="block text-sm font-semibold mb-2 text-zinc-300">Послуга</label>
+            <select name="service" id="form-service" class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 focus:border-green-400 focus:ring-2 focus:ring-yellow-500/20 outline-none text-zinc-100">
               <option>Генеральне прибирання</option>
               <option>Підтримуюче прибирання</option>
               <option>Миття вікон</option>
@@ -554,41 +563,41 @@
           </div>
         </div>
         <div class="mt-4">
-          <label class="block text-sm font-semibold mb-2 text-gray-700">Деталі (необов'язково)</label>
-          <textarea rows="3" name="details" class="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 focus:border-green-400 focus:ring-2 focus:ring-green-400/20 outline-none transition text-gray-900" placeholder="Площа, поверх, особливості об'єкту..."></textarea>
+          <label class="block text-sm font-semibold mb-2 text-zinc-300">Деталі (необов'язково)</label>
+          <textarea rows="3" name="details" class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 focus:border-green-400 focus:ring-2 focus:ring-yellow-500/20 outline-none transition text-zinc-100" placeholder="Площа, поверх, особливості об'єкту..."></textarea>
         </div>
                 <!-- UPSELL: Additional services -->
         <div class="mt-4">
-          <button type="button" class="upsell-toggle flex items-center justify-between w-full px-4 py-3 rounded-xl bg-green-50 border border-green-200 text-left hover:bg-green-100 transition">
+          <button type="button" class="upsell-toggle flex items-center justify-between w-full px-4 py-3 rounded-xl bg-zinc-900 border border-yellow-800 text-left hover:bg-green-100 transition">
             <span class="text-sm font-bold text-green-800">+ Додати до замовлення</span>
             <svg class="upsell-arrow w-4 h-4 text-gold-600 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div class="upsell-content hidden mt-2 p-4 bg-gray-50 border border-gray-200 rounded-xl">
+          <div class="upsell-content hidden mt-2 p-4 bg-zinc-900 border border-zinc-700 rounded-xl">
             <p class="text-xs text-zinc-400 mb-3">Оберіть — додамо до заявки та врахуємо при розрахунку</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              <label class="upsell-item flex items-center gap-3 p-3 rounded-xl border border-gray-200 bg-white cursor-pointer hover:border-green-400 transition">
+              <label class="upsell-item flex items-center gap-3 p-3 rounded-xl border border-zinc-700 bg-zinc-900 cursor-pointer hover:border-green-400 transition">
                 <input type="checkbox" data-extra="Миття вікон +80₴/м²" class="upsell-check w-4 h-4 accent-green-600">
-                <div><div class="text-sm font-semibold text-gray-900">Миття вікон</div><div class="text-xs text-zinc-400">+80₴/м²</div></div>
+                <div><div class="text-sm font-semibold text-zinc-100">Миття вікон</div><div class="text-xs text-zinc-400">+80₴/м²</div></div>
               </label>
-              <label class="upsell-item flex items-center gap-3 p-3 rounded-xl border border-gray-200 bg-white cursor-pointer hover:border-green-400 transition">
+              <label class="upsell-item flex items-center gap-3 p-3 rounded-xl border border-zinc-700 bg-zinc-900 cursor-pointer hover:border-green-400 transition">
                 <input type="checkbox" data-extra="Духовка +600₴" class="upsell-check w-4 h-4 accent-green-600">
-                <div><div class="text-sm font-semibold text-gray-900">Духовка</div><div class="text-xs text-zinc-400">+600₴</div></div>
+                <div><div class="text-sm font-semibold text-zinc-100">Духовка</div><div class="text-xs text-zinc-400">+600₴</div></div>
               </label>
-              <label class="upsell-item flex items-center gap-3 p-3 rounded-xl border border-gray-200 bg-white cursor-pointer hover:border-green-400 transition">
+              <label class="upsell-item flex items-center gap-3 p-3 rounded-xl border border-zinc-700 bg-zinc-900 cursor-pointer hover:border-green-400 transition">
                 <input type="checkbox" data-extra="Холодильник +500₴" class="upsell-check w-4 h-4 accent-green-600">
-                <div><div class="text-sm font-semibold text-gray-900">Холодильник</div><div class="text-xs text-zinc-400">+500₴</div></div>
+                <div><div class="text-sm font-semibold text-zinc-100">Холодильник</div><div class="text-xs text-zinc-400">+500₴</div></div>
               </label>
-              <label class="upsell-item flex items-center gap-3 p-3 rounded-xl border border-gray-200 bg-white cursor-pointer hover:border-green-400 transition">
+              <label class="upsell-item flex items-center gap-3 p-3 rounded-xl border border-zinc-700 bg-zinc-900 cursor-pointer hover:border-green-400 transition">
                 <input type="checkbox" data-extra="Витяжка +500₴" class="upsell-check w-4 h-4 accent-green-600">
-                <div><div class="text-sm font-semibold text-gray-900">Витяжка</div><div class="text-xs text-zinc-400">+500₴</div></div>
+                <div><div class="text-sm font-semibold text-zinc-100">Витяжка</div><div class="text-xs text-zinc-400">+500₴</div></div>
               </label>
-              <label class="upsell-item flex items-center gap-3 p-3 rounded-xl border border-gray-200 bg-white cursor-pointer hover:border-green-400 transition">
+              <label class="upsell-item flex items-center gap-3 p-3 rounded-xl border border-zinc-700 bg-zinc-900 cursor-pointer hover:border-green-400 transition">
                 <input type="checkbox" data-extra="Хімчистка дивана +1100₴" class="upsell-check w-4 h-4 accent-green-600">
-                <div><div class="text-sm font-semibold text-gray-900">Хімчистка дивана</div><div class="text-xs text-zinc-400">+1100₴</div></div>
+                <div><div class="text-sm font-semibold text-zinc-100">Хімчистка дивана</div><div class="text-xs text-zinc-400">+1100₴</div></div>
               </label>
-              <label class="upsell-item flex items-center gap-3 p-3 rounded-xl border border-gray-200 bg-white cursor-pointer hover:border-green-400 transition">
+              <label class="upsell-item flex items-center gap-3 p-3 rounded-xl border border-zinc-700 bg-zinc-900 cursor-pointer hover:border-green-400 transition">
                 <input type="checkbox" data-extra="Хімчистка матраця +550₴" class="upsell-check w-4 h-4 accent-green-600">
-                <div><div class="text-sm font-semibold text-gray-900">Хімчистка матраця</div><div class="text-xs text-zinc-400">+550₴</div></div>
+                <div><div class="text-sm font-semibold text-zinc-100">Хімчистка матраця</div><div class="text-xs text-zinc-400">+550₴</div></div>
               </label>
             </div>
           </div>
@@ -605,7 +614,7 @@
 
   <!-- ─── EXTRAS ─────────────────────────────────── -->
   <hr class="section-divider" />
-  <section id="extras" class="py-24 bg-gray-50">
+  <section id="extras" class="py-24 bg-zinc-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="max-w-2xl">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-400/10 border border-gold-400/30 text-gold-400 text-xs font-semibold mb-6">
@@ -618,18 +627,18 @@
       </div>
 
       <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        <div class="bg-white border border-gray-200 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/dukhovka.jpg" alt="Духовка" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Духовка</span></div><span class="font-bold text-gold-400">600 ₴</span></div></div>
-        <div class="bg-white border border-gray-200 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/holodylnyk.jpg" alt="Холодильник" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Холодильник</span></div><span class="font-bold text-gold-400">500 ₴</span></div></div>
-        <div class="bg-white border border-gray-200 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/vytiazhka.jpg" alt="Витяжка" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Витяжка</span></div><span class="font-bold text-gold-400">500 ₴</span></div></div>
-        <div class="bg-white border border-gray-200 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/shafky.jpg" alt="Шафки зсередини" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Шафки зсередини</span></div><span class="font-bold text-gold-400">600 ₴</span></div></div>
-        <div class="bg-white border border-gray-200 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/mikrokhvylovka.jpg" alt="Мікрохвильовка" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Мікрохвильовка</span></div><span class="font-bold text-gold-400">350 ₴</span></div></div>
-        <div class="bg-white border border-gray-200 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/mytia-posudu.jpg" alt="Миття посуду" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Миття посуду</span></div><span class="font-bold text-gold-400">350 ₴</span></div></div>
-        <div class="bg-white border border-gray-200 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/dushova.jpg" alt="Душова кабіна" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Душова кабіна</span></div><span class="font-bold text-gold-400">400 ₴</span></div></div>
-        <div class="bg-white border border-gray-200 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/plytka.jpg" alt="Плитка/шви" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Плитка/шви</span></div><span class="font-bold text-gold-400">600 ₴</span></div></div>
-        <div class="bg-white border border-gray-200 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/balkon.jpg" alt="Балкон" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Балкон</span></div><span class="font-bold text-gold-400">від 600 ₴</span></div></div>
-        <div class="bg-white border border-gray-200 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/svitylnyky.jpg" alt="Світильники" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Світильники</span></div><span class="font-bold text-gold-400">350 ₴</span></div></div>
-        <div class="bg-white border border-gray-200 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/garderobna.jpg" alt="Гардеробна" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Гардеробна</span></div><span class="font-bold text-gold-400">350 ₴</span></div></div>
-        <div class="bg-white border border-gray-200 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/orhanizatsiia.jpg" alt="Організація речей" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Організація речей</span></div><span class="font-bold text-gold-400">350 ₴</span></div></div>
+        <div class="bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/dukhovka.jpg" alt="Духовка" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Духовка</span></div><span class="font-bold text-gold-400">600 ₴</span></div></div>
+        <div class="bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/holodylnyk.jpg" alt="Холодильник" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Холодильник</span></div><span class="font-bold text-gold-400">500 ₴</span></div></div>
+        <div class="bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/vytiazhka.jpg" alt="Витяжка" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Витяжка</span></div><span class="font-bold text-gold-400">500 ₴</span></div></div>
+        <div class="bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/shafky.jpg" alt="Шафки зсередини" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Шафки зсередини</span></div><span class="font-bold text-gold-400">600 ₴</span></div></div>
+        <div class="bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/mikrokhvylovka.jpg" alt="Мікрохвильовка" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Мікрохвильовка</span></div><span class="font-bold text-gold-400">350 ₴</span></div></div>
+        <div class="bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/mytia-posudu.jpg" alt="Миття посуду" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Миття посуду</span></div><span class="font-bold text-gold-400">350 ₴</span></div></div>
+        <div class="bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/dushova.jpg" alt="Душова кабіна" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Душова кабіна</span></div><span class="font-bold text-gold-400">400 ₴</span></div></div>
+        <div class="bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/plytka.jpg" alt="Плитка/шви" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Плитка/шви</span></div><span class="font-bold text-gold-400">600 ₴</span></div></div>
+        <div class="bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/balkon.jpg" alt="Балкон" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Балкон</span></div><span class="font-bold text-gold-400">від 600 ₴</span></div></div>
+        <div class="bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/svitylnyky.jpg" alt="Світильники" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Світильники</span></div><span class="font-bold text-gold-400">350 ₴</span></div></div>
+        <div class="bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/garderobna.jpg" alt="Гардеробна" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Гардеробна</span></div><span class="font-bold text-gold-400">350 ₴</span></div></div>
+        <div class="bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/orhanizatsiia.jpg" alt="Організація речей" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Організація речей</span></div><span class="font-bold text-gold-400">350 ₴</span></div></div>
       </div>
     </div>
   </section>
@@ -642,23 +651,23 @@
         <p class="mt-4 text-lg text-zinc-400">Без сюрпризів. Прозоро від замовлення до результату.</p>
       </div>
       <div class="mt-16 grid md:grid-cols-4 gap-6">
-        <div class="relative bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-gold-400/40 transition">
-          <div class="absolute -top-4 -left-4 w-12 h-12 rounded-2xl bg-gold-400 text-gray-900 flex items-center justify-center font-black text-xl shadow-lg shadow-green-500/30">1</div>
+        <div class="relative bg-zinc-900 border border-zinc-700 rounded-2xl p-6 hover:border-gold-400/40 transition">
+          <div class="absolute -top-4 -left-4 w-12 h-12 rounded-2xl bg-gold-400 text-zinc-100 flex items-center justify-center font-black text-xl shadow-lg shadow-yellow-500/30">1</div>
           <h3 class="mt-4 font-bold text-lg">Заявка</h3>
           <p class="mt-2 text-sm text-zinc-400">Залишаєте телефон через форму або одразу пишете в Telegram.</p>
         </div>
-        <div class="relative bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-gold-400/40 transition">
-          <div class="absolute -top-4 -left-4 w-12 h-12 rounded-2xl bg-gold-400 text-gray-900 flex items-center justify-center font-black text-xl shadow-lg shadow-green-500/30">2</div>
+        <div class="relative bg-zinc-900 border border-zinc-700 rounded-2xl p-6 hover:border-gold-400/40 transition">
+          <div class="absolute -top-4 -left-4 w-12 h-12 rounded-2xl bg-gold-400 text-zinc-100 flex items-center justify-center font-black text-xl shadow-lg shadow-yellow-500/30">2</div>
           <h3 class="mt-4 font-bold text-lg">Розрахунок</h3>
           <p class="mt-2 text-sm text-zinc-400">Менеджер уточнює деталі, фіксує ціну. Без прихованих доплат.</p>
         </div>
-        <div class="relative bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-gold-400/40 transition">
-          <div class="absolute -top-4 -left-4 w-12 h-12 rounded-2xl bg-gold-400 text-gray-900 flex items-center justify-center font-black text-xl shadow-lg shadow-green-500/30">3</div>
+        <div class="relative bg-zinc-900 border border-zinc-700 rounded-2xl p-6 hover:border-gold-400/40 transition">
+          <div class="absolute -top-4 -left-4 w-12 h-12 rounded-2xl bg-gold-400 text-zinc-100 flex items-center justify-center font-black text-xl shadow-lg shadow-yellow-500/30">3</div>
           <h3 class="mt-4 font-bold text-lg">Робота</h3>
           <p class="mt-2 text-sm text-zinc-400">Бригада приїжджає у домовлений час зі своїм обладнанням.</p>
         </div>
-        <div class="relative bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-gold-400/40 transition">
-          <div class="absolute -top-4 -left-4 w-12 h-12 rounded-2xl bg-gold-400 text-gray-900 flex items-center justify-center font-black text-xl shadow-lg shadow-green-500/30">4</div>
+        <div class="relative bg-zinc-900 border border-zinc-700 rounded-2xl p-6 hover:border-gold-400/40 transition">
+          <div class="absolute -top-4 -left-4 w-12 h-12 rounded-2xl bg-gold-400 text-zinc-100 flex items-center justify-center font-black text-xl shadow-lg shadow-yellow-500/30">4</div>
           <h3 class="mt-4 font-bold text-lg">Гарантія</h3>
           <p class="mt-2 text-sm text-zinc-400">Не сподобалось — переробимо безкоштовно. Гроші повертаємо.</p>
         </div>
@@ -667,7 +676,7 @@
   </section>
 
   <!-- ─── CITIES ─────────────────────────────── -->
-  <section id="cities" class="py-24 bg-gray-50">
+  <section id="cities" class="py-24 bg-zinc-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="max-w-2xl">
         <h2 class="font-display text-4xl sm:text-5xl font-black tracking-tight leading-[1.15]">
@@ -784,209 +793,209 @@
       <div class="reviews-track">
 
         <!-- === SET 1 === -->
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Після ремонту все було сіре від пилу. За 6 годин — квартира блищить. Чесна ціна, без жодних доплат."</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Після ремонту все було сіре від пилу. За 6 годин — квартира блищить. Чесна ціна, без жодних доплат."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=1" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Олена К.</div><div class="text-xs text-zinc-500">Київ, Печерськ</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Олена К.</div><div class="text-xs text-zinc-500">Київ, Печерськ</div></div>
           </div>
         </div>
 
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Хімчистка дивана — кіт пошкодив. Не вірила, що відмиють. Результат шикарний, тепер як новий!"</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Хімчистка дивана — кіт пошкодив. Не вірила, що відмиють. Результат шикарний, тепер як новий!"</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=5" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Марія Т.</div><div class="text-xs text-zinc-500">Дніпро</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Марія Т.</div><div class="text-xs text-zinc-500">Дніпро</div></div>
           </div>
         </div>
 
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Замовляємо щотижня для офісу. Завжди вчасно, завжди якісно. Бригадир надсилає фото після."</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Замовляємо щотижня для офісу. Завжди вчасно, завжди якісно. Бригадир надсилає фото після."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=12" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Андрій В.</div><div class="text-xs text-zinc-500">Львів, IT-офіс</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Андрій В.</div><div class="text-xs text-zinc-500">Львів, IT-офіс</div></div>
           </div>
         </div>
 
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Мила та ванна — вапняк за 5 років накопичився. Після ЧистоТак — блищить як у готелі. Дякую!"</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Мила та ванна — вапняк за 5 років накопичився. Після ЧистоТак — блищить як у готелі. Дякую!"</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=9" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Тетяна Р.</div><div class="text-xs text-zinc-500">Харків</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Тетяна Р.</div><div class="text-xs text-zinc-500">Харків</div></div>
           </div>
         </div>
 
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Генеральне перед здачею Airbnb. Гості залишили 5 зірок за чистоту — перший раз за рік!"</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Генеральне перед здачею Airbnb. Гості залишили 5 зірок за чистоту — перший раз за рік!"</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=20" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Оксана П.</div><div class="text-xs text-zinc-500">Одеса, Аркадія</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Оксана П.</div><div class="text-xs text-zinc-500">Одеса, Аркадія</div></div>
           </div>
         </div>
 
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Вікна мили 4 роки — ніколи такої чистоти не бачив. Без смуг, без крапель. Ціна адекватна."</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Вікна мили 4 роки — ніколи такої чистоти не бачив. Без смуг, без крапель. Ціна адекватна."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=33" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Сергій М.</div><div class="text-xs text-zinc-500">Київ, Оболонь</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Сергій М.</div><div class="text-xs text-zinc-500">Київ, Оболонь</div></div>
           </div>
         </div>
 
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Хімчистка матраця — дитині алергія пройшла через тиждень. Вже замовила повторно!"</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Хімчистка матраця — дитині алергія пройшла через тиждень. Вже замовила повторно!"</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=16" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Наталя Д.</div><div class="text-xs text-zinc-500">Дніпро, Центр</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Наталя Д.</div><div class="text-xs text-zinc-500">Дніпро, Центр</div></div>
           </div>
         </div>
 
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Підтримуюче щотижня — тепер у квартирі завжди порядок. Економлю свій вихідний день."</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Підтримуюче щотижня — тепер у квартирі завжди порядок. Економлю свій вихідний день."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=47" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Ірина Б.</div><div class="text-xs text-zinc-500">Львів, Сихів</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Ірина Б.</div><div class="text-xs text-zinc-500">Львів, Сихів</div></div>
           </div>
         </div>
 
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Після ремонту в кухні — плитка й шви як нові. Майстри працювали охайно, нічого не зачепили."</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Після ремонту в кухні — плитка й шви як нові. Майстри працювали охайно, нічого не зачепили."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=52" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Ростислав Г.</div><div class="text-xs text-zinc-500">Харків, ХТЗ</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Ростислав Г.</div><div class="text-xs text-zinc-500">Харків, ХТЗ</div></div>
           </div>
         </div>
 
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Переїзд + генеральне. За 8 годин двоє майстрів зробили те, на що я б витратила тиждень."</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Переїзд + генеральне. За 8 годин двоє майстрів зробили те, на що я б витратила тиждень."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=25" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Людмила С.</div><div class="text-xs text-zinc-500">Одеса, Молдаванка</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Людмила С.</div><div class="text-xs text-zinc-500">Одеса, Молдаванка</div></div>
           </div>
         </div>
 
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Духовка після 3 років — думав, доведеться міняти. ЧистоТак відмили до блиску за 2 години."</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Духовка після 3 років — думав, доведеться міняти. ЧистоТак відмили до блиску за 2 години."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=68" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Дмитро Х.</div><div class="text-xs text-zinc-500">Київ, Позняки</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Дмитро Х.</div><div class="text-xs text-zinc-500">Київ, Позняки</div></div>
           </div>
         </div>
 
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Виклик за 4 години — приїхали швидше. Ввічливі, акуратні. Квартира пахне чистотою!"</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Виклик за 4 години — приїхали швидше. Ввічливі, акуратні. Квартира пахне чистотою!"</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=38" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Катерина Ф.</div><div class="text-xs text-zinc-500">Дніпро, Амур</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Катерина Ф.</div><div class="text-xs text-zinc-500">Дніпро, Амур</div></div>
           </div>
         </div>
 
         <!-- === SET 2 (duplicate for seamless loop) === -->
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Після ремонту все було сіре від пилу. За 6 годин — квартира блищить. Чесна ціна, без жодних доплат."</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Після ремонту все було сіре від пилу. За 6 годин — квартира блищить. Чесна ціна, без жодних доплат."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=1" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Олена К.</div><div class="text-xs text-zinc-500">Київ, Печерськ</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Олена К.</div><div class="text-xs text-zinc-500">Київ, Печерськ</div></div>
           </div>
         </div>
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Хімчистка дивана — кіт пошкодив. Не вірила, що відмиють. Результат шикарний, тепер як новий!"</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Хімчистка дивана — кіт пошкодив. Не вірила, що відмиють. Результат шикарний, тепер як новий!"</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=5" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Марія Т.</div><div class="text-xs text-zinc-500">Дніпро</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Марія Т.</div><div class="text-xs text-zinc-500">Дніпро</div></div>
           </div>
         </div>
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Замовляємо щотижня для офісу. Завжди вчасно, завжди якісно. Бригадир надсилає фото після."</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Замовляємо щотижня для офісу. Завжди вчасно, завжди якісно. Бригадир надсилає фото після."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=12" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Андрій В.</div><div class="text-xs text-zinc-500">Львів, IT-офіс</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Андрій В.</div><div class="text-xs text-zinc-500">Львів, IT-офіс</div></div>
           </div>
         </div>
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Мила та ванна — вапняк за 5 років накопичився. Після ЧистоТак — блищить як у готелі. Дякую!"</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Мила та ванна — вапняк за 5 років накопичився. Після ЧистоТак — блищить як у готелі. Дякую!"</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=9" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Тетяна Р.</div><div class="text-xs text-zinc-500">Харків</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Тетяна Р.</div><div class="text-xs text-zinc-500">Харків</div></div>
           </div>
         </div>
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Генеральне перед здачею Airbnb. Гості залишили 5 зірок за чистоту — перший раз за рік!"</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Генеральне перед здачею Airbnb. Гості залишили 5 зірок за чистоту — перший раз за рік!"</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=20" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Оксана П.</div><div class="text-xs text-zinc-500">Одеса, Аркадія</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Оксана П.</div><div class="text-xs text-zinc-500">Одеса, Аркадія</div></div>
           </div>
         </div>
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Вікна мили 4 роки — ніколи такої чистоти не бачив. Без смуг, без крапель. Ціна адекватна."</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Вікна мили 4 роки — ніколи такої чистоти не бачив. Без смуг, без крапель. Ціна адекватна."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=33" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Сергій М.</div><div class="text-xs text-zinc-500">Київ, Оболонь</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Сергій М.</div><div class="text-xs text-zinc-500">Київ, Оболонь</div></div>
           </div>
         </div>
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Хімчистка матраця — дитині алергія пройшла через тиждень. Вже замовила повторно!"</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Хімчистка матраця — дитині алергія пройшла через тиждень. Вже замовила повторно!"</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=16" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Наталя Д.</div><div class="text-xs text-zinc-500">Дніпро, Центр</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Наталя Д.</div><div class="text-xs text-zinc-500">Дніпро, Центр</div></div>
           </div>
         </div>
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Підтримуюче щотижня — тепер у квартирі завжди порядок. Економлю свій вихідний день."</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Підтримуюче щотижня — тепер у квартирі завжди порядок. Економлю свій вихідний день."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=47" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Ірина Б.</div><div class="text-xs text-zinc-500">Львів, Сихів</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Ірина Б.</div><div class="text-xs text-zinc-500">Львів, Сихів</div></div>
           </div>
         </div>
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Після ремонту в кухні — плитка й шви як нові. Майстри працювали охайно, нічого не зачепили."</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Після ремонту в кухні — плитка й шви як нові. Майстри працювали охайно, нічого не зачепили."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=52" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Ростислав Г.</div><div class="text-xs text-zinc-500">Харків, ХТЗ</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Ростислав Г.</div><div class="text-xs text-zinc-500">Харків, ХТЗ</div></div>
           </div>
         </div>
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Переїзд + генеральне. За 8 годин двоє майстрів зробили те, на що я б витратила тиждень."</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Переїзд + генеральне. За 8 годин двоє майстрів зробили те, на що я б витратила тиждень."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=25" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Людмила С.</div><div class="text-xs text-zinc-500">Одеса, Молдаванка</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Людмила С.</div><div class="text-xs text-zinc-500">Одеса, Молдаванка</div></div>
           </div>
         </div>
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Духовка після 3 років — думав, доведеться міняти. ЧистоТак відмили до блиску за 2 години."</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Духовка після 3 років — думав, доведеться міняти. ЧистоТак відмили до блиску за 2 години."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=68" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Дмитро Х.</div><div class="text-xs text-zinc-500">Київ, Позняки</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Дмитро Х.</div><div class="text-xs text-zinc-500">Київ, Позняки</div></div>
           </div>
         </div>
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 w-80 shrink-0">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
           <div class="flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
-          <p class="mt-3 text-gray-700 text-sm leading-relaxed">"Виклик за 4 години — приїхали швидше. Ввічливі, акуратні. Квартира пахне чистотою!"</p>
+          <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Виклик за 4 години — приїхали швидше. Ввічливі, акуратні. Квартира пахне чистотою!"</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=38" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-gray-800">Катерина Ф.</div><div class="text-xs text-zinc-500">Дніпро, Амур</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Катерина Ф.</div><div class="text-xs text-zinc-500">Дніпро, Амур</div></div>
           </div>
         </div>
 
@@ -1005,39 +1014,39 @@
 
   <!-- ─── FAQ ──────────────────────────────────── -->
   <hr class="section-divider" />
-  <section id="faq" class="py-24 bg-gray-50">
+  <section id="faq" class="py-24 bg-zinc-900">
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
       <h2 class="font-display text-4xl sm:text-5xl font-black tracking-tight text-center leading-[1.15]">Часті <span class="gold-gradient-text italic">питання</span></h2>
       <div class="mt-12 space-y-3">
-        <details class="group bg-white border border-gray-200 hover:border-gold-400/40 rounded-2xl overflow-hidden transition">
+        <details class="group bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-2xl overflow-hidden transition">
           <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold list-none" role="button">
             Скільки коштує прибирання моєї квартири?
             <span class="text-gold-400 transition group-open:rotate-45 text-2xl">+</span>
           </summary>
           <div class="px-6 pb-6 text-zinc-400">Виберіть послугу вище і пересуньте повзунок — побачите ціну моментально.</div>
         </details>
-        <details class="group bg-white border border-gray-200 hover:border-gold-400/40 rounded-2xl overflow-hidden transition">
+        <details class="group bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-2xl overflow-hidden transition">
           <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold list-none" role="button">
             Чи входить миття вікон у прибирання?
             <span class="text-gold-400 transition group-open:rotate-45 text-2xl">+</span>
           </summary>
           <div class="px-6 pb-6 text-zinc-400"><strong>Ні</strong>, миття вікон рахується завжди окремо — від 80 ₴/м² площі вікна. Виберіть «Миття вікон» у переліку послуг для розрахунку.</div>
         </details>
-        <details class="group bg-white border border-gray-200 hover:border-gold-400/40 rounded-2xl overflow-hidden transition">
+        <details class="group bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-2xl overflow-hidden transition">
           <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold list-none" role="button">
             Чи привозите ви хімію та обладнання?
             <span class="text-gold-400 transition group-open:rotate-45 text-2xl">+</span>
           </summary>
           <div class="px-6 pb-6 text-zinc-400">Так, повністю своя професійна хімія Clinex та Karpax, пилососи, пароочисники, телескопні швабри.</div>
         </details>
-        <details class="group bg-white border border-gray-200 hover:border-gold-400/40 rounded-2xl overflow-hidden transition">
+        <details class="group bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-2xl overflow-hidden transition">
           <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold list-none" role="button">
             Що робити, якщо результат не сподобається?
             <span class="text-gold-400 transition group-open:rotate-45 text-2xl">+</span>
           </summary>
           <div class="px-6 pb-6 text-zinc-400">Переробимо безкоштовно протягом 24 годин. Якщо проблема залишиться — повернемо гроші повністю.</div>
         </details>
-        <details class="group bg-white border border-gray-200 hover:border-gold-400/40 rounded-2xl overflow-hidden transition">
+        <details class="group bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-2xl overflow-hidden transition">
           <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold list-none" role="button">
             Як швидко ви приїдете?
             <span class="text-gold-400 transition group-open:rotate-45 text-2xl">+</span>
@@ -1049,18 +1058,18 @@
   </section>
 
   <!-- ─── FOOTER ──────────────────────────────── -->
-  <footer class="bg-white border-t border-gray-200 text-zinc-500 py-16">
+  <footer class="bg-zinc-900 border-t border-zinc-700 text-zinc-500 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid md:grid-cols-4 gap-10">
         <div class="md:col-span-2">
-          <a href="/" class="flex items-center gap-2 font-bold text-xl text-gray-900">
+          <a href="/" class="flex items-center gap-2 font-bold text-xl text-zinc-100">
             <span class="w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg text-white" style="background:linear-gradient(135deg,#d4a017,#92690a)">ЧТ</span>
             Clean-<span class="text-gold-400">Clean</span>
           </a>
           <p class="mt-4 text-sm max-w-md">Професійна клінінгова компанія. Працюємо у Києві, Дніпрі, Львові, Харкові та Одесі з 2021 року.</p>
         </div>
         <div>
-          <h4 class="font-bold text-gray-800 mb-4">Послуги</h4>
+          <h4 class="font-bold text-zinc-200 mb-4">Послуги</h4>
           <ul class="space-y-2 text-sm">
             <li><a href="services/generalna-prybyrannia.html" class="hover:text-gold-400">Генеральне прибирання</a></li>
             <li><a href="services/pidtrymuyuche-prybyrannia.html" class="hover:text-gold-400">Підтримуюче прибирання</a></li>
@@ -1074,7 +1083,7 @@
           </ul>
         </div>
         <div>
-          <h4 class="font-bold text-gray-800 mb-4">Контакти</h4>
+          <h4 class="font-bold text-zinc-200 mb-4">Контакти</h4>
           <ul class="space-y-2 text-sm">
             <li><a href="tel:+380731312228" class="hover:text-gold-400">+38 073 131 22 28</a></li>
             <li><a href="mailto:kilimanjaro778877@gmail.com" class="hover:text-gold-400">kilimanjaro778877@gmail.com</a></li>
@@ -1082,7 +1091,7 @@
           </ul>
         </div>
       </div>
-      <div class="mt-12 pt-8 border-t border-gray-200 text-xs flex flex-col sm:flex-row justify-between gap-3">
+      <div class="mt-12 pt-8 border-t border-zinc-700 text-xs flex flex-col sm:flex-row justify-between gap-3">
         <div>© 2026 ЧистоТак. Усі права захищені.</div>
         <div class="flex gap-5">
           <a href="#" class="hover:text-gold-400">Договір оферти</a>
@@ -1234,7 +1243,7 @@
         <div class="flex items-start gap-4">
           <div class="icon-3d shrink-0">${s.icon}</div>
           <div class="flex-1 min-w-0">
-            <div class="service-name font-bold text-gray-900">${s.name}</div>
+            <div class="service-name font-bold text-zinc-100">${s.name}</div>
             <div class="text-xs text-zinc-500 mt-1">${s.short}</div>
             <div class="text-sm font-bold text-gold-600 mt-2">${s.priceLabel}</div>
             ${s.detailLink ? `<a href="${s.detailLink}" class="inline-flex items-center gap-1 text-xs text-gold-400/70 hover:text-gold-400 mt-2 font-semibold transition px-2.5 py-1 rounded-full border border-gold-400/20 hover:border-gold-400/50 bg-gold-400/5 hover:bg-gold-400/10" onclick="event.stopPropagation()">Детальніше <svg class='w-3 h-3' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M9 5l7 7-7 7'/></svg></a>` : ''}
@@ -1336,7 +1345,7 @@
         refs.quickButtons.innerHTML = '';
         s.quickButtons.forEach(v => {
           const b = document.createElement('button');
-          b.className = 'py-3 rounded-xl bg-gray-100 hover:bg-gray-200 text-sm font-semibold transition text-gray-700';
+          b.className = 'py-3 rounded-xl bg-zinc-800 hover:bg-gray-200 text-sm font-semibold transition text-zinc-300';
           b.textContent = v + ' ' + s.unit;
           b.addEventListener('click', () => {
             refs.areaSlider.value = v;

@@ -20,21 +20,30 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Raleway:wght@700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Raleway:wght@700;800;900&display=swap" /></noscript>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Manrope','system-ui','sans-serif'],display:['Raleway','system-ui','sans-serif']},colors:{gold:{400:'#d4a017',500:'#b7860b',600:'#92690a'}}}}}</script>
-  <style>html{scroll-behavior:smooth}body{font-family:'Manrope',system-ui,sans-serif;background-color:#0a0a0b;color:#f5f0e0;line-height:1.75}.gold-gradient-text{background:linear-gradient(135deg,#fbbf24 0%,#d4a017 50%,#b7860b 100%);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}.prose h2{font-size:1.35rem;font-weight:800;color:#f5f0e0;margin-top:2rem;margin-bottom:0.75rem}.prose p{margin-bottom:1rem;color:#374151}.prose a{color:#16a34a;font-weight:600}.prose a:hover{text-decoration:underline}.prose ul{list-style:disc;padding-left:1.5rem;margin-bottom:1rem}.prose ul li{color:#374151;margin-bottom:0.4rem}.prose strong{color:#f5f0e0;font-weight:700}.btn-3d{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;padding:0.875rem 1.75rem;font-weight:800;color:#fff;background:#92690a;border-radius:9999px;box-shadow:0 6px 0 #4a3205,0 14px 28px -8px rgba(180,130,10,0.7);transition:all 0.15s ease;border:none;cursor:pointer}.btn-3d:hover{transform:translateY(-2px);box-shadow:0 8px 0 #4a3205,0 18px 36px -8px rgba(180,130,10,0.8)}.cover-hero{width:100%;height:280px;border-radius:1rem;background:linear-gradient(135deg,#bbf7d0 0%,#4ade80 40%,#16a34a 100%);display:flex;align-items:center;justify-content:center;margin-top:2rem}.cover-icon{font-size:5rem;opacity:0.6}</style>
+  <style>html{scroll-behavior:smooth}body{font-family:'Manrope',system-ui,sans-serif;background-color:#0a0a0b;color:#f5f0e0;line-height:1.75}.gold-gradient-text{background:linear-gradient(135deg,#fde68a 0%,#d4a017 50%,#92690a 100%);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}.prose h2{font-size:1.35rem;font-weight:800;color:#f5f0e0;margin-top:2rem;margin-bottom:0.75rem}.prose p{margin-bottom:1rem;color:#c8b87a}.prose a{color:#b7860b;font-weight:600}.prose a:hover{text-decoration:underline}.prose ul{list-style:disc;padding-left:1.5rem;margin-bottom:1rem}.prose ul li{color:#c8b87a;margin-bottom:0.4rem}.prose strong{color:#f5f0e0;font-weight:700}.btn-3d{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;padding:0.875rem 1.75rem;font-weight:800;color:#fff;background:#92690a;border-radius:9999px;box-shadow:0 6px 0 #4a3205,0 14px 28px -8px rgba(180,130,10,0.7);transition:all 0.15s ease;border:none;cursor:pointer}.btn-3d:hover{transform:translateY(-2px);box-shadow:0 8px 0 #4a3205,0 18px 36px -8px rgba(180,130,10,0.8)}.cover-hero{width:100%;height:280px;border-radius:1rem;background:linear-gradient(135deg,#fde68a 0%,#fbbf24 40%,#b7860b 100%);display:flex;align-items:center;justify-content:center;margin-top:2rem}.cover-icon{font-size:5rem;opacity:0.6}
+    /* ЧистоТак — dark theme override */
+    body { background-color: #0a0a0b !important; color: #f5f0e0 !important; }
+    .bg-white, .bg-gray-50, [class*="bg-white"] { background-color: #111113 !important; }
+    .text-gray-900, .text-gray-800, .text-gray-700 { color: #f5f0e0 !important; }
+    .text-gray-500, .text-gray-400 { color: #a09070 !important; }
+    .border-gray-200, .border-gray-100 { border-color: #2a2a2e !important; }
+    input, select, textarea { background-color: #1a1a1d !important; color: #f5f0e0 !important; border-color: #3a3a3f !important; }
+
+  </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
 </head>
 <body class="bg-zinc-950 text-zinc-100 antialiased">
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-200">
+  <header class="sticky top-0 z-50 bg-zinc-900/95 backdrop-blur-lg border-b border-zinc-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <a href="../index.html" class="flex items-center gap-2 font-bold text-xl">
         <span class="w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg text-white" style="background:linear-gradient(135deg,#d4a017,#92690a)">ЧТ</span>
         <span>Clean-<span class="text-gold-500">Clean</span></span>
       </a>
       <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-400">
-        <a href="../index.html#services" class="hover:text-gray-900">Послуги</a>
-        <a href="../prices.html" class="hover:text-gray-900">Ціни</a>
-        <a href="../blog.html" class="text-gray-900 font-semibold">Блог</a>
-        <a href="../faq.html" class="hover:text-gray-900">FAQ</a>
+        <a href="../index.html#services" class="hover:text-zinc-100">Послуги</a>
+        <a href="../prices.html" class="hover:text-zinc-100">Ціни</a>
+        <a href="../blog.html" class="text-zinc-100 font-semibold">Блог</a>
+        <a href="../faq.html" class="hover:text-zinc-100">FAQ</a>
       </nav>
       <div class="flex items-center gap-3">
         <a href="tel:+380731312228" class="hidden sm:flex items-center gap-1.5 text-sm font-semibold hover:text-gold-600">+38 073 131 22 28</a>
@@ -45,10 +54,10 @@
 
   <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
     <div class="mb-6">
-      <nav class="text-sm text-zinc-500 mb-4"><a href="../index.html" class="hover:text-gold-600">Головна</a> <span aria-hidden="true">/</span> <a href="../blog.html" class="hover:text-gold-600">Блог</a> <span aria-hidden="true">/</span> <span class="text-gray-900">10 ознак, що пора викликати клінінг</span></nav>
-      <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-green-50 text-green-700 border border-green-200 uppercase tracking-wider">Поради</span>
+      <nav class="text-sm text-zinc-500 mb-4"><a href="../index.html" class="hover:text-gold-600">Головна</a> <span aria-hidden="true">/</span> <a href="../blog.html" class="hover:text-gold-600">Блог</a> <span aria-hidden="true">/</span> <span class="text-zinc-100">10 ознак, що пора викликати клінінг</span></nav>
+      <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-zinc-900 text-yellow-600 border border-yellow-800 uppercase tracking-wider">Поради</span>
     </div>
-    <h1 class="font-display text-3xl sm:text-4xl font-black tracking-tight leading-tight text-gray-900">10 ознак, що пора викликати клінінг</h1>
+    <h1 class="font-display text-3xl sm:text-4xl font-black tracking-tight leading-tight text-zinc-100">10 ознак, що пора викликати клінінг</h1>
     <div class="mt-4 flex items-center gap-4 text-sm text-zinc-500">
       <span>11 травня 2026</span>
       <span>·</span>
@@ -101,16 +110,16 @@
 
     </div>
 
-    <div class="mt-12 bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
-      <h3 class="font-display text-2xl font-black text-gray-900">Потрібна допомога з прибиранням?</h3>
-      <p class="mt-2 text-gray-600">Виїзд по Києву, Дніпру, Львову, Харкову та Одесі. Розрахунок за 5 хвилин.</p>
+    <div class="mt-12 bg-zinc-900 border border-yellow-800 rounded-2xl p-8 text-center">
+      <h3 class="font-display text-2xl font-black text-zinc-100">Потрібна допомога з прибиранням?</h3>
+      <p class="mt-2 text-zinc-400">Виїзд по Києву, Дніпру, Львову, Харкову та Одесі. Розрахунок за 5 хвилин.</p>
       <a href="../index.html#order" class="btn-3d mt-6 inline-flex">Замовити прибирання</a>
     </div>
   </article>
 
-  <footer class="bg-white border-t border-gray-200 py-8 mt-12">
+  <footer class="bg-zinc-900 border-t border-zinc-700 py-8 mt-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center text-sm text-zinc-500">
-      <a href="../index.html" class="flex items-center gap-2 font-bold text-xl text-gray-900 justify-center mb-3">
+      <a href="../index.html" class="flex items-center gap-2 font-bold text-xl text-zinc-100 justify-center mb-3">
         <span class="w-8 h-8 rounded-xl flex items-center justify-center font-black text-sm text-white" style="background:linear-gradient(135deg,#d4a017,#92690a)">ЧТ</span>
         ЧистоТак
       </a>

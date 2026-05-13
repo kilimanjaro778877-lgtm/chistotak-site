@@ -20,15 +20,15 @@
   <style>
     html{scroll-behavior:smooth}
     body{font-family:'Manrope',system-ui,sans-serif;background-color:#0a0a0b;background-image:radial-gradient(rgba(212,160,23,0.04) 1px,transparent 1px);background-size:26px 26px;color:#f5f0e0;line-height:1.65}
-    .gold-gradient-text{background:linear-gradient(135deg,#fbbf24 0%,#d4a017 50%,#b7860b 100%);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block;padding:0 0.18em 0.35em 0.05em;line-height:1.4}
+    .gold-gradient-text{background:linear-gradient(135deg,#fde68a 0%,#d4a017 50%,#92690a 100%);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block;padding:0 0.18em 0.35em 0.05em;line-height:1.4}
     h1,h2,h3{letter-spacing:-0.02em;color:#f5f0e0}
     .sidebar-link{display:block;padding:0.6rem 1rem;border-radius:0.5rem;font-size:0.875rem;font-weight:600;color:rgba(255,250,250,0.6);transition:all 0.15s ease;border-left:2px solid transparent}
     .sidebar-link:hover{color:#f5f0e0;background:rgba(212,160,23,0.08)}
-    .sidebar-link.active{color:#16a34a;border-left-color:#16a34a;background:rgba(212,160,23,0.1)}
+    .sidebar-link.active{color:#b7860b;border-left-color:#b7860b;background:rgba(212,160,23,0.1)}
     .faq-item{border-bottom:1px solid rgba(212,160,23,0.12);padding:2rem 0}
     .faq-item:last-child{border-bottom:none}
     .faq-category{scroll-margin-top:5rem}
-      .orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);will-change:transform}.orb-1{width:600px;height:600px;background:radial-gradient(circle,rgba(212,160,23,0.12),rgba(34,197,94,0) 70%);top:-150px;right:-100px;animation:od1 16s ease-in-out infinite}.orb-2{width:450px;height:450px;background:radial-gradient(circle,rgba(212,160,23,0.08),rgba(34,197,94,0) 70%);bottom:-120px;left:-80px;animation:od2 20s ease-in-out infinite}
+      .orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);will-change:transform}.orb-1{width:600px;height:600px;background:radial-gradient(circle,rgba(212,160,23,0.12),rgba(212,160,23,0) 70%);top:-150px;right:-100px;animation:od1 16s ease-in-out infinite}.orb-2{width:450px;height:450px;background:radial-gradient(circle,rgba(212,160,23,0.08),rgba(212,160,23,0) 70%);bottom:-120px;left:-80px;animation:od2 20s ease-in-out infinite}
     @media (prefers-reduced-motion: reduce) {
       .orb-1, .orb-2 { animation: none; }
     }
@@ -36,6 +36,15 @@
   .btn-3d{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;padding:1rem 1.75rem;font-weight:800;color:#ffffff;background:#92690a;border-radius:9999px;box-shadow:0 6px 0 #4a3205,0 14px 28px -8px rgba(180,130,10,0.7),inset 0 1px 0 rgba(255,255,255,0.15),inset 0 -2px 0 rgba(74,50,5,0.5);transform:translateY(0);transition:all 0.15s cubic-bezier(0.34,1.56,0.64,1);cursor:pointer;border:none}.btn-3d:hover{transform:translateY(-2px);box-shadow:0 8px 0 #4a3205,0 18px 36px -8px rgba(180,130,10,0.8),inset 0 1px 0 rgba(255,255,255,0.25),inset 0 -2px 0 rgba(74,50,5,0.4)}.btn-3d:active{transform:translateY(4px);box-shadow:0 2px 0 #4a3205,0 4px 8px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.2)}.btn-sm{padding:0.6rem 1.25rem!important}
   
     .tabular-nums { font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  
+    /* ЧистоТак — dark theme override */
+    body { background-color: #0a0a0b !important; color: #f5f0e0 !important; }
+    .bg-white, .bg-gray-50, [class*="bg-white"] { background-color: #111113 !important; }
+    .text-gray-900, .text-gray-800, .text-gray-700 { color: #f5f0e0 !important; }
+    .text-gray-500, .text-gray-400 { color: #a09070 !important; }
+    .border-gray-200, .border-gray-100 { border-color: #2a2a2e !important; }
+    input, select, textarea { background-color: #1a1a1d !important; color: #f5f0e0 !important; border-color: #3a3a3f !important; }
+
   </style>
 <!-- Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
 </head>
@@ -43,31 +52,31 @@
   <div aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
 
   <!-- NAV -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-200">
+  <header class="sticky top-0 z-50 bg-zinc-900/95 backdrop-blur-lg border-b border-zinc-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-2 font-bold text-xl">
         <span class="w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg text-white" style="background:linear-gradient(135deg,#d4a017,#92690a)">ЧТ</span>
         <span>Clean-<span class="text-gold-400">Clean</span></span>
       </a>
       <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-400">
-        <a href="index.html#services" class="hover:text-gray-900 transition">Послуги</a>
-        <a href="prices.html" class="hover:text-gray-900 transition">Ціни</a>
-        <a href="blog.html" class="hover:text-gray-900 transition">Блог</a>
-        <a href="faq.html" class="text-gray-900 font-semibold">FAQ</a>
+        <a href="index.html#services" class="hover:text-zinc-100 transition">Послуги</a>
+        <a href="prices.html" class="hover:text-zinc-100 transition">Ціни</a>
+        <a href="blog.html" class="hover:text-zinc-100 transition">Блог</a>
+        <a href="faq.html" class="text-zinc-100 font-semibold">FAQ</a>
       </nav>
-      <button id="mobile-menu-btn" class="md:hidden p-2 text-zinc-400 hover:text-gray-900 transition" aria-label="Меню" aria-expanded="false" aria-controls="mobile-nav"><svg id="icon-menu" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-zinc-400 hover:text-zinc-100 transition" aria-label="Меню" aria-expanded="false" aria-controls="mobile-nav"><svg id="icon-menu" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
       <div class="flex items-center gap-3"><a href="tel:+380731312228" class="hidden sm:flex items-center gap-1.5 text-sm font-semibold hover:text-gold-400 transition"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 010 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>+38 073 131 22 28</a><a href="index.html#order" class="btn-3d btn-sm text-sm">Замовити</a></div>
     </div>
   </header>
   <!-- Mobile nav drawer -->
-  <div id="mobile-nav" class="hidden md:hidden sticky top-16 z-40 bg-white/98 backdrop-blur-lg border-b border-gray-200">
+  <div id="mobile-nav" class="hidden md:hidden sticky top-16 z-40 bg-zinc-900/98 backdrop-blur-lg border-b border-zinc-700">
     <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1">
-      <a href="index.html#services" class="px-4 py-3 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-gray-50 font-medium transition">Послуги</a>
-      <a href="prices.html" class="px-4 py-3 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-gray-50 font-medium transition">Ціни</a>
-      <a href="blog.html" class="px-4 py-3 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-gray-50 font-medium transition">Блог</a>
-      <a href="faq.html" class="px-4 py-3 rounded-xl text-gray-700 hover:text-gray-900 hover:bg-gray-50 font-medium transition">FAQ</a>
-      <div class="border-t border-gray-100 pt-2 mt-1">
-        <a href="tel:+380731312228" class="flex items-center gap-2 px-4 py-3 rounded-xl text-gray-900 font-semibold hover:bg-gray-50 transition">
+      <a href="index.html#services" class="px-4 py-3 rounded-xl text-zinc-300 hover:text-zinc-100 hover:bg-zinc-900 font-medium transition">Послуги</a>
+      <a href="prices.html" class="px-4 py-3 rounded-xl text-zinc-300 hover:text-zinc-100 hover:bg-zinc-900 font-medium transition">Ціни</a>
+      <a href="blog.html" class="px-4 py-3 rounded-xl text-zinc-300 hover:text-zinc-100 hover:bg-zinc-900 font-medium transition">Блог</a>
+      <a href="faq.html" class="px-4 py-3 rounded-xl text-zinc-300 hover:text-zinc-100 hover:bg-zinc-900 font-medium transition">FAQ</a>
+      <div class="border-t border-zinc-800 pt-2 mt-1">
+        <a href="tel:+380731312228" class="flex items-center gap-2 px-4 py-3 rounded-xl text-zinc-100 font-semibold hover:bg-zinc-900 transition">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 010 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
           +38 073 131 22 28
         </a>
@@ -94,7 +103,7 @@
     <nav class="text-sm text-zinc-500">
       <a href="index.html" class="hover:text-gold-400">Головна</a>
       <span class="mx-2" aria-hidden="true">/</span>
-      <span class="text-gray-900">Питання та відповіді</span>
+      <span class="text-zinc-100">Питання та відповіді</span>
     </nav>
   </div>
 
@@ -114,13 +123,13 @@
 
       <!-- SIDEBAR -->
       <aside class="hidden lg:block w-56 shrink-0 sticky top-24">
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-4">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-4">
           <p class="text-xs uppercase tracking-widest text-zinc-500 font-semibold mb-3 px-1">Категорії</p>
           <a href="#zahalne" class="sidebar-link active" id="nav-zahalne">Загальне</a>
           <a href="#oplata" class="sidebar-link" id="nav-oplata">Оплата</a>
           <a href="#prybyrannia" class="sidebar-link" id="nav-prybyrannia">Прибирання</a>
           <a href="#himchiystka" class="sidebar-link" id="nav-himchiystka">Хімчистка</a>
-          <div class="mt-4 pt-4 border-t border-gray-200">
+          <div class="mt-4 pt-4 border-t border-zinc-700">
             <a href="index.html#order" class="block text-center text-sm font-bold py-2.5 rounded-xl text-white" style="background:#92690a">Замовити</a>
           </div>
         </div>
@@ -140,21 +149,21 @@
             <h3 class="text-lg font-bold">Скільки коштує прибирання квартири?</h3>
             <p class="mt-3 text-zinc-400">Ціна залежить від типу прибирання та площі квартири:</p>
             <ul class="mt-3 space-y-1 text-zinc-400">
-              <li>🧹 <strong class="text-gray-900">Підтримуюче</strong> — від 50 ₴/м² (мін. 2 500 ₴)</li>
-              <li>✨ <strong class="text-gray-900">Генеральне</strong> — від 70 ₴/м² (мін. 3 500 ₴)</li>
-              <li>🪟 <strong class="text-gray-900">Миття вікон</strong> — від 80 ₴/м² скла (мін. 800 ₴)</li>
+              <li>🧹 <strong class="text-zinc-100">Підтримуюче</strong> — від 50 ₴/м² (мін. 2 500 ₴)</li>
+              <li>✨ <strong class="text-zinc-100">Генеральне</strong> — від 70 ₴/м² (мін. 3 500 ₴)</li>
+              <li>🪟 <strong class="text-zinc-100">Миття вікон</strong> — від 80 ₴/м² скла (мін. 800 ₴)</li>
             </ul>
-            <p class="mt-3 text-zinc-400">Точну суму дізнаєтесь після фото квартири або короткого дзвінка з менеджером. <a href="prices.html" class="text-gold-400 hover:text-gray-900 underline underline-offset-2">Переглянути всі ціни →</a></p>
+            <p class="mt-3 text-zinc-400">Точну суму дізнаєтесь після фото квартири або короткого дзвінка з менеджером. <a href="prices.html" class="text-gold-400 hover:text-zinc-100 underline underline-offset-2">Переглянути всі ціни →</a></p>
           </div>
 
           <div class="faq-item">
             <h3 class="text-lg font-bold">Як швидко приїде бригада?</h3>
-            <p class="mt-3 text-zinc-400">У робочий день з 8:00 до 21:00 — у середньому <strong class="text-gray-900">2 години</strong> після підтвердження замовлення. У вихідні час може бути дещо більшим.</p>
+            <p class="mt-3 text-zinc-400">У робочий день з 8:00 до 21:00 — у середньому <strong class="text-zinc-100">2 години</strong> після підтвердження замовлення. У вихідні час може бути дещо більшим.</p>
           </div>
 
           <div class="faq-item">
             <h3 class="text-lg font-bold">В яких містах ви працюєте?</h3>
-            <p class="mt-3 text-zinc-400">Наразі ми працюємо у <strong class="text-gray-900">Києві, Дніпрі, Львові та Харкові</strong>. Вибір міста впливає лише на доступність дат — ціни однакові.</p>
+            <p class="mt-3 text-zinc-400">Наразі ми працюємо у <strong class="text-zinc-100">Києві, Дніпрі, Львові та Харкові</strong>. Вибір міста впливає лише на доступність дат — ціни однакові.</p>
           </div>
 
           <div class="faq-item">
@@ -164,7 +173,7 @@
 
           <div class="faq-item">
             <h3 class="text-lg font-bold">Що робити, якщо результат не сподобається?</h3>
-            <p class="mt-3 text-zinc-400">Переробимо безкоштовно протягом <strong class="text-gray-900">24 годин</strong> після прибирання. Якщо після переробки ви все одно незадоволені — повернемо гроші повністю. Без зайвих питань.</p>
+            <p class="mt-3 text-zinc-400">Переробимо безкоштовно протягом <strong class="text-zinc-100">24 годин</strong> після прибирання. Якщо після переробки ви все одно незадоволені — повернемо гроші повністю. Без зайвих питань.</p>
           </div>
         </section>
 
@@ -177,17 +186,17 @@
 
           <div class="faq-item">
             <h3 class="text-lg font-bold">Як відбувається оплата?</h3>
-            <p class="mt-3 text-zinc-400">Оплата — <strong class="text-gray-900">після виконання роботи</strong>. Приймаємо готівку, переказ на карту або оплату через термінал. Передоплата не потрібна.</p>
+            <p class="mt-3 text-zinc-400">Оплата — <strong class="text-zinc-100">після виконання роботи</strong>. Приймаємо готівку, переказ на карту або оплату через термінал. Передоплата не потрібна.</p>
           </div>
 
           <div class="faq-item">
             <h3 class="text-lg font-bold">Чи є знижки для постійних клієнтів?</h3>
-            <p class="mt-3 text-zinc-400">Так. При регулярному замовленні (щотижня або раз на два тижні) діє знижка <strong class="text-gray-900">від 10%</strong>. Для офісів при контракті від 3 місяців — <strong class="text-gray-900">-15%</strong>.</p>
+            <p class="mt-3 text-zinc-400">Так. При регулярному замовленні (щотижня або раз на два тижні) діє знижка <strong class="text-zinc-100">від 10%</strong>. Для офісів при контракті від 3 місяців — <strong class="text-zinc-100">-15%</strong>.</p>
           </div>
 
           <div class="faq-item">
             <h3 class="text-lg font-bold">Чи є виїзд додатково?</h3>
-            <p class="mt-3 text-zinc-400">Виїзд по місту — <strong class="text-gray-900">безкоштовний</strong>. За межі міста — уточнюємо окремо.</p>
+            <p class="mt-3 text-zinc-400">Виїзд по місту — <strong class="text-zinc-100">безкоштовний</strong>. За межі міста — уточнюємо окремо.</p>
           </div>
 
           <div class="faq-item">
@@ -205,30 +214,30 @@
 
           <div class="faq-item">
             <h3 class="text-lg font-bold">Чи привозите ви хімію та обладнання?</h3>
-            <p class="mt-3 text-zinc-400">Так, повністю. Ми використовуємо <strong class="text-gray-900">Clinex та Karpax</strong> — сертифіковану профхімію без токсинів. З собою: пилососи Karcher, пароочисники, телескопні швабри, мікрофібра.</p>
+            <p class="mt-3 text-zinc-400">Так, повністю. Ми використовуємо <strong class="text-zinc-100">Clinex та Karpax</strong> — сертифіковану профхімію без токсинів. З собою: пилососи Karcher, пароочисники, телескопні швабри, мікрофібра.</p>
           </div>
 
           <div class="faq-item">
             <h3 class="text-lg font-bold">Чи входить миття вікон у прибирання?</h3>
-            <p class="mt-3 text-zinc-400"><strong class="text-gray-900">Ні.</strong> Миття вікон завжди рахується окремо — від <strong class="text-gray-900">80 ₴/м²</strong> площі скла. Мінімальний виїзд — 800 ₴. Можна замовити разом з прибиранням або окремо.</p>
+            <p class="mt-3 text-zinc-400"><strong class="text-zinc-100">Ні.</strong> Миття вікон завжди рахується окремо — від <strong class="text-zinc-100">80 ₴/м²</strong> площі скла. Мінімальний виїзд — 800 ₴. Можна замовити разом з прибиранням або окремо.</p>
           </div>
 
           <div class="faq-item">
             <h3 class="text-lg font-bold">Чим відрізняється генеральне від підтримуючого прибирання?</h3>
             <div class="mt-3 text-zinc-400 space-y-2">
-              <p><strong class="text-gray-900">Підтримуюче</strong> — регулярне прибирання раз на тиждень або 2 тижні. Пилосос, підлога, санвузол, кухня, протирання від пилу. Для тих, хто тримає чистоту постійно.</p>
-              <p><strong class="text-gray-900">Генеральне</strong> — глибоке прибирання раз на сезон. Люстри, шафки зсередині, плінтуси, балкон. Займає 4–8 годин залежно від площі.</p>
+              <p><strong class="text-zinc-100">Підтримуюче</strong> — регулярне прибирання раз на тиждень або 2 тижні. Пилосос, підлога, санвузол, кухня, протирання від пилу. Для тих, хто тримає чистоту постійно.</p>
+              <p><strong class="text-zinc-100">Генеральне</strong> — глибоке прибирання раз на сезон. Люстри, шафки зсередині, плінтуси, балкон. Займає 4–8 годин залежно від площі.</p>
             </div>
           </div>
 
           <div class="faq-item">
             <h3 class="text-lg font-bold">Скільки осіб приїде?</h3>
-            <p class="mt-3 text-zinc-400">Залежить від обсягу. Зазвичай <strong class="text-gray-900">2 особи</strong> на стандартну квартиру. На генеральне прибирання великої площі — 3–4. Кількість бригади не впливає на ціну.</p>
+            <p class="mt-3 text-zinc-400">Залежить від обсягу. Зазвичай <strong class="text-zinc-100">2 особи</strong> на стандартну квартиру. На генеральне прибирання великої площі — 3–4. Кількість бригади не впливає на ціну.</p>
           </div>
 
           <div class="faq-item">
             <h3 class="text-lg font-bold">Чи безпечна хімія для дітей та тварин?</h3>
-            <p class="mt-3 text-zinc-400">Так. Всі засоби <strong class="text-gray-900">гіпоалергенні</strong> та не залишають токсичних залишків. Після прибирання достатньо провітрити приміщення 15–20 хвилин. Кішки та собаки можуть залишатись вдома.</p>
+            <p class="mt-3 text-zinc-400">Так. Всі засоби <strong class="text-zinc-100">гіпоалергенні</strong> та не залишають токсичних залишків. Після прибирання достатньо провітрити приміщення 15–20 хвилин. Кішки та собаки можуть залишатись вдома.</p>
           </div>
         </section>
 
@@ -241,26 +250,26 @@
 
           <div class="faq-item">
             <h3 class="text-lg font-bold">Чи можна прати диван вдома?</h3>
-            <p class="mt-3 text-zinc-400">Так, саме так і відбувається. Ми приїжджаємо до вас — <strong class="text-gray-900">не потрібно нікуди везти</strong>. Екстрактор Karcher виконує глибоке очищення прямо на місці. Сушка — 2–4 години.</p>
+            <p class="mt-3 text-zinc-400">Так, саме так і відбувається. Ми приїжджаємо до вас — <strong class="text-zinc-100">не потрібно нікуди везти</strong>. Екстрактор Karcher виконує глибоке очищення прямо на місці. Сушка — 2–4 години.</p>
           </div>
 
           <div class="faq-item">
             <h3 class="text-lg font-bold">Які плями можна вивести?</h3>
-            <p class="mt-3 text-zinc-400">Виводимо більшість свіжих і застарілих плям: <strong class="text-gray-900">кров, кава, вино, жир, кольорові фломастери, сеча тварин</strong>. Складні давні плями прибираємо на 80–95%. Результат залежить від типу тканини і давності плями.</p>
+            <p class="mt-3 text-zinc-400">Виводимо більшість свіжих і застарілих плям: <strong class="text-zinc-100">кров, кава, вино, жир, кольорові фломастери, сеча тварин</strong>. Складні давні плями прибираємо на 80–95%. Результат залежить від типу тканини і давності плями.</p>
           </div>
 
           <div class="faq-item">
             <h3 class="text-lg font-bold">Як зрозуміти, що матрацу потрібна хімчистка?</h3>
-            <p class="mt-3 text-zinc-400">Рекомендуємо чистити матрац <strong class="text-gray-900">раз на рік</strong>. Ознаки того, що пора: запах поту або вологи, видимі плями, алергічні реакції зранку (чхання, закладений ніс), наявність домашніх тварин.</p>
+            <p class="mt-3 text-zinc-400">Рекомендуємо чистити матрац <strong class="text-zinc-100">раз на рік</strong>. Ознаки того, що пора: запах поту або вологи, видимі плями, алергічні реакції зранку (чхання, закладений ніс), наявність домашніх тварин.</p>
           </div>
         </section>
 
         <!-- CTA -->
-        <div class="mt-16 bg-gray-50 border border-gray-200 rounded-3xl p-8 text-center">
+        <div class="mt-16 bg-zinc-900 border border-zinc-700 rounded-3xl p-8 text-center">
           <h3 class="font-sans text-2xl font-black tabular-nums">Не знайшли відповідь?</h3>
           <p class="mt-2 text-zinc-400">Напишіть нам — відповімо протягом 5 хвилин</p>
           <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://t.me/jamboss8" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-white font-bold transition" style="background:#2AABEE">
+            <a href="https://t.me/jamboss8" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-white font-bold transition" style="background:#d4a017">
               Написати в Telegram
             </a>
             <a href="tel:+380731312228" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-white transition" style="background:#92690a">
@@ -274,9 +283,9 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="bg-white border-t border-gray-200 text-zinc-500 py-12">
+  <footer class="bg-zinc-900 border-t border-zinc-700 text-zinc-500 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between gap-6">
-      <a href="index.html" class="flex items-center gap-2 font-bold text-xl text-gray-900">
+      <a href="index.html" class="flex items-center gap-2 font-bold text-xl text-zinc-100">
         <span class="w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg text-white" style="background:linear-gradient(135deg,#d4a017,#92690a)">ЧТ</span>
         Clean-<span class="text-gold-400">Clean</span>
       </a>
@@ -306,7 +315,7 @@
 
   <!-- Float CTA -->
   <div class="fixed bottom-6 right-5 z-50 flex flex-col gap-3">
-    <a href="https://t.me/jamboss8" target="_blank" rel="noopener noreferrer" aria-label="Написати в Telegram" class="w-14 h-14 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-transform flex items-center justify-center" style="background:#2AABEE">
+    <a href="https://t.me/jamboss8" target="_blank" rel="noopener noreferrer" aria-label="Написати в Telegram" class="w-14 h-14 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-transform flex items-center justify-center" style="background:#d4a017">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.56 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
     </a>
     <a href="tel:+380731312228" class="w-14 h-14 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-transform flex items-center justify-center" style="background:#92690a">
