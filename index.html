@@ -98,7 +98,7 @@
           },
           colors: {
             ink: { 900: '#0a0a0b', 800: '#111113', 700: '#1a1a1d', 600: '#2a2a2e', 500: '#3a3a3f' },
-            gold: { 50:'#fffbeb', 100:'#fef3c7', 200:'#fde68a', 300:'#fbbf24', 400:'#d4a017', 500:'#b7860b', 600:'#92690a', 700:'#78540a' },
+            gold: { 50:'#111100', 100:'#1a1a00', 200:'#FFE566', 300:'#FFD700', 400:'#FFD700', 500:'#CC9900', 600:'#CC9900', 700:'#AA7700' },
             warm: { 50:'#0a0a0b', 100:'#FFFAFA', 200:'rgba(255,250,250,0.75)', 300:'rgba(255,250,250,0.5)' },
           },
         },
@@ -111,7 +111,7 @@
     body {
       font-family: 'Manrope', system-ui, sans-serif;
       background-color: #0a0a0b;
-      background-image: radial-gradient(rgba(212,160,23,0.04) 1px, transparent 1px);
+      background-image: radial-gradient(rgba(255,215,0,0.05) 1px, transparent 1px);
       background-size: 26px 26px;
       color: #f5f0e0;
       line-height: 1.65;
@@ -129,8 +129,8 @@
     }
     .gradient-bg {
       background:
-        radial-gradient(ellipse 70% 50% at top right, rgba(212,160,23,0.08), transparent),
-        radial-gradient(ellipse 60% 40% at bottom left, rgba(212,160,23,0.05), transparent),
+        radial-gradient(ellipse 70% 50% at top right, rgba(255,215,0,0.08), transparent),
+        radial-gradient(ellipse 60% 40% at bottom left, rgba(255,215,0,0.05), transparent),
         transparent;
     }
     /* Fix clipping for italic + heavy gradient text:
@@ -139,7 +139,7 @@
        - padding-left small to keep visual balance
        - overflow visible so the box never crops glyphs */
     .gold-gradient-text {
-      background: linear-gradient(135deg, #fde68a 0%, #d4a017 50%, #b7860b 100%);
+      background: linear-gradient(135deg, #FFE566 0%, #FFD700 50%, #CC9900 100%);
       -webkit-background-clip: text; background-clip: text; color: transparent;
       display: inline-block;
       padding: 0 0.18em 0.35em 0.05em;
@@ -161,7 +161,7 @@
     .section-divider {
       border: none;
       height: 1px;
-      background: linear-gradient(to right, transparent, rgba(212,160,23,0.3), transparent);
+      background: linear-gradient(to right, transparent, rgba(255,215,0,0.3), transparent);
       margin: 0;
     }
 
@@ -175,13 +175,13 @@
       padding: 1rem 1.75rem;
       font-weight: 800;
       color: #ffffff;
-      background: #92690a;
+      background: #CC9900;
       border-radius: 9999px;
       box-shadow:
-        0 6px 0 #4a3205,
-        0 14px 28px -8px rgba(180,130,10,0.7),
+        0 6px 0 #664400,
+        0 14px 28px -8px rgba(204,153,0,0.7),
         inset 0 1px 0 rgba(255,255,255,0.15),
-        inset 0 -2px 0 rgba(74,50,5,0.5);
+        inset 0 -2px 0 rgba(80,60,0,0.5);
       transform: translateY(0);
       transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
       cursor: pointer;
@@ -190,15 +190,15 @@
     .btn-3d:hover {
       transform: translateY(-2px);
       box-shadow:
-        0 8px 0 #4a3205,
-        0 18px 36px -8px rgba(180,130,10,0.8),
+        0 8px 0 #664400,
+        0 18px 36px -8px rgba(204,153,0,0.8),
         inset 0 1px 0 rgba(255,255,255,0.25),
-        inset 0 -2px 0 rgba(74,50,5,0.4);
+        inset 0 -2px 0 rgba(80,60,0,0.4);
     }
     .btn-3d:active {
       transform: translateY(4px);
       box-shadow:
-        0 2px 0 #4a3205,
+        0 2px 0 #664400,
         0 4px 8px rgba(0,0,0,0.3),
         inset 0 1px 0 rgba(255,255,255,0.2);
     }
@@ -229,15 +229,15 @@
       font-size: 1.25rem;
       line-height: 1;
       border-radius: 0.625rem;
-      background: rgba(212,160,23,0.1);
-      border: 1px solid rgba(212,160,23,0.2);
+      background: rgba(255,215,0,0.1);
+      border: 1px solid rgba(255,215,0,0.2);
       transition: background 0.2s ease, border-color 0.2s ease;
       flex-shrink: 0;
     }
     .service-card:hover .icon-3d,
     .service-card.active .icon-3d {
-      background: rgba(212,160,23,0.18);
-      border-color: rgba(212,160,23,0.45);
+      background: rgba(255,215,0,0.18);
+      border-color: rgba(255,215,0,0.45);
     }
 
     /* Hero accent */
@@ -261,17 +261,17 @@
       cursor: pointer;
     }
     .service-card:hover {
-      border-color: rgba(212,160,23,0.5);
+      border-color: rgba(255,215,0,0.5);
       transform: translateY(-2px);
-      box-shadow: 0 0 0 1px rgba(212,160,23,0.15), 0 8px 24px -4px rgba(212,160,23,0.12);
+      box-shadow: 0 0 0 1px rgba(255,215,0,0.15), 0 8px 24px -4px rgba(255,215,0,0.12);
     }
     .service-card.active {
-      background: linear-gradient(145deg, rgba(212,160,23,0.12) 0%, rgba(180,130,10,0.06) 100%);
-      border-color: #d4a017;
-      border-left: 4px solid #b7860b;
-      box-shadow: 0 0 0 1px rgba(212,160,23,0.25), 0 8px 24px -4px rgba(212,160,23,0.18);
+      background: linear-gradient(145deg, rgba(255,215,0,0.12) 0%, rgba(204,153,0,0.06) 100%);
+      border-color: #FFD700;
+      border-left: 4px solid #CC9900;
+      box-shadow: 0 0 0 1px rgba(255,215,0,0.25), 0 8px 24px -4px rgba(255,215,0,0.18);
     }
-    .service-card.active .service-name { color: #92690a; font-weight: 800; }
+    .service-card.active .service-name { color: #CC9900; font-weight: 800; }
 
     /* Animated background orbs */
     .orb {
@@ -284,7 +284,7 @@
     }
     .orb-1 {
       width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(212,160,23,0.22), rgba(212,160,23,0) 70%);
+      background: radial-gradient(circle, rgba(255,215,0,0.22), rgba(255,215,0,0) 70%);
       top: -200px; right: -150px;
       animation: orb-drift-1 16s ease-in-out infinite;
     }
@@ -324,19 +324,19 @@
     /* Custom slider */
     input[type=range].calc-slider {
       -webkit-appearance: none; width: 100%; height: 6px; border-radius: 3px;
-      background: linear-gradient(to right, #d4a017 var(--p, 50%), #262629 var(--p, 50%));
+      background: linear-gradient(to right, #FFD700 var(--p, 50%), #262629 var(--p, 50%));
       outline: none;
     }
     input[type=range].calc-slider::-webkit-slider-thumb {
       -webkit-appearance: none; appearance: none;
-      width: 26px; height: 26px; border-radius: 50%; background: #d4a017;
+      width: 26px; height: 26px; border-radius: 50%; background: #FFD700;
       cursor: pointer; border: 4px solid #ffffff;
-      box-shadow: 0 0 0 2px #d4a017, 0 4px 12px rgba(212,160,23,0.4);
+      box-shadow: 0 0 0 2px #FFD700, 0 4px 12px rgba(255,215,0,0.4);
     }
     input[type=range].calc-slider::-moz-range-thumb {
-      width: 26px; height: 26px; border-radius: 50%; background: #d4a017;
+      width: 26px; height: 26px; border-radius: 50%; background: #FFD700;
       cursor: pointer; border: 4px solid #ffffff;
-      box-shadow: 0 0 0 2px #d4a017, 0 4px 12px rgba(212,160,23,0.4);
+      box-shadow: 0 0 0 2px #FFD700, 0 4px 12px rgba(255,215,0,0.4);
     }
   
     .tabular-nums { font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
@@ -365,7 +365,7 @@
   <div class="fixed bottom-6 right-5 z-50 flex flex-col gap-3">
     <a href="https://t.me/jamboss8" target="_blank" rel="noopener noreferrer" aria-label="Написати в Telegram"
        class="w-14 h-14 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-transform flex items-center justify-center"
-       style="background:#d4a017" title="Telegram">
+       style="background:#FFD700" title="Telegram">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.56 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
     </a>
     <a href="tel:+380731312228" aria-label="Зателефонувати"
@@ -379,7 +379,7 @@
   <header class="sticky top-0 z-50 bg-zinc-900/95 backdrop-blur-lg border-b border-zinc-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2 font-bold text-xl">
-        <span class="w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg text-white" style="background:linear-gradient(135deg,#d4a017,#92690a)">ЧТ</span>
+        <span class="w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg text-white" style="background:linear-gradient(135deg,#FFD700,#CC9900)">ЧТ</span>
         <span class="tracking-tight">Clean-<span class="text-gold-400">Clean</span></span>
       </a>
       <!-- Hamburger (mobile only) -->
@@ -1063,7 +1063,7 @@
       <div class="grid md:grid-cols-4 gap-10">
         <div class="md:col-span-2">
           <a href="/" class="flex items-center gap-2 font-bold text-xl text-zinc-100">
-            <span class="w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg text-white" style="background:linear-gradient(135deg,#d4a017,#92690a)">ЧТ</span>
+            <span class="w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg text-white" style="background:linear-gradient(135deg,#FFD700,#CC9900)">ЧТ</span>
             Clean-<span class="text-gold-400">Clean</span>
           </a>
           <p class="mt-4 text-sm max-w-md">Професійна клінінгова компанія. Працюємо у Києві, Дніпрі, Львові, Харкові та Одесі з 2021 року.</p>
@@ -1484,8 +1484,8 @@
       cb.addEventListener('change', function() {
         var label = this.closest('label');
         if (this.checked) {
-          label.style.borderColor = '#d4a017';
-          label.style.background = '#fffbeb';
+          label.style.borderColor = '#FFD700';
+          label.style.background = '#111100';
         } else {
           label.style.borderColor = '';
           label.style.background = '';

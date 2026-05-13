@@ -16,24 +16,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Raleway:wght@700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Raleway:wght@700;800;900&display=swap" /></noscript>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Manrope','system-ui','sans-serif'],display:['Raleway','system-ui','sans-serif']},colors:{ink:{900:'#0a0a0b',800:'#111113',700:'#1a1a1d',600:'#2a2a2e',500:'#3a3a3f'},gold:{50:'#fffbeb',100:'#fef3c7',200:'#fde68a',300:'#fbbf24',400:'#d4a017',500:'#b7860b',600:'#92690a',700:'#78540a'},warm:{50:'#0a0a0b',100:'#FFFAFA'}}}}}</script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Manrope','system-ui','sans-serif'],display:['Raleway','system-ui','sans-serif']},colors:{ink:{900:'#0a0a0b',800:'#111113',700:'#1a1a1d',600:'#2a2a2e',500:'#3a3a3f'},gold:{50:'#111100',100:'#1a1a00',200:'#FFE566',300:'#FFD700',400:'#FFD700',500:'#CC9900',600:'#CC9900',700:'#AA7700'},warm:{50:'#0a0a0b',100:'#FFFAFA'}}}}}</script>
   <style>
     html{scroll-behavior:smooth}
-    body{font-family:'Manrope',system-ui,sans-serif;background-color:#0a0a0b;background-image:radial-gradient(rgba(212,160,23,0.04) 1px,transparent 1px);background-size:26px 26px;color:#f5f0e0;line-height:1.65}
-    .gold-gradient-text{background:linear-gradient(135deg,#fde68a 0%,#d4a017 50%,#92690a 100%);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block;padding:0 0.18em 0.35em 0.05em;line-height:1.4}
+    body{font-family:'Manrope',system-ui,sans-serif;background-color:#0a0a0b;background-image:radial-gradient(rgba(255,215,0,0.05) 1px,transparent 1px);background-size:26px 26px;color:#f5f0e0;line-height:1.65}
+    .gold-gradient-text{background:linear-gradient(135deg,#FFE566 0%,#FFD700 50%,#CC9900 100%);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block;padding:0 0.18em 0.35em 0.05em;line-height:1.4}
     h1,h2,h3{letter-spacing:-0.02em;color:#f5f0e0}
     .sidebar-link{display:block;padding:0.6rem 1rem;border-radius:0.5rem;font-size:0.875rem;font-weight:600;color:rgba(255,250,250,0.6);transition:all 0.15s ease;border-left:2px solid transparent}
-    .sidebar-link:hover{color:#f5f0e0;background:rgba(212,160,23,0.08)}
-    .sidebar-link.active{color:#b7860b;border-left-color:#b7860b;background:rgba(212,160,23,0.1)}
-    .faq-item{border-bottom:1px solid rgba(212,160,23,0.12);padding:2rem 0}
+    .sidebar-link:hover{color:#f5f0e0;background:rgba(255,215,0,0.08)}
+    .sidebar-link.active{color:#CC9900;border-left-color:#CC9900;background:rgba(255,215,0,0.1)}
+    .faq-item{border-bottom:1px solid rgba(255,215,0,0.12);padding:2rem 0}
     .faq-item:last-child{border-bottom:none}
     .faq-category{scroll-margin-top:5rem}
-      .orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);will-change:transform}.orb-1{width:600px;height:600px;background:radial-gradient(circle,rgba(212,160,23,0.12),rgba(212,160,23,0) 70%);top:-150px;right:-100px;animation:od1 16s ease-in-out infinite}.orb-2{width:450px;height:450px;background:radial-gradient(circle,rgba(212,160,23,0.08),rgba(212,160,23,0) 70%);bottom:-120px;left:-80px;animation:od2 20s ease-in-out infinite}
+      .orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);will-change:transform}.orb-1{width:600px;height:600px;background:radial-gradient(circle,rgba(255,215,0,0.12),rgba(255,215,0,0) 70%);top:-150px;right:-100px;animation:od1 16s ease-in-out infinite}.orb-2{width:450px;height:450px;background:radial-gradient(circle,rgba(255,215,0,0.08),rgba(255,215,0,0) 70%);bottom:-120px;left:-80px;animation:od2 20s ease-in-out infinite}
     @media (prefers-reduced-motion: reduce) {
       .orb-1, .orb-2 { animation: none; }
     }
     @keyframes od1{0%,100%{transform:translate(0,0) scale(1)}35%{transform:translate(-50px,35px) scale(1.08)}70%{transform:translate(35px,-50px) scale(0.94)}}@keyframes od2{0%,100%{transform:translate(0,0) scale(1)}45%{transform:translate(60px,-35px) scale(1.1)}75%{transform:translate(-25px,45px) scale(0.93)}}header,section,footer{position:relative;z-index:1}
-  .btn-3d{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;padding:1rem 1.75rem;font-weight:800;color:#ffffff;background:#92690a;border-radius:9999px;box-shadow:0 6px 0 #4a3205,0 14px 28px -8px rgba(180,130,10,0.7),inset 0 1px 0 rgba(255,255,255,0.15),inset 0 -2px 0 rgba(74,50,5,0.5);transform:translateY(0);transition:all 0.15s cubic-bezier(0.34,1.56,0.64,1);cursor:pointer;border:none}.btn-3d:hover{transform:translateY(-2px);box-shadow:0 8px 0 #4a3205,0 18px 36px -8px rgba(180,130,10,0.8),inset 0 1px 0 rgba(255,255,255,0.25),inset 0 -2px 0 rgba(74,50,5,0.4)}.btn-3d:active{transform:translateY(4px);box-shadow:0 2px 0 #4a3205,0 4px 8px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.2)}.btn-sm{padding:0.6rem 1.25rem!important}
+  .btn-3d{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;padding:1rem 1.75rem;font-weight:800;color:#ffffff;background:#CC9900;border-radius:9999px;box-shadow:0 6px 0 #664400,0 14px 28px -8px rgba(204,153,0,0.7),inset 0 1px 0 rgba(255,255,255,0.15),inset 0 -2px 0 rgba(80,60,0,0.5);transform:translateY(0);transition:all 0.15s cubic-bezier(0.34,1.56,0.64,1);cursor:pointer;border:none}.btn-3d:hover{transform:translateY(-2px);box-shadow:0 8px 0 #664400,0 18px 36px -8px rgba(204,153,0,0.8),inset 0 1px 0 rgba(255,255,255,0.25),inset 0 -2px 0 rgba(80,60,0,0.4)}.btn-3d:active{transform:translateY(4px);box-shadow:0 2px 0 #664400,0 4px 8px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.2)}.btn-sm{padding:0.6rem 1.25rem!important}
   
     .tabular-nums { font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
   
@@ -55,7 +55,7 @@
   <header class="sticky top-0 z-50 bg-zinc-900/95 backdrop-blur-lg border-b border-zinc-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-2 font-bold text-xl">
-        <span class="w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg text-white" style="background:linear-gradient(135deg,#d4a017,#92690a)">ЧТ</span>
+        <span class="w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg text-white" style="background:linear-gradient(135deg,#FFD700,#CC9900)">ЧТ</span>
         <span>Clean-<span class="text-gold-400">Clean</span></span>
       </a>
       <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-400">
@@ -130,7 +130,7 @@
           <a href="#prybyrannia" class="sidebar-link" id="nav-prybyrannia">Прибирання</a>
           <a href="#himchiystka" class="sidebar-link" id="nav-himchiystka">Хімчистка</a>
           <div class="mt-4 pt-4 border-t border-zinc-700">
-            <a href="index.html#order" class="block text-center text-sm font-bold py-2.5 rounded-xl text-white" style="background:#92690a">Замовити</a>
+            <a href="index.html#order" class="block text-center text-sm font-bold py-2.5 rounded-xl text-white" style="background:#CC9900">Замовити</a>
           </div>
         </div>
       </aside>
@@ -269,10 +269,10 @@
           <h3 class="font-sans text-2xl font-black tabular-nums">Не знайшли відповідь?</h3>
           <p class="mt-2 text-zinc-400">Напишіть нам — відповімо протягом 5 хвилин</p>
           <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://t.me/jamboss8" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-white font-bold transition" style="background:#d4a017">
+            <a href="https://t.me/jamboss8" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-white font-bold transition" style="background:#FFD700">
               Написати в Telegram
             </a>
-            <a href="tel:+380731312228" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-white transition" style="background:#92690a">
+            <a href="tel:+380731312228" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-white transition" style="background:#CC9900">
               +38 073 131 22 28
             </a>
           </div>
@@ -286,7 +286,7 @@
   <footer class="bg-zinc-900 border-t border-zinc-700 text-zinc-500 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between gap-6">
       <a href="index.html" class="flex items-center gap-2 font-bold text-xl text-zinc-100">
-        <span class="w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg text-white" style="background:linear-gradient(135deg,#d4a017,#92690a)">ЧТ</span>
+        <span class="w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg text-white" style="background:linear-gradient(135deg,#FFD700,#CC9900)">ЧТ</span>
         Clean-<span class="text-gold-400">Clean</span>
       </a>
       <div class="flex flex-wrap gap-6 text-sm">
@@ -315,10 +315,10 @@
 
   <!-- Float CTA -->
   <div class="fixed bottom-6 right-5 z-50 flex flex-col gap-3">
-    <a href="https://t.me/jamboss8" target="_blank" rel="noopener noreferrer" aria-label="Написати в Telegram" class="w-14 h-14 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-transform flex items-center justify-center" style="background:#d4a017">
+    <a href="https://t.me/jamboss8" target="_blank" rel="noopener noreferrer" aria-label="Написати в Telegram" class="w-14 h-14 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-transform flex items-center justify-center" style="background:#FFD700">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.56 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
     </a>
-    <a href="tel:+380731312228" class="w-14 h-14 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-transform flex items-center justify-center" style="background:#92690a">
+    <a href="tel:+380731312228" class="w-14 h-14 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-transform flex items-center justify-center" style="background:#CC9900">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
     </a>
   </div>
