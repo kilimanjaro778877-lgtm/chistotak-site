@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://chistotak.com.ua/sitemap.xml
+Sitemap: https://chisto-tak.com.ua/sitemap.xml
