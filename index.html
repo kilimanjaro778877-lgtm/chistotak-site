@@ -512,7 +512,7 @@
       <div id="fixed-block" class="mt-10 hidden">
         <div class="bg-zinc-900 border-2 border-yellow-600/50 rounded-3xl p-8 sm:p-12 text-center max-w-xl mx-auto shadow-lg shadow-yellow-900">
           <div class="text-sm uppercase tracking-wider text-gold-600 font-bold">Вартість послуги</div>
-          <div class="mt-3 font-display text-5xl sm:text-6xl font-black text-zinc-100" id="fixed-price">від 1 100 ₴</div>
+          <div class="mt-3 font-display text-5xl sm:text-6xl font-black text-zinc-100" id="fixed-price">від 1 200 ₴</div>
           <p class="mt-3 text-sm text-zinc-400" id="fixed-note">Точну суму погодимо після огляду</p>
           <a href="#order" class="btn-3d mt-8" style="border-radius: 0.75rem">
             Замовити цю послугу
@@ -1022,14 +1022,14 @@
         name: 'Генеральне прибирання',
         icon: '✨',
         short: 'Глибока чистка раз на сезон',
-        priceLabel: 'від 70 ₴/м²',
+        priceLabel: 'від 90 ₴/м²',
         description: 'Глибоке прибирання після ремонту, переїзду або раз на сезон. Усе — від плінтусів до люстр, від петель шафок до підвіконь.',
         needsCalc: true,
         unit: 'м²',
         sliderLabel: 'Площа квартири',
-        slider: { min: 30, max: 200, default: 70, step: 1, mid: 100 },
+        slider: { min: 30, max: 200, default: 50, step: 1, mid: 100 },
         rates: [
-          { max: 70,  rate: 70, min: 3500 },
+          { max: 60,  rate: 90, min: 3500 },
           { max: 90,  rate: 80 },
           { max: 999, rate: 85 },
         ],
@@ -1081,44 +1081,44 @@
         name: 'Хімчистка диванів',
         icon: '🛋',
         short: 'Очищення м\'яких меблів',
-        priceLabel: 'від 1 100 ₴',
+        priceLabel: 'від 1 200 ₴',
         description: 'Глибоке очищення м\'яких меблів удома: видалення плям, запахів, пилових кліщів. Сушка 2-4 години. Безпечно для дітей і алергіків.',
         needsCalc: false,
-        fixedPrice: 'від 1 100 ₴',
-        fixedNote: '2-місний від 1100 ₴ · кутовий від 2400 ₴ · модульний від 2700 ₴',
+        fixedPrice: 'від 1 200 ₴',
+        fixedNote: '2-місний від 1200 ₴ · 3-місний від 1800 ₴ · 4-місний від 2400 ₴ · кутовий від 2700 ₴ · модульний від 2900 ₴',
         detailLink: 'services/himchistka-divana.html',
       },
       himchystka_matrac: {
         name: 'Хімчистка матраців',
         icon: '🛏',
         short: 'Без алергенів і кліщів',
-        priceLabel: 'від 550 ₴',
+        priceLabel: 'від 500 ₴',
         description: 'Видаляємо пил, кліщів, запахи з матраців. Без алергенів. Безпечно для дітей. Сушка 3-4 години.',
         needsCalc: false,
-        fixedPrice: 'від 550 ₴',
-        fixedNote: 'Дитячий від 300 ₴ · полуторний від 800 ₴ · двоспальний від 1100 ₴',
+        fixedPrice: 'від 500 ₴',
+        fixedNote: 'Дитячий від 500 ₴ · одномісний від 600 ₴ · полуторний від 900 ₴ · двоспальний від 1200 ₴',
         detailLink: 'services/himchistka-matratsa.html',
       },
       kuhnia: {
         name: 'Прибирання кухні',
         icon: '🍳',
         short: 'Духовка, плита, шафки',
-        priceLabel: 'від 1 800 ₴',
+        priceLabel: 'від 260 ₴/м²',
         description: 'Глибока чистка кухні: духовка, плита, витяжка, шафки зсередини. Жир йде з першого разу.',
         needsCalc: false,
-        fixedPrice: 'від 1 800 ₴',
-        fixedNote: 'до 6м² від 1800 ₴ · до 10м² від 2400 ₴ · до 20м² від 3100 ₴',
+        fixedPrice: 'від 260 ₴/м²',
+        fixedNote: 'до 6м² 260 ₴/м² · до 10м² 200 ₴/м² · до 20м² 160 ₴/м²',
         detailLink: 'services/prybyrannia-kukhni.html',
       },
       vannoi: {
         name: 'Прибирання ванної',
         icon: '🛁',
         short: 'Вапняк, плитка, шви',
-        priceLabel: 'від 1 300 ₴',
+        priceLabel: 'від 200 ₴/м²',
         description: 'Прибирання ванної з усією важкою артилерією: вапняний наліт, плитка, шви, душова кабіна. Як після капремонту.',
         needsCalc: false,
-        fixedPrice: 'від 1 300 ₴',
-        fixedNote: 'до 5м² від 1300 ₴ · до 10м² від 1800 ₴ · до 20м² від 2600 ₴',
+        fixedPrice: 'від 200 ₴/м²',
+        fixedNote: 'до 5м² 200 ₴/м² · до 10м² 150 ₴/м² · до 20м² 120 ₴/м² (зі швами)',
         detailLink: 'services/prybyrannia-vannoi.html',
       },
       pislya_remontu: {
