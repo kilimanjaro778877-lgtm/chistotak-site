@@ -88,4 +88,10 @@
     <loc>https://chisto-tak.com.ua/blog/yak-myty-vikna.html</loc>
     <lastmod>2026-05-14</lastmod>
   </url>
+  <url>
+    <loc>https://chisto-tak.com.ua/blog/prybyrannia-pislya-vidpustky.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
