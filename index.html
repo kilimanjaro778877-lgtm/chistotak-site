@@ -1447,6 +1447,25 @@
       const pct = ((area - s.slider.min) / range) * 100;
       refs.areaSlider.style.setProperty('--p', pct + '%');
       updateOrderSummary();
+      syncUpsellVisibility();
+    }
+
+    function syncUpsellVisibility() {
+      // Збираємо назви всіх вибраних доп.послуг у калькуляторі
+      var checkedLabels = [];
+      document.querySelectorAll('.calc-extra-check:checked').forEach(function(cb) {
+        var spans = cb.closest('label').querySelectorAll('.flex-1 span');
+        var label = spans[0] ? spans[0].textContent.trim() : '';
+        if (label) checkedLabels.push(label);
+      });
+      // Ховаємо в upsell-блоці те, що вже вибрано у калькуляторі
+      document.querySelectorAll('.upsell-check').forEach(function(uc) {
+        var extra = uc.dataset.extra || '';
+        var parentLabel = uc.closest('label');
+        if (!parentLabel) return;
+        var alreadyChosen = checkedLabels.some(function(l) { return extra.startsWith(l); });
+        parentLabel.style.display = alreadyChosen ? 'none' : '';
+      });
     }
 
     function updateOrderSummary() {
@@ -1731,6 +1750,7 @@
           label.style.background  = this.checked ? '#1a1a00' : '';
         });
       });
+      syncUpsellVisibility();
     }
 
     // Update upsell when service changes
