@@ -1482,11 +1482,11 @@
     renderCalcExtras(SERVICES['generalna'].name);
 
     // ─── Order form ──────────────────────────────────────────────────
-    const HANDLER_URL = 'https://cleaning-form-handler.onrender.com/api/chistotak-order';
+    const HANDLER_URL = 'https://cleaning-form-handler-azkl.onrender.com/api/chistotak-order';
 
     // Pre-ping: wake up Render server as soon as page loads
     // so by the time user fills the form, server is already warm
-    fetch('https://cleaning-form-handler.onrender.com/health', { method: 'GET' }).catch(() => {});
+    fetch('https://cleaning-form-handler-azkl.onrender.com/health', { method: 'GET' }).catch(() => {});
 
     const form = document.getElementById('order-form');
     const submitBtn = form.querySelector('button[type=submit]');
@@ -1494,7 +1494,7 @@
 
     // Re-ping when user focuses any form field (extra insurance)
     form.addEventListener('focusin', () => {
-      fetch('https://cleaning-form-handler.onrender.com/health', { method: 'GET' }).catch(() => {});
+      fetch('https://cleaning-form-handler-azkl.onrender.com/health', { method: 'GET' }).catch(() => {});
     }, { once: true });
 
     const SUBMIT_KEY = 'chistotak_lastSubmit';
