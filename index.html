@@ -540,6 +540,19 @@
 
       <form id="order-form" class="mt-10 bg-zinc-900 border border-zinc-700 rounded-3xl p-6 sm:p-8 text-left shadow-xl shadow-gray-200/60">
         <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true" />
+        <!-- ORDER SUMMARY -->
+        <div id="order-summary" class="mb-6 p-4 rounded-2xl border border-zinc-600 bg-zinc-800/60">
+          <div class="text-xs text-zinc-500 uppercase tracking-wider mb-3 font-semibold">📋 Ваш вибір</div>
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-semibold text-zinc-100" id="sum-service">Генеральне прибирання</span>
+            <span class="text-sm text-zinc-400" id="sum-area"></span>
+          </div>
+          <div id="sum-extras" class="mt-2 space-y-1"></div>
+          <div class="mt-3 pt-3 border-t border-zinc-700 flex items-center justify-between">
+            <span class="text-xs text-zinc-500">Орієнтовна вартість</span>
+            <span class="text-lg font-extrabold" style="color:#FFD700" id="sum-total">—</span>
+          </div>
+        </div>
         <div class="grid sm:grid-cols-2 gap-4">
           <div>
             <label class="block text-sm font-semibold mb-2 text-zinc-300">Ваше ім'я</label>
@@ -1433,6 +1446,50 @@
       const range = s.slider.max - s.slider.min;
       const pct = ((area - s.slider.min) / range) * 100;
       refs.areaSlider.style.setProperty('--p', pct + '%');
+      updateOrderSummary();
+    }
+
+    function updateOrderSummary() {
+      const s = SERVICES[currentKey];
+      const serviceEl = document.getElementById('sum-service');
+      const areaEl   = document.getElementById('sum-area');
+      const extrasEl = document.getElementById('sum-extras');
+      const totalEl  = document.getElementById('sum-total');
+      if (!serviceEl) return;
+
+      serviceEl.textContent = s.name;
+
+      if (s.needsCalc) {
+        const area = parseInt(refs.areaSlider.value, 10);
+        areaEl.textContent = area + ' ' + s.unit;
+      } else {
+        areaEl.textContent = '';
+      }
+
+      // Збираємо вибрані доп.послуги з калькулятора
+      const extras = [];
+      document.querySelectorAll('.calc-extra-check:checked').forEach(function(cb) {
+        const spans = cb.closest('label').querySelectorAll('.flex-1 span');
+        const label = spans[0] ? spans[0].textContent.trim() : '';
+        const perSqm = parseInt(cb.dataset.persqm) || 0;
+        if (perSqm) {
+          const winInput = cb.closest('label').querySelector('.win-area-input');
+          const winArea = winInput ? (parseInt(winInput.value) || 10) : 10;
+          extras.push(label + ' — ' + winArea + ' м² (+' + (winArea * perSqm) + ' ₴)');
+        } else {
+          extras.push(label + ' (+' + (parseInt(cb.dataset.price) || 0) + ' ₴)');
+        }
+      });
+
+      extrasEl.innerHTML = extras.map(function(ex) {
+        return '<div class="text-sm" style="color:#FFD700">+ ' + ex + '</div>';
+      }).join('');
+
+      if (s.needsCalc) {
+        totalEl.textContent = (refs.priceValue ? refs.priceValue.textContent : '—') + ' ₴';
+      } else {
+        totalEl.textContent = (s.fixedPrice || '—') + ' ₴';
+      }
     }
 
     function selectService(key, scroll = false) {
@@ -1493,6 +1550,8 @@
         refs.fixedNote.textContent = s.fixedNote || '';
       }
 
+      updateOrderSummary();
+
       if (scroll) {
         document.getElementById('service-details').scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
@@ -1536,6 +1595,34 @@
 
       const data = Object.fromEntries(new FormData(form));
       data.page = location.href;
+
+      // Збираємо площу і доп.послуги з калькулятора
+      const _s = SERVICES[currentKey];
+      const _areaLine = _s && _s.needsCalc
+        ? 'Площа: ' + (refs.areaSlider ? refs.areaSlider.value : '?') + ' ' + (_s.unit || 'м²')
+        : '';
+      const _calcExtras = [];
+      document.querySelectorAll('.calc-extra-check:checked').forEach(function(cb) {
+        const spans = cb.closest('label').querySelectorAll('.flex-1 span');
+        const lbl = spans[0] ? spans[0].textContent.trim() : '';
+        const perSqm = parseInt(cb.dataset.persqm) || 0;
+        if (perSqm) {
+          const wi = cb.closest('label').querySelector('.win-area-input');
+          const wa = wi ? (parseInt(wi.value) || 10) : 10;
+          if (lbl) _calcExtras.push(lbl + ' ' + wa + 'м²');
+        } else {
+          if (lbl) _calcExtras.push(lbl);
+        }
+      });
+      // Додаткові з форми (upsell-check)
+      const _upsellExtras = Array.from(document.querySelectorAll('.upsell-check:checked'))
+        .map(function(cb) { return cb.dataset.extra; }).filter(Boolean);
+      const _allExtras = Array.from(new Set([..._calcExtras, ..._upsellExtras]));
+      const _extrasLine = _allExtras.length ? 'Дод. послуги: ' + _allExtras.join(', ') : '';
+      const _autoDetails = [_areaLine, _extrasLine].filter(Boolean).join('\n');
+      if (_autoDetails) {
+        data.details = _autoDetails + (data.details ? '\n' + data.details : '');
+      }
 
       const postData = JSON.stringify(data);
       const doFetch = () => fetch(HANDLER_URL, {
