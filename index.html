@@ -613,12 +613,12 @@
                 <div><div class="text-sm font-semibold text-zinc-100">Витяжка</div><div class="text-xs" style="color:#FFD700">+500₴</div></div>
               </label>
               <label class="upsell-item flex items-center gap-3 p-3 rounded-xl border border-zinc-700 bg-zinc-800 cursor-pointer hover:border-yellow-600 transition">
-                <input type="checkbox" data-extra="Хімчистка дивана +1200₴" class="upsell-check w-4 h-4" style="accent-color:#FFD700">
-                <div><div class="text-sm font-semibold text-zinc-100">Хімчистка дивана</div><div class="text-xs" style="color:#FFD700">+1200₴</div></div>
+                <input type="checkbox" data-extra="Хімчистка дивана +2400₴" class="upsell-check w-4 h-4" style="accent-color:#FFD700">
+                <div><div class="text-sm font-semibold text-zinc-100">Хімчистка дивана</div><div class="text-xs" style="color:#FFD700">+2400₴</div></div>
               </label>
               <label class="upsell-item flex items-center gap-3 p-3 rounded-xl border border-zinc-700 bg-zinc-800 cursor-pointer hover:border-yellow-600 transition">
-                <input type="checkbox" data-extra="Хімчистка матраця +600₴" class="upsell-check w-4 h-4" style="accent-color:#FFD700">
-                <div><div class="text-sm font-semibold text-zinc-100">Хімчистка матраця</div><div class="text-xs" style="color:#FFD700">+600₴</div></div>
+                <input type="checkbox" data-extra="Хімчистка матраця +1000₴" class="upsell-check w-4 h-4" style="accent-color:#FFD700">
+                <div><div class="text-sm font-semibold text-zinc-100">Хімчистка матраця</div><div class="text-xs" style="color:#FFD700">+1000₴</div></div>
               </label>
             </div>
           </div>
@@ -1346,22 +1346,22 @@
         { id:'duhov',   label:'Духовка',           price:600,  perSqm:0,   hasArea:false },
         { id:'holod',   label:'Холодильник',       price:500,  perSqm:0,   hasArea:false },
         { id:'vytazh',  label:'Витяжка',           price:500,  perSqm:0,   hasArea:false },
-        { id:'dyvan',   label:'Хімчистка дивана',  price:1100, perSqm:0,   hasArea:false },
-        { id:'matrats', label:'Хімчистка матраця', price:550,  perSqm:0,   hasArea:false },
+        { id:'dyvan',   label:'Хімчистка дивана',  price:2400, perSqm:0,   hasArea:false },
+        { id:'matrats', label:'Хімчистка матраця', price:1000,  perSqm:0,   hasArea:false },
       ],
       'Генеральне прибирання': [
         { id:'vikna',   label:'Миття вікон',      price:0,    perSqm:80,  hasArea:true  },
-        { id:'dyvan',   label:'Хімчистка дивана', price:1100, perSqm:0,   hasArea:false },
-        { id:'matrats', label:'Хімчистка матраця',price:550,  perSqm:0,   hasArea:false },
+        { id:'dyvan',   label:'Хімчистка дивана', price:2400, perSqm:0,   hasArea:false },
+        { id:'matrats', label:'Хімчистка матраця',price:1000,  perSqm:0,   hasArea:false },
       ],
       'Миття вікон': [
-        { id:'dyvan',   label:'Хімчистка дивана', price:1100, perSqm:0,   hasArea:false },
-        { id:'matrats', label:'Хімчистка матраця',price:550,  perSqm:0,   hasArea:false },
+        { id:'dyvan',   label:'Хімчистка дивана', price:2400, perSqm:0,   hasArea:false },
+        { id:'matrats', label:'Хімчистка матраця',price:1000,  perSqm:0,   hasArea:false },
       ],
       'Прибирання після ремонту': [
         { id:'vikna',   label:'Миття вікон',      price:0,    perSqm:80,  hasArea:true  },
-        { id:'dyvan',   label:'Хімчистка дивана', price:1100, perSqm:0,   hasArea:false },
-        { id:'matrats', label:'Хімчистка матраця',price:550,  perSqm:0,   hasArea:false },
+        { id:'dyvan',   label:'Хімчистка дивана', price:2400, perSqm:0,   hasArea:false },
+        { id:'matrats', label:'Хімчистка матраця',price:1000,  perSqm:0,   hasArea:false },
       ],
     };
 
@@ -1717,17 +1717,17 @@
 
     // Dynamic upsell based on selected service
     var UPSELL_BY_SERVICE = {
-      'Підтримуюче прибирання': ['Духовка +600₴','Холодильник +500₴','Витяжка +500₴','Миття вікон +180₴/м²','Хімчистка дивана +1200₴','Хімчистка матраця +600₴'],
-      'Генеральне прибирання':  ['Миття вікон +180₴/м²','Хімчистка дивана +1200₴','Хімчистка матраця +600₴'],
-      'Хімчистка диванів':      ['Крісло +400₴','Хімчистка матраця +600₴','Миття вікон +180₴/м²'],
-      'Хімчистка матраців':     ['Хімчистка дивана +1200₴','Крісло +400₴','Миття вікон +180₴/м²'],
-      'Миття вікон':            ['Хімчистка дивана +1200₴','Духовка +600₴','Холодильник +500₴'],
-      'Прибирання кухні':       ['Хімчистка дивана +1200₴','Хімчистка матраця +600₴','Миття вікон +180₴/м²'],
-      'Прибирання ванної':      ['Миття вікон +180₴/м²','Хімчистка дивана +1200₴','Духовка +600₴'],
-      'Прибирання після ремонту':['Миття вікон +180₴/м²','Хімчистка дивана +1200₴','Хімчистка матраця +600₴'],
-      'Клінінг офісів':         ['Миття вікон +180₴/м²','Хімчистка дивана +1200₴'],
+      'Підтримуюче прибирання': ['Духовка +600₴','Холодильник +500₴','Витяжка +500₴','Миття вікон +180₴/м²','Хімчистка дивана +2400₴','Хімчистка матраця +1000₴'],
+      'Генеральне прибирання':  ['Миття вікон +180₴/м²','Хімчистка дивана +2400₴','Хімчистка матраця +1000₴'],
+      'Хімчистка диванів':      ['Крісло +400₴','Хімчистка матраця +1000₴','Миття вікон +180₴/м²'],
+      'Хімчистка матраців':     ['Хімчистка дивана +2400₴','Крісло +400₴','Миття вікон +180₴/м²'],
+      'Миття вікон':            ['Хімчистка дивана +2400₴','Духовка +600₴','Холодильник +500₴'],
+      'Прибирання кухні':       ['Хімчистка дивана +2400₴','Хімчистка матраця +1000₴','Миття вікон +180₴/м²'],
+      'Прибирання ванної':      ['Миття вікон +180₴/м²','Хімчистка дивана +2400₴','Духовка +600₴'],
+      'Прибирання після ремонту':['Миття вікон +180₴/м²','Хімчистка дивана +2400₴','Хімчистка матраця +1000₴'],
+      'Клінінг офісів':         ['Миття вікон +180₴/м²','Хімчистка дивана +2400₴'],
     };
-    var DEFAULT_UPSELL = ['Миття вікон +180₴/м²','Духовка +600₴','Холодильник +500₴','Витяжка +500₴','Хімчистка дивана +1200₴','Хімчистка матраця +600₴'];
+    var DEFAULT_UPSELL = ['Миття вікон +180₴/м²','Духовка +600₴','Холодильник +500₴','Витяжка +500₴','Хімчистка дивана +2400₴','Хімчистка матраця +1000₴'];
 
     function renderUpsell(serviceName) {
       var items = UPSELL_BY_SERVICE[serviceName] || DEFAULT_UPSELL;
