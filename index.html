@@ -1377,6 +1377,27 @@
           const areaRow = this.closest('label').querySelector('.area-row');
           if (areaRow) areaRow.classList.toggle('hidden', !this.checked);
           updatePrice();
+
+          // Синхронізуємо з формою знизу
+          const labelText = this.closest('label').querySelector('.flex-1 div')?.textContent?.trim();
+          if (labelText) {
+            document.querySelectorAll('.upsell-check').forEach(uc => {
+              if (uc.dataset.extra && uc.dataset.extra.startsWith(labelText)) {
+                uc.checked = this.checked;
+                const ul = uc.closest('label');
+                if (ul) ul.style.borderColor = this.checked ? '#FFD700' : '';
+              }
+            });
+            // Автоматично відкриваємо "Додати до замовлення" якщо щось вибрано
+            if (this.checked) {
+              const upsellContent = document.querySelector('.upsell-content');
+              const upsellArrow = document.querySelector('.upsell-arrow');
+              if (upsellContent && upsellContent.classList.contains('hidden')) {
+                upsellContent.classList.remove('hidden');
+                if (upsellArrow) upsellArrow.style.transform = 'rotate(180deg)';
+              }
+            }
+          }
         });
         const winInput = cb.closest('label')?.querySelector('.win-area-input');
         if (winInput) winInput.addEventListener('input', updatePrice);
