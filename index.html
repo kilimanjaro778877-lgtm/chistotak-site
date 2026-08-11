@@ -1594,6 +1594,25 @@
     selectService('generalna', false);
     renderCalcExtras(SERVICES['generalna'].name);
 
+    // ─── Facebook Pixel funnel events ────────────────────────────────
+    // ViewContent — користувач долистав до форми
+    if (typeof IntersectionObserver !== 'undefined') {
+      const orderSection = document.getElementById('order');
+      if (orderSection) {
+        const fbObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              if (typeof fbq === 'function') {
+                try { fbq('track', 'ViewContent', { content_name: 'order_form' }); } catch(_) {}
+              }
+              fbObserver.disconnect();
+            }
+          });
+        }, { threshold: 0.3 });
+        fbObserver.observe(orderSection);
+      }
+    }
+
     // ─── Order form ──────────────────────────────────────────────────
     const HANDLER_URL = 'https://cleaning-form-handler-azkl.onrender.com/api/chistotak-order';
 
@@ -1606,8 +1625,12 @@
     const originalText = submitBtn.textContent;
 
     // Re-ping when user focuses any form field (extra insurance)
+    // Contact — користувач почав заповнювати форму
     form.addEventListener('focusin', () => {
       fetch('https://cleaning-form-handler-azkl.onrender.com/health', { method: 'GET' }).catch(() => {});
+      if (typeof fbq === 'function') {
+        try { fbq('track', 'Contact'); } catch(_) {}
+      }
     }, { once: true });
 
     const SUBMIT_KEY = 'chistotak_lastSubmit';
