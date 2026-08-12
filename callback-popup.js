@@ -87,6 +87,9 @@
 
       var data = Object.fromEntries(new FormData(form));
       data.name = 'Зворотний дзвінок (спливаюче вікно)';
+      data.city = /kyiv\.html/i.test(location.pathname) ? 'Київ'
+        : /lviv\.html/i.test(location.pathname) ? 'Львів'
+        : 'Не вказано (спливаюче вікно)';
       data.service = 'Зворотний дзвінок';
       data.page = location.href;
       data.source = 'popup-15s';
