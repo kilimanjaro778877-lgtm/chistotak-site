@@ -312,9 +312,9 @@
           <div>
             <label class="block text-sm font-semibold mb-2 text-zinc-300">Місто</label>
             <select name="city" class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 focus:border-gold-400 outline-none text-zinc-100">
-              <option>Київ</option><option>Солоне</option>
+              <option>Київ</option><option>Львів</option><option>Солоне</option>
             </select>
-          </div>
+          </div><div class="sm:col-span-2"><label class="block text-sm font-semibold mb-2 text-zinc-300">Адреса (вулиця, будинок)</label><input type="text" name="address" required placeholder="напр. вул. Хрещатик, 22" class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 focus:border-gold-400 focus:ring-2 focus:ring-yellow-500/20 outline-none transition text-zinc-100" /></div>
           <div>
             <label class="block text-sm font-semibold mb-2 text-zinc-300">Площа квартири, м²</label><input type="number" name="details" min="20" max="500" placeholder="наприклад, 67" class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 focus:border-gold-400 focus:ring-2 focus:ring-yellow-500/20 outline-none transition text-zinc-100" />
           </div>
@@ -349,8 +349,8 @@
                 <div><div class="text-sm font-semibold text-zinc-100">Хімчистка дивана</div><div class="text-xs text-zinc-400">+1200₴</div></div>
               </label>
               <label class="upsell-item flex items-center gap-3 p-3 rounded-xl border border-zinc-700 bg-zinc-900 cursor-pointer hover:border-green-400 transition">
-                <input type="checkbox" data-extra="Хімчистка матраця +600₴" class="upsell-check w-4 h-4 accent-color:#FFD700">
-                <div><div class="text-sm font-semibold text-zinc-100">Хімчистка матраця</div><div class="text-xs text-zinc-400">+600₴</div></div>
+                <input type="checkbox" data-extra="Хімчистка матраца +600₴" class="upsell-check w-4 h-4 accent-color:#FFD700">
+                <div><div class="text-sm font-semibold text-zinc-100">Хімчистка матраца</div><div class="text-xs text-zinc-400">+600₴</div></div>
               </label>
             </div>
           </div>
@@ -486,5 +486,7 @@
       });
     });
 </script>
+  <script src="../address-autocomplete.js" defer></script>
+  <script src="../callback-popup.js" defer></script>
 </body>
 </html>
