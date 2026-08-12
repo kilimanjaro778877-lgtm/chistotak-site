@@ -71,49 +71,6 @@
       },
     };
   </script>
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Manrope', system-ui, sans-serif; background-color: #0a0a0b; background-image: radial-gradient(rgba(255,215,0,0.05) 1px,transparent 1px); background-size: 26px 26px; color: #f5f0e0; line-height: 1.65; }
-    h1,h2,h3{letter-spacing:-0.02em;color:#f5f0e0;overflow:visible}
-    .gold-gradient-text {
-      background: linear-gradient(135deg, #FFE566 0%, #FFD700 50%, #CC9900 100%);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-      display: inline-block; padding: 0 0.18em 0.35em 0.05em; line-height: 1.4;
-    }
-    input[type=range].calc-slider {
-      -webkit-appearance: none; width: 100%; height: 6px; border-radius: 3px;
-      background: linear-gradient(to right, #FFD700 var(--p, 41%), #2a2a2e var(--p, 41%)); outline: none;
-    }
-    input[type=range].calc-slider::-webkit-slider-thumb {
-      -webkit-appearance: none; appearance: none;
-      width: 26px; height: 26px; border-radius: 50%; background: #FFD700;
-      cursor: pointer; border: 4px solid #ffffff;
-      box-shadow: 0 0 0 2px #FFD700, 0 4px 12px rgba(255,215,0,0.4);
-    }
-    input[type=range].calc-slider::-moz-range-thumb {
-      width: 26px; height: 26px; border-radius: 50%; background: #FFD700;
-      cursor: pointer; border: 4px solid #ffffff;
-      box-shadow: 0 0 0 2px #FFD700, 0 4px 12px rgba(255,215,0,0.4);
-    }
-      .orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);will-change:transform}.orb-1{width:600px;height:600px;background:radial-gradient(circle,rgba(255,215,0,0.12),rgba(255,215,0,0) 70%);top:-150px;right:-100px;animation:od1 16s ease-in-out infinite}.orb-2{width:450px;height:450px;background:radial-gradient(circle,rgba(255,215,0,0.08),rgba(255,215,0,0) 70%);bottom:-120px;left:-80px;animation:od2 20s ease-in-out infinite}
-    @media (prefers-reduced-motion: reduce) {
-      .orb-1, .orb-2 { animation: none; }
-    }
-    @keyframes od1{0%,100%{transform:translate(0,0) scale(1)}35%{transform:translate(-50px,35px) scale(1.08)}70%{transform:translate(35px,-50px) scale(0.94)}}@keyframes od2{0%,100%{transform:translate(0,0) scale(1)}45%{transform:translate(60px,-35px) scale(1.1)}75%{transform:translate(-25px,45px) scale(0.93)}}header,section,footer{position:relative;z-index:1}
-  .btn-3d{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;padding:1rem 1.75rem;font-weight:800;color:#ffffff;background:#CC9900;border-radius:9999px;box-shadow:0 6px 0 #664400,0 14px 28px -8px rgba(204,153,0,0.7),inset 0 1px 0 rgba(255,255,255,0.15),inset 0 -2px 0 rgba(80,60,0,0.5);transform:translateY(0);transition:all 0.15s cubic-bezier(0.34,1.56,0.64,1);cursor:pointer;border:none}.btn-3d:hover{transform:translateY(-2px);box-shadow:0 8px 0 #664400,0 18px 36px -8px rgba(204,153,0,0.8),inset 0 1px 0 rgba(255,255,255,0.25),inset 0 -2px 0 rgba(80,60,0,0.4)}.btn-3d:active{transform:translateY(4px);box-shadow:0 2px 0 #664400,0 4px 8px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.2)}.btn-sm{padding:0.6rem 1.25rem!important}
-  .feat-card{background:#111113;border:1px solid #2a2a2e;border-radius:1rem;padding:1.5rem;transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.2s ease}.feat-card:hover{border-color:rgba(255,215,0,0.45);transform:translateY(-2px);box-shadow:0 0 0 1px rgba(255,215,0,0.15),0 12px 32px -8px rgba(255,215,0,0.12)}
-  
-    .tabular-nums { font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
-  
-    /* ЧистоТак — dark theme override */
-    body { background-color: #0a0a0b !important; color: #f5f0e0 !important; }
-    .bg-white, .bg-gray-50, [class*="bg-white"] { background-color: #111113 !important; }
-    .text-gray-900, .text-gray-800, .text-gray-700 { color: #f5f0e0 !important; }
-    .text-gray-500, .text-gray-400 { color: #a09070 !important; }
-    .border-gray-200, .border-gray-100 { border-color: #2a2a2e !important; }
-    input, select, textarea { background-color: #1a1a1d !important; color: #f5f0e0 !important; border-color: #3a3a3f !important; }
-
-  </style>
 <!-- Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -122,6 +79,7 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "y15hlel1sw");
 </script>
+  <link rel="stylesheet" href="../styles.css" />
 </head>
 <body class="bg-zinc-950 text-zinc-100 antialiased">
   <div aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>

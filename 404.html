@@ -9,28 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Raleway:wght@600;700;800;900&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Manrope','system-ui','sans-serif'],display:['Raleway','system-ui','sans-serif']},colors:{ink:{900:'#0a0a0b',800:'#111113',700:'#1a1a1d',600:'#2a2a2e'},gold:{300:'#FFD700',400:'#FFD700',500:'#CC9900'}}}}}</script>
-  <style>
-    body {
-      font-family: 'Manrope', system-ui, sans-serif;
-      background-color: #0a0a0b;
-      background-image: radial-gradient(rgba(255,215,0,0.05) 1px, transparent 1px);
-      background-size: 26px 26px;
-    }
-    .gold-gradient-text {
-      background: linear-gradient(135deg, #FFD700 0%, #CC9900 50%, #FFD700 100%);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-      display: inline-block; padding: 0 0.15em 0.3em 0.05em; line-height: 1.4;
-    }
-  
-    /* ЧистоТак — dark theme override */
-    body { background-color: #0a0a0b !important; color: #f5f0e0 !important; }
-    .bg-white, .bg-gray-50, [class*="bg-white"] { background-color: #111113 !important; }
-    .text-gray-900, .text-gray-800, .text-gray-700 { color: #f5f0e0 !important; }
-    .text-gray-500, .text-gray-400 { color: #a09070 !important; }
-    .border-gray-200, .border-gray-100 { border-color: #2a2a2e !important; }
-    input, select, textarea { background-color: #1a1a1d !important; color: #f5f0e0 !important; border-color: #3a3a3f !important; }
-
-  </style>
 <!-- Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -39,6 +17,7 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "y15hlel1sw");
 </script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="text-zinc-100 antialiased min-h-screen flex flex-col">
   <header class="border-b border-zinc-700 bg-zinc-900/90 backdrop-blur-lg">
