@@ -59,7 +59,7 @@
       {
         "@type": "Question",
         "name": "Чи входить миття вікон у прибирання?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Ні, миття вікон рахується завжди окремо — від 180 ₴/м² площі вікна."}
+        "acceptedAnswer": {"@type": "Answer", "text": "Ні, миття вікон рахується завжди окремо — від 110 ₴/м² площі вікна."}
       },
       {
         "@type": "Question",
@@ -275,7 +275,7 @@
           </div>
         </div>
         <p id="windows-note" class="mt-6 text-sm text-amber-700 text-center bg-amber-50 border border-amber-200 rounded-xl py-3 px-4">
-          ⚠️ Миття вікон рахується <strong>окремо</strong> — від 180 ₴/м² площі вікна.
+          ⚠️ Миття вікон рахується <strong>окремо</strong> — від 110 ₴/м² площі вікна.
         </p>
       </div>
 
@@ -389,8 +389,8 @@
             <p class="text-xs text-zinc-400 mb-3">Оберіть — додамо до заявки та врахуємо при розрахунку</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <label class="upsell-item flex items-center gap-3 p-3 rounded-xl border border-zinc-700 bg-zinc-800 cursor-pointer hover:border-yellow-600 transition">
-                <input type="checkbox" data-extra="Миття вікон +180₴/м²" class="upsell-check w-4 h-4" style="accent-color:#FFD700">
-                <div><div class="text-sm font-semibold text-zinc-100">Миття вікон</div><div class="text-xs" style="color:#FFD700">+180₴/м²</div></div>
+                <input type="checkbox" data-extra="Миття вікон +110₴/м²" class="upsell-check w-4 h-4" style="accent-color:#FFD700">
+                <div><div class="text-sm font-semibold text-zinc-100">Миття вікон</div><div class="text-xs" style="color:#FFD700">+110₴/м²</div></div>
               </label>
               <label class="upsell-item flex items-center gap-3 p-3 rounded-xl border border-zinc-700 bg-zinc-800 cursor-pointer hover:border-yellow-600 transition">
                 <input type="checkbox" data-extra="Духовка +600₴" class="upsell-check w-4 h-4" style="accent-color:#FFD700">
@@ -853,7 +853,7 @@
             Чи входить миття вікон у прибирання?
             <span class="text-gold-400 transition group-open:rotate-45 text-2xl">+</span>
           </summary>
-          <div class="px-6 pb-6 text-zinc-400"><strong>Ні</strong>, миття вікон рахується завжди окремо — від 180 ₴/м² площі вікна. Виберіть «Миття вікон» у переліку послуг для розрахунку.</div>
+          <div class="px-6 pb-6 text-zinc-400"><strong>Ні</strong>, миття вікон рахується завжди окремо — від 110 ₴/м² площі вікна. Виберіть «Миття вікон» у переліку послуг для розрахунку.</div>
         </details>
         <details class="group bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-2xl overflow-hidden transition">
           <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold list-none" role="button">
@@ -974,14 +974,14 @@
         name: 'Миття вікон',
         icon: '🪟',
         short: 'Скло, рами, підвіконня',
-        priceLabel: 'від 180 ₴/м²',
+        priceLabel: 'від 110 ₴/м²',
         description: 'Миття вікон — зсередини й зовні, без розводів, з очисткою рам і підвіконь. Ціна рахується від загальної площі скла.',
         needsCalc: true,
         unit: 'м²',
         sliderLabel: 'Площа вікон',
         slider: { min: 1, max: 60, default: 8, step: 1, mid: 30 },
         rates: [
-          { max: 9999, rate: 180, min: 800 },
+          { max: 9999, rate: 110, min: 800 },
         ],
         rateNote: 'Точна сума — після фото або огляду бригадира',
         windowsSeparate: false,
@@ -1082,7 +1082,7 @@
             <div class="service-name font-bold text-zinc-100">${s.name}</div>
             <div class="text-xs text-zinc-500 mt-1">${s.short}</div>
             <div class="text-sm font-bold text-gold-600 mt-2">${s.priceLabel}</div>
-            ${s.detailLink ? `<a href="${s.detailLink}" class="inline-flex items-center gap-1 text-xs text-gold-400/70 hover:text-gold-400 mt-2 font-semibold transition px-2.5 py-1 rounded-full border border-gold-400/20 hover:border-gold-400/50 bg-gold-400/5 hover:bg-gold-400/10" onclick="event.stopPropagation()">Детальніше <svg class='w-3 h-3' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M9 5l7 7-7 7'/></svg></a>` : ''}
+            ${s.detailLink ? `<a href="${s.detailLink}" class="inline-flex items-center gap-1.5 text-xs text-zinc-900 mt-3 font-bold transition px-3 py-1.5 rounded-full bg-gold-400 hover:bg-gold-300 shadow-md shadow-gold-400/25 hover:shadow-gold-400/40 hover:-translate-y-0.5" onclick="event.stopPropagation()">Що входить у послугу <svg class='w-3 h-3' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M9 5l7 7-7 7'/></svg></a>` : ''}
           </div>
         </div>
       `;
@@ -1139,7 +1139,7 @@
     // Calc extras config
     const CALC_EXTRAS = {
       'Підтримуюче прибирання': [
-        { id:'vikna',   label:'Миття вікон',      price:0,    perSqm:180, hasArea:true  },
+        { id:'vikna',   label:'Миття вікон',      price:0,    perSqm:110, hasArea:true  },
         { id:'duhov',   label:'Духовка',           price:600,  perSqm:0,   hasArea:false },
         { id:'holod',   label:'Холодильник',       price:500,  perSqm:0,   hasArea:false },
         { id:'vytazh',  label:'Витяжка',           price:500,  perSqm:0,   hasArea:false },
@@ -1147,7 +1147,7 @@
         { id:'matrats', label:'Хімчистка матраца', price:1000,  perSqm:0,   hasArea:false },
       ],
       'Генеральне прибирання': [
-        { id:'vikna',   label:'Миття вікон',      price:0,    perSqm:180, hasArea:true  },
+        { id:'vikna',   label:'Миття вікон',      price:0,    perSqm:110, hasArea:true  },
         { id:'dyvan',   label:'Хімчистка дивана', price:2400, perSqm:0,   hasArea:false },
         { id:'matrats', label:'Хімчистка матраца',price:1000,  perSqm:0,   hasArea:false },
       ],
@@ -1159,7 +1159,7 @@
         { id:'matrats', label:'Хімчистка матраца',price:1000,  perSqm:0,   hasArea:false },
       ],
       'Прибирання після ремонту': [
-        { id:'vikna',   label:'Миття вікон',      price:0,    perSqm:180, hasArea:true  },
+        { id:'vikna',   label:'Миття вікон',      price:0,    perSqm:110, hasArea:true  },
         { id:'duhov',   label:'Духовка',           price:600,  perSqm:0,   hasArea:false },
         { id:'holod',   label:'Холодильник',       price:500,  perSqm:0,   hasArea:false },
         { id:'vytazh',  label:'Витяжка',           price:500,  perSqm:0,   hasArea:false },
@@ -1589,17 +1589,17 @@
 
     // Dynamic upsell based on selected service
     var UPSELL_BY_SERVICE = {
-      'Підтримуюче прибирання': ['Духовка +600₴','Холодильник +500₴','Витяжка +500₴','Миття вікон +180₴/м²','Хімчистка дивана +2400₴','Хімчистка матраца +1000₴'],
-      'Генеральне прибирання':  ['Миття вікон +180₴/м²','Хімчистка дивана +2400₴','Хімчистка матраца +1000₴'],
-      'Хімчистка диванів':      ['Крісло +400₴','Хімчистка матраца +1000₴','Миття вікон +180₴/м²'],
-      'Хімчистка матраців':     ['Хімчистка дивана +2400₴','Крісло +400₴','Миття вікон +180₴/м²'],
+      'Підтримуюче прибирання': ['Духовка +600₴','Холодильник +500₴','Витяжка +500₴','Миття вікон +110₴/м²','Хімчистка дивана +2400₴','Хімчистка матраца +1000₴'],
+      'Генеральне прибирання':  ['Миття вікон +110₴/м²','Хімчистка дивана +2400₴','Хімчистка матраца +1000₴'],
+      'Хімчистка диванів':      ['Крісло +400₴','Хімчистка матраца +1000₴','Миття вікон +110₴/м²'],
+      'Хімчистка матраців':     ['Хімчистка дивана +2400₴','Крісло +400₴','Миття вікон +110₴/м²'],
       'Миття вікон':            ['Духовка +600₴','Холодильник +500₴','Витяжка +500₴','Хімчистка дивана +2400₴','Хімчистка матраца +1000₴'],
-      'Прибирання кухні':       ['Хімчистка дивана +2400₴','Хімчистка матраца +1000₴','Миття вікон +180₴/м²'],
-      'Прибирання ванної':      ['Миття вікон +180₴/м²','Хімчистка дивана +2400₴','Духовка +600₴'],
-      'Прибирання після ремонту':['Миття вікон +180₴/м²','Духовка +600₴','Холодильник +500₴','Витяжка +500₴','Хімчистка дивана +2400₴','Хімчистка матраца +1000₴'],
-      'Клінінг офісів':         ['Миття вікон +180₴/м²','Хімчистка дивана +2400₴'],
+      'Прибирання кухні':       ['Хімчистка дивана +2400₴','Хімчистка матраца +1000₴','Миття вікон +110₴/м²'],
+      'Прибирання ванної':      ['Миття вікон +110₴/м²','Хімчистка дивана +2400₴','Духовка +600₴'],
+      'Прибирання після ремонту':['Миття вікон +110₴/м²','Духовка +600₴','Холодильник +500₴','Витяжка +500₴','Хімчистка дивана +2400₴','Хімчистка матраца +1000₴'],
+      'Клінінг офісів':         ['Миття вікон +110₴/м²','Хімчистка дивана +2400₴'],
     };
-    var DEFAULT_UPSELL = ['Миття вікон +180₴/м²','Духовка +600₴','Холодильник +500₴','Витяжка +500₴','Хімчистка дивана +2400₴','Хімчистка матраца +1000₴'];
+    var DEFAULT_UPSELL = ['Миття вікон +110₴/м²','Духовка +600₴','Холодильник +500₴','Витяжка +500₴','Хімчистка дивана +2400₴','Хімчистка матраца +1000₴'];
 
     window.renderUpsell = renderUpsell;
     function renderUpsell(serviceName) {
