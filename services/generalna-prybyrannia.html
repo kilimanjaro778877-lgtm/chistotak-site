@@ -437,6 +437,7 @@
         localStorage.setItem(SUBMIT_KEY, Date.now().toString());
         if (typeof ttq !== 'undefined') { try { ttq.track('SubmitForm', { content_type: 'lead', content_name: data.service || 'cleaning_order' }); } catch(_) {} }
         if (typeof gtag === 'function') { try { gtag('event', 'generate_lead', { service: data.service }); } catch(_) {} }
+        if (typeof gtag === 'function') { try { gtag('event', 'conversion', { send_to: 'AW-18383404362/oncCCMnI2-AcEMr68b1E' }); } catch(_) {} }
         submitBtn.textContent = '✅ Заявку прийнято! Передзвонимо.';
         submitBtn.style.background='#059669';
         
