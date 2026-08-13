@@ -97,7 +97,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Raleway:wght@700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Raleway:wght@700;800;900&display=swap" /></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Sora:wght@400;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Sora:wght@400;600;700;800&display=swap" /></noscript>
 <!-- Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18383404362"></script>
@@ -237,11 +237,11 @@
             <div class="flex items-baseline gap-3">
               <span class="text-sm text-zinc-400" id="calc-label">Площа квартири:</span>
               <span id="area-value" class="font-sans text-5xl font-extrabold text-zinc-100 tabular-nums">60</span>
-              <span class="text-xl text-zinc-500 font-medium" id="calc-unit">м²</span>
+              <span class="text-xl text-zinc-400 font-medium" id="calc-unit">м²</span>
             </div>
             <div class="mt-8">
               <input id="area-slider" type="range" min="30" max="200" value="60" step="1" class="calc-slider" />
-              <div class="flex justify-between text-xs text-zinc-500 mt-3">
+              <div class="flex justify-between text-xs text-zinc-400 mt-3">
                 <span id="slider-min">30 м²</span>
                 <span id="slider-mid">100 м²</span>
                 <span id="slider-max">200 м²</span>
@@ -252,7 +252,7 @@
             </div>
             <!-- Додаткові послуги в калькуляторі -->
             <div class="mt-5" id="calc-extras-block">
-              <div class="text-xs text-zinc-500 uppercase tracking-wider mb-2 font-semibold">Додати до прибирання:</div>
+              <div class="text-xs text-zinc-400 uppercase tracking-wider mb-2 font-semibold">Додати до прибирання:</div>
               <div class="flex flex-col gap-2" id="calc-extras-list">
                 <!-- dynamic -->
               </div>
@@ -265,13 +265,13 @@
               <div class="text-sm uppercase tracking-wider text-gold-400 font-bold">Орієнтовна вартість</div>
               <div class="mt-3 flex items-baseline justify-center gap-2">
                 <span class="font-sans text-5xl font-extrabold text-zinc-100 tabular-nums" id="price-value">3 000</span>
-                <span class="text-xl font-medium text-zinc-500">₴</span>
+                <span class="text-xl font-medium text-zinc-400">₴</span>
               </div>
-              <p id="price-note" class="mt-3 text-sm text-zinc-500">від 50 ₴/м²</p>
+              <p id="price-note" class="mt-3 text-sm text-zinc-400">від 50 ₴/м²</p>
               <a href="#order" class="btn-3d mt-6 w-full">
                 Замовити за цю ціну
               </a>
-              <p class="mt-3 text-xs text-zinc-500">Точну суму погодимо після короткого дзвінка</p>
+              <p class="mt-3 text-xs text-zinc-400">Точну суму погодимо після короткого дзвінка</p>
             </div>
           </div>
         </div>
@@ -307,9 +307,9 @@
               <div class="text-sm uppercase tracking-wider text-gold-400 font-bold">Вартість</div>
               <div class="mt-3 flex items-baseline justify-center gap-2">
                 <span class="font-sans text-5xl font-extrabold text-zinc-100 tabular-nums" id="options-price">1 200</span>
-                <span class="text-xl font-medium text-zinc-500">₴</span>
+                <span class="text-xl font-medium text-zinc-400">₴</span>
               </div>
-              <p class="mt-3 text-sm text-zinc-500" id="options-note">Точну суму погодимо після короткого дзвінка</p>
+              <p class="mt-3 text-sm text-zinc-400" id="options-note">Точну суму погодимо після короткого дзвінка</p>
               <a href="#order" class="btn-3d mt-6 w-full">Замовити за цю ціну</a>
             </div>
           </div>
@@ -335,14 +335,14 @@
         <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true" />
         <!-- ORDER SUMMARY -->
         <div id="order-summary" class="mb-6 p-4 rounded-2xl border border-zinc-600 bg-zinc-800/60">
-          <div class="text-xs text-zinc-500 uppercase tracking-wider mb-3 font-semibold">📋 Ваш вибір</div>
+          <div class="text-xs text-zinc-400 uppercase tracking-wider mb-3 font-semibold">📋 Ваш вибір</div>
           <div class="flex items-center justify-between">
             <span class="text-sm font-semibold text-zinc-100" id="sum-service">Генеральне прибирання</span>
             <span class="text-sm text-zinc-400" id="sum-area"></span>
           </div>
           <div id="sum-extras" class="mt-2 space-y-1"></div>
           <div class="mt-3 pt-3 border-t border-zinc-700 flex items-center justify-between">
-            <span class="text-xs text-zinc-500">Орієнтовна вартість</span>
+            <span class="text-xs text-zinc-400">Орієнтовна вартість</span>
             <span class="text-lg font-extrabold" style="color:#FFD700" id="sum-total">—</span>
           </div>
         </div>
@@ -419,7 +419,7 @@
         <button type="submit" class="btn-3d mt-6 w-full text-lg">
           Замовити прибирання
         </button>
-        <p class="mt-3 text-xs text-zinc-500 text-center">
+        <p class="mt-3 text-xs text-zinc-400 text-center">
           Натискаючи кнопку, ви погоджуєтесь з обробкою персональних даних
         </p>
       </form>
@@ -673,7 +673,7 @@
           <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Після ремонту все було сіре від пилу. За 6 годин — квартира блищить. Чесна ціна, без жодних доплат."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=1" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-zinc-200">Олена К.</div><div class="text-xs text-zinc-500">Київ, Печерськ</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Олена К.</div><div class="text-xs text-zinc-400">Київ, Печерськ</div></div>
           </div>
         </div>
 
@@ -682,7 +682,7 @@
           <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Вікна мили 4 роки — ніколи такої чистоти не бачив. Без смуг, без крапель. Ціна адекватна."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=33" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-zinc-200">Сергій М.</div><div class="text-xs text-zinc-500">Київ, Оболонь</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Сергій М.</div><div class="text-xs text-zinc-400">Київ, Оболонь</div></div>
           </div>
         </div>
 
@@ -691,7 +691,7 @@
           <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Духовка після 3 років — думав, доведеться міняти. ЧистоТак відмили до блиску за 2 години."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=68" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-zinc-200">Дмитро Х.</div><div class="text-xs text-zinc-500">Київ, Позняки</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Дмитро Х.</div><div class="text-xs text-zinc-400">Київ, Позняки</div></div>
           </div>
         </div>
 
@@ -700,7 +700,7 @@
           <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Після ремонту все було сіре від пилу. За 6 годин — квартира блищить. Чесна ціна, без жодних доплат."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=1" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-zinc-200">Олена К.</div><div class="text-xs text-zinc-500">Київ, Печерськ</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Олена К.</div><div class="text-xs text-zinc-400">Київ, Печерськ</div></div>
           </div>
         </div>
 
@@ -709,7 +709,7 @@
           <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Вікна мили 4 роки — ніколи такої чистоти не бачив. Без смуг, без крапель. Ціна адекватна."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=33" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-zinc-200">Сергій М.</div><div class="text-xs text-zinc-500">Київ, Оболонь</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Сергій М.</div><div class="text-xs text-zinc-400">Київ, Оболонь</div></div>
           </div>
         </div>
 
@@ -718,7 +718,7 @@
           <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Духовка після 3 років — думав, доведеться міняти. ЧистоТак відмили до блиску за 2 години."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=68" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-zinc-200">Дмитро Х.</div><div class="text-xs text-zinc-500">Київ, Позняки</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Дмитро Х.</div><div class="text-xs text-zinc-400">Київ, Позняки</div></div>
           </div>
         </div>
 
@@ -727,7 +727,7 @@
           <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Після ремонту все було сіре від пилу. За 6 годин — квартира блищить. Чесна ціна, без жодних доплат."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=1" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-zinc-200">Олена К.</div><div class="text-xs text-zinc-500">Київ, Печерськ</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Олена К.</div><div class="text-xs text-zinc-400">Київ, Печерськ</div></div>
           </div>
         </div>
 
@@ -736,7 +736,7 @@
           <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Вікна мили 4 роки — ніколи такої чистоти не бачив. Без смуг, без крапель. Ціна адекватна."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=33" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-zinc-200">Сергій М.</div><div class="text-xs text-zinc-500">Київ, Оболонь</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Сергій М.</div><div class="text-xs text-zinc-400">Київ, Оболонь</div></div>
           </div>
         </div>
 
@@ -745,7 +745,7 @@
           <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Духовка після 3 років — думав, доведеться міняти. ЧистоТак відмили до блиску за 2 години."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=68" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-zinc-200">Дмитро Х.</div><div class="text-xs text-zinc-500">Київ, Позняки</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Дмитро Х.</div><div class="text-xs text-zinc-400">Київ, Позняки</div></div>
           </div>
         </div>
 
@@ -755,7 +755,7 @@
           <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Після ремонту все було сіре від пилу. За 6 годин — квартира блищить. Чесна ціна, без жодних доплат."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=1" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-zinc-200">Олена К.</div><div class="text-xs text-zinc-500">Київ, Печерськ</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Олена К.</div><div class="text-xs text-zinc-400">Київ, Печерськ</div></div>
           </div>
         </div>
         <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
@@ -763,7 +763,7 @@
           <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Вікна мили 4 роки — ніколи такої чистоти не бачив. Без смуг, без крапель. Ціна адекватна."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=33" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-zinc-200">Сергій М.</div><div class="text-xs text-zinc-500">Київ, Оболонь</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Сергій М.</div><div class="text-xs text-zinc-400">Київ, Оболонь</div></div>
           </div>
         </div>
         <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
@@ -771,7 +771,7 @@
           <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Духовка після 3 років — думав, доведеться міняти. ЧистоТак відмили до блиску за 2 години."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=68" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-zinc-200">Дмитро Х.</div><div class="text-xs text-zinc-500">Київ, Позняки</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Дмитро Х.</div><div class="text-xs text-zinc-400">Київ, Позняки</div></div>
           </div>
         </div>
         <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
@@ -779,7 +779,7 @@
           <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Після ремонту все було сіре від пилу. За 6 годин — квартира блищить. Чесна ціна, без жодних доплат."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=1" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-zinc-200">Олена К.</div><div class="text-xs text-zinc-500">Київ, Печерськ</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Олена К.</div><div class="text-xs text-zinc-400">Київ, Печерськ</div></div>
           </div>
         </div>
         <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
@@ -787,7 +787,7 @@
           <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Вікна мили 4 роки — ніколи такої чистоти не бачив. Без смуг, без крапель. Ціна адекватна."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=33" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-zinc-200">Сергій М.</div><div class="text-xs text-zinc-500">Київ, Оболонь</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Сергій М.</div><div class="text-xs text-zinc-400">Київ, Оболонь</div></div>
           </div>
         </div>
         <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
@@ -795,7 +795,7 @@
           <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Духовка після 3 років — думав, доведеться міняти. ЧистоТак відмили до блиску за 2 години."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=68" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-zinc-200">Дмитро Х.</div><div class="text-xs text-zinc-500">Київ, Позняки</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Дмитро Х.</div><div class="text-xs text-zinc-400">Київ, Позняки</div></div>
           </div>
         </div>
         <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
@@ -803,7 +803,7 @@
           <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Після ремонту все було сіре від пилу. За 6 годин — квартира блищить. Чесна ціна, без жодних доплат."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=1" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-zinc-200">Олена К.</div><div class="text-xs text-zinc-500">Київ, Печерськ</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Олена К.</div><div class="text-xs text-zinc-400">Київ, Печерськ</div></div>
           </div>
         </div>
         <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
@@ -811,7 +811,7 @@
           <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Вікна мили 4 роки — ніколи такої чистоти не бачив. Без смуг, без крапель. Ціна адекватна."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=33" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-zinc-200">Сергій М.</div><div class="text-xs text-zinc-500">Київ, Оболонь</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Сергій М.</div><div class="text-xs text-zinc-400">Київ, Оболонь</div></div>
           </div>
         </div>
         <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-80 shrink-0">
@@ -819,7 +819,7 @@
           <p class="mt-3 text-zinc-300 text-sm leading-relaxed">"Духовка після 3 років — думав, доведеться міняти. ЧистоТак відмили до блиску за 2 години."</p>
           <div class="mt-5 flex items-center gap-3">
             <img loading="lazy" src="https://i.pravatar.cc/80?img=68" alt="" class="w-10 h-10 rounded-full object-cover" />
-            <div><div class="font-semibold text-sm text-zinc-200">Дмитро Х.</div><div class="text-xs text-zinc-500">Київ, Позняки</div></div>
+            <div><div class="font-semibold text-sm text-zinc-200">Дмитро Х.</div><div class="text-xs text-zinc-400">Київ, Позняки</div></div>
           </div>
         </div>
 
@@ -828,10 +828,10 @@
 
     <div class="mt-14 max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex flex-wrap justify-center gap-10 items-center">
-        <div class="text-center"><div class="font-sans text-4xl font-black text-gold-400 tabular-nums">4.9 ★</div><div class="text-xs mt-1 text-zinc-500">Відгуки на Google</div></div>
-        <div class="text-center"><div class="font-sans text-4xl font-black text-gold-400 tabular-nums">5.0 ★</div><div class="text-xs mt-1 text-zinc-500">Відгуки на Facebook</div></div>
-        <div class="text-center"><div class="font-sans text-4xl font-black text-gold-400 tabular-nums">98%</div><div class="text-xs mt-1 text-zinc-500">Повертаються знову</div></div>
-        <div class="text-center"><div class="font-sans text-4xl font-black text-gold-400 tabular-nums">12k+</div><div class="text-xs mt-1 text-zinc-500">Виконаних замовлень</div></div>
+        <div class="text-center"><div class="font-sans text-4xl font-black text-gold-400 tabular-nums">4.9 ★</div><div class="text-xs mt-1 text-zinc-400">Відгуки на Google</div></div>
+        <div class="text-center"><div class="font-sans text-4xl font-black text-gold-400 tabular-nums">5.0 ★</div><div class="text-xs mt-1 text-zinc-400">Відгуки на Facebook</div></div>
+        <div class="text-center"><div class="font-sans text-4xl font-black text-gold-400 tabular-nums">98%</div><div class="text-xs mt-1 text-zinc-400">Повертаються знову</div></div>
+        <div class="text-center"><div class="font-sans text-4xl font-black text-gold-400 tabular-nums">12k+</div><div class="text-xs mt-1 text-zinc-400">Виконаних замовлень</div></div>
       </div>
     </div>
   </section>
@@ -882,7 +882,7 @@
   </section>
 
   <!-- ─── FOOTER ──────────────────────────────── -->
-  <footer class="bg-zinc-900 border-t border-zinc-700 text-zinc-500 py-16">
+  <footer class="bg-zinc-900 border-t border-zinc-700 text-zinc-400 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid md:grid-cols-4 gap-10">
         <div class="md:col-span-2">
@@ -1081,7 +1081,7 @@
           <div class="icon-3d shrink-0">${s.icon}</div>
           <div class="flex-1 min-w-0">
             <div class="service-name font-bold text-zinc-100">${s.name}</div>
-            <div class="text-xs text-zinc-500 mt-1">${s.short}</div>
+            <div class="text-xs text-zinc-400 mt-1">${s.short}</div>
             <div class="text-sm font-bold text-gold-600 mt-2">${s.priceLabel}</div>
             ${s.detailLink ? `<a href="${s.detailLink}" class="inline-flex items-center gap-1.5 text-xs text-zinc-900 mt-3 font-bold transition px-3 py-1.5 rounded-full bg-gold-400 hover:bg-gold-300 shadow-md shadow-gold-400/25 hover:shadow-gold-400/40 hover:-translate-y-0.5" onclick="event.stopPropagation()">Що входить у послугу <svg class='w-3 h-3' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M9 5l7 7-7 7'/></svg></a>` : ''}
           </div>
