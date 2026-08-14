@@ -310,4 +310,10 @@
     <loc>https://chisto-tak.com.ua/blog/zhovtyzna-vanny.html</loc>
     <lastmod>2026-04-20</lastmod>
   </url>
+  <url>
+    <loc>https://chisto-tak.com.ua/blog/pidgotovka-do-opalyuvalnoho-sezonu.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
