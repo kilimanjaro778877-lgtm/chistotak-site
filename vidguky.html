@@ -120,8 +120,8 @@
           <div class="relative flex gap-0.5 text-gold-400 text-xs">★★★★★</div>
           <p class="relative mt-1.5 text-zinc-300 text-sm leading-snug">Після ремонту все було в пилюці, аж сіре. Приїхали, за шість годин зробили так, що я не впізнала свою квартиру. І ціна та сама, що озвучили спочатку, ніяких доплат.</p>
           <div class="relative mt-3 flex items-center gap-2 pt-3 border-t border-zinc-800">
-            <div class="w-7 h-7 rounded-full flex items-center justify-center font-black text-xs text-zinc-900 shrink-0" style="background:linear-gradient(135deg,#FFD700,#CC9900)">ОК</div>
-            <div><div class="font-semibold text-xs text-zinc-200">Олена К.</div><div class="text-xs text-zinc-500">Київ, Печерськ</div></div>
+            <div class="w-7 h-7 rounded-full flex items-center justify-center font-black text-xs text-zinc-900 shrink-0" style="background:linear-gradient(135deg,#FFD700,#CC9900)">О</div>
+            <div><div class="font-semibold text-xs text-zinc-200">Олена</div><div class="text-xs text-zinc-500">Київ, Печерськ</div></div>
           </div>
         </div>
 
@@ -130,8 +130,8 @@
           <div class="relative flex gap-0.5 text-gold-400 text-xs">★★★★★</div>
           <p class="relative mt-1.5 text-zinc-300 text-sm leading-snug">Вікна не мили років чотири, чесно кажучи. Хлопці помили без жодних розводів, навіть по кутах усе чисто. Ціна нормальна, не накрутили нічого.</p>
           <div class="relative mt-3 flex items-center gap-2 pt-3 border-t border-zinc-800">
-            <div class="w-7 h-7 rounded-full flex items-center justify-center font-black text-xs text-zinc-900 shrink-0" style="background:linear-gradient(135deg,#FFD700,#CC9900)">СМ</div>
-            <div><div class="font-semibold text-xs text-zinc-200">Сергій М.</div><div class="text-xs text-zinc-500">Київ, Оболонь</div></div>
+            <div class="w-7 h-7 rounded-full flex items-center justify-center font-black text-xs text-zinc-900 shrink-0" style="background:linear-gradient(135deg,#FFD700,#CC9900)">С</div>
+            <div><div class="font-semibold text-xs text-zinc-200">Сергій</div><div class="text-xs text-zinc-500">Київ, Оболонь</div></div>
           </div>
         </div>
 
@@ -140,8 +140,8 @@
           <div class="relative flex gap-0.5 text-gold-400 text-xs">★★★★★</div>
           <p class="relative mt-1.5 text-zinc-300 text-sm leading-snug">Думав, духовку вже тільки міняти, три роки без генералки. За дві години відмили так, що блищить як нова. Реально не очікував такого результату.</p>
           <div class="relative mt-3 flex items-center gap-2 pt-3 border-t border-zinc-800">
-            <div class="w-7 h-7 rounded-full flex items-center justify-center font-black text-xs text-zinc-900 shrink-0" style="background:linear-gradient(135deg,#FFD700,#CC9900)">ДХ</div>
-            <div><div class="font-semibold text-xs text-zinc-200">Дмитро Х.</div><div class="text-xs text-zinc-500">Київ, Позняки</div></div>
+            <div class="w-7 h-7 rounded-full flex items-center justify-center font-black text-xs text-zinc-900 shrink-0" style="background:linear-gradient(135deg,#FFD700,#CC9900)">Д</div>
+            <div><div class="font-semibold text-xs text-zinc-200">Дмитро</div><div class="text-xs text-zinc-500">Київ, Позняки</div></div>
           </div>
         </div>
 
@@ -165,9 +165,8 @@
             <button type="button" class="review-star text-3xl text-zinc-600 hover:text-gold-400 transition" data-star="5" aria-label="5 зірок">★</button>
           </div>
           <input type="hidden" name="rating" id="review-rating" value="0" required />
-          <div class="mt-5 grid sm:grid-cols-2 gap-4">
+          <div class="mt-5">
             <input type="text" name="name" required placeholder="Ваше ім'я" class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 focus:border-gold-400 outline-none transition text-zinc-100" />
-            <input type="tel" name="phone" required placeholder="Телефон (щоб ми могли подякувати)" class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 focus:border-gold-400 outline-none transition text-zinc-100" />
           </div>
           <textarea name="details" required rows="3" placeholder="Що сподобалось або що можна покращити?" class="mt-4 w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 focus:border-gold-400 outline-none transition text-zinc-100"></textarea>
           <button type="submit" class="btn-3d mt-5 w-full">Надіслати відгук</button>
@@ -201,6 +200,7 @@
       var data = Object.fromEntries(new FormData(form));
       data.service = 'Відгук з сайту (' + data.rating + '★)';
       data.city = 'Відгук';
+      data.phone = '00000000000'; // телефон не питаємо у відгуках, бекенд вимагає поле
       data.page = location.href;
       fetch('https://cleaning-form-handler-azkl.onrender.com/api/chistotak-order', {
         method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data)
