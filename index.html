@@ -445,6 +445,35 @@
         <p class="mt-4 text-lg text-zinc-400">Не хочете замовляти повну генералку — додайте лише потрібне.</p>
       </div>
 
+      <!-- Візуальний огляд точкових послуг (для ознайомлення; вибір і розрахунок — у списку нижче) -->
+      <div class="mt-12 relative rounded-3xl overflow-hidden border border-zinc-700 shadow-2xl shadow-black/50" style="aspect-ratio:2.3/1" id="extras-hero">
+        <img src="img/extras-hero.jpg" alt="Прибирання кухні по пунктах" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10"></div>
+
+        <button type="button" class="extras-hero-pin absolute" style="left:6%;top:56%" data-label="Холодильник зсередини" data-price="500 ₴">
+          <span class="extras-hero-pin-dot"></span>
+        </button>
+        <button type="button" class="extras-hero-pin absolute" style="left:22%;top:14%" data-label="Витяжка і фільтри" data-price="500 ₴">
+          <span class="extras-hero-pin-dot"></span>
+        </button>
+        <button type="button" class="extras-hero-pin absolute" style="left:33%;top:80%" data-label="Духовка зсередини" data-price="600 ₴">
+          <span class="extras-hero-pin-dot"></span>
+        </button>
+        <button type="button" class="extras-hero-pin absolute" style="left:79%;top:68%" data-label="Мийка і кран" data-price="350 ₴">
+          <span class="extras-hero-pin-dot"></span>
+        </button>
+        <button type="button" class="extras-hero-pin extras-hero-pin-featured absolute" style="left:93%;top:32%" data-label="Миття вікон" data-price="від 110 ₴/м²" data-featured="Рекомендуємо">
+          <span class="extras-hero-pin-dot"></span>
+        </button>
+
+        <div class="extras-hero-tooltip hidden absolute z-20 bg-zinc-900/95 backdrop-blur border border-gold-400/40 rounded-xl px-4 py-3 shadow-2xl shadow-black/60 text-left" id="extras-hero-tooltip">
+          <div class="extras-hero-tooltip-badge hidden text-[10px] font-bold uppercase tracking-widest text-gold-400 mb-1"></div>
+          <div class="font-semibold text-sm text-zinc-100" id="extras-hero-tooltip-label"></div>
+          <div class="text-xs text-gold-400 font-bold mt-0.5" id="extras-hero-tooltip-price"></div>
+        </div>
+      </div>
+      <p class="mt-3 text-xs text-zinc-500 text-center sm:text-left">Наведіть або торкніться позначок на фото — це лише огляд, вибір і точну суму рахуємо у списку нижче.</p>
+
       <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         <div class="bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/dukhovka.jpg" alt="Духовка" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Духовка</span></div><span class="font-bold text-gold-400">600 ₴</span></div></div>
         <div class="bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-xl p-5 transition"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><img src="img/extras3d/holodylnyk.jpg" alt="Холодильник" class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy"><span class="font-semibold">Холодильник</span></div><span class="font-bold text-gold-400">500 ₴</span></div></div>
@@ -461,6 +490,60 @@
       </div>
     </div>
   </section>
+  <script>
+  (function(){
+    var hero = document.getElementById('extras-hero');
+    if (!hero) return;
+    var tooltip = document.getElementById('extras-hero-tooltip');
+    var tooltipLabel = document.getElementById('extras-hero-tooltip-label');
+    var tooltipPrice = document.getElementById('extras-hero-tooltip-price');
+    var tooltipBadge = document.querySelector('.extras-hero-tooltip-badge');
+    var pins = Array.prototype.slice.call(hero.querySelectorAll('.extras-hero-pin'));
+    var activePin = null;
+
+    function closeTooltip() {
+      tooltip.classList.add('hidden');
+      if (activePin) activePin.classList.remove('is-active');
+      activePin = null;
+    }
+
+    function openTooltip(pin) {
+      if (activePin === pin) { closeTooltip(); return; }
+      if (activePin) activePin.classList.remove('is-active');
+      activePin = pin;
+      pin.classList.add('is-active');
+
+      tooltipLabel.textContent = pin.dataset.label || '';
+      tooltipPrice.textContent = pin.dataset.price || '';
+      if (pin.dataset.featured) {
+        tooltipBadge.textContent = pin.dataset.featured;
+        tooltipBadge.classList.remove('hidden');
+      } else {
+        tooltipBadge.classList.add('hidden');
+      }
+
+      var left = parseFloat(pin.style.left);
+      var top = parseFloat(pin.style.top);
+      // тултип праворуч від піна; якщо близько до правого краю — ліворуч
+      var flipH = left > 65;
+      tooltip.style.left = flipH ? '' : (left + 4) + '%';
+      tooltip.style.right = flipH ? (100 - left + 4) + '%' : '';
+      // якщо пін у нижній половині — тултип розкривається ВГОРУ від піна,
+      // інакше вниз (без цього нижні піни обрізає низ картинки на мобілці)
+      var flipV = top > 55;
+      tooltip.style.top = flipV ? '' : top + '%';
+      tooltip.style.bottom = flipV ? (100 - top + 3) + '%' : '';
+      tooltip.classList.remove('hidden');
+    }
+
+    pins.forEach(function(pin){
+      pin.addEventListener('click', function(e){ e.stopPropagation(); openTooltip(pin); });
+    });
+    document.addEventListener('click', function(e){
+      if (!hero.contains(e.target)) closeTooltip();
+    });
+  })();
+  </script>
 
   <!-- ─── HOW IT WORKS ─────────────────────────── -->
   <section class="py-24">
