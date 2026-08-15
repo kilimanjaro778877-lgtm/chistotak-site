@@ -285,7 +285,7 @@
       <div id="fixed-block" class="mt-10 hidden">
         <div class="bg-zinc-900 border-2 border-yellow-600/50 rounded-3xl p-8 sm:p-12 text-center max-w-xl mx-auto shadow-lg shadow-yellow-900">
           <div class="text-sm uppercase tracking-wider text-gold-600 font-bold">Вартість послуги</div>
-          <div class="mt-3 font-display text-5xl sm:text-6xl font-black text-zinc-100" id="fixed-price">від 1 200 ₴</div>
+          <div class="mt-3 font-display text-3xl sm:text-6xl font-black text-zinc-100 break-words" id="fixed-price">від 1 200 ₴</div>
           <p class="mt-3 text-sm text-zinc-400" id="fixed-note">Точну суму погодимо після огляду</p>
           <a href="#order" class="btn-3d mt-8" style="border-radius: 0.75rem">
             Замовити цю послугу
@@ -899,9 +899,18 @@
         short: 'Духовка, плита, шафки',
         priceLabel: 'від 260 ₴/м²',
         description: 'Глибока чистка кухні: духовка, плита, витяжка, шафки зсередини. Жир йде з першого разу.',
-        needsCalc: false,
-        fixedPrice: 'від 260 ₴/м²',
-        fixedNote: 'до 6м² 260 ₴/м² · до 10м² 200 ₴/м² · до 20м² 160 ₴/м²',
+        needsCalc: true,
+        unit: 'м²',
+        sliderLabel: 'Площа кухні',
+        slider: { min: 4, max: 25, default: 8, step: 1, mid: 15 },
+        rates: [
+          { max: 6,  rate: 260 },
+          { max: 10, rate: 200 },
+          { max: 20, rate: 160 },
+        ],
+        rateNote: 'Точна сума — після фото або огляду бригадира',
+        windowsSeparate: true,
+        quickButtons: [6, 10, 15],
         detailLink: 'services/prybyrannia-kukhni.html',
       },
       vannoi: {
@@ -910,9 +919,18 @@
         short: 'Вапняк, плитка, шви',
         priceLabel: 'від 200 ₴/м²',
         description: 'Прибирання ванної з усією важкою артилерією: вапняний наліт, плитка, шви, душова кабіна. Як після капремонту.',
-        needsCalc: false,
-        fixedPrice: 'від 200 ₴/м²',
-        fixedNote: 'до 5м² 200 ₴/м² · до 10м² 150 ₴/м² · до 20м² 120 ₴/м² (зі швами)',
+        needsCalc: true,
+        unit: 'м²',
+        sliderLabel: 'Площа ванної',
+        slider: { min: 3, max: 20, default: 5, step: 1, mid: 10 },
+        rates: [
+          { max: 5,  rate: 200 },
+          { max: 10, rate: 150 },
+          { max: 20, rate: 120 },
+        ],
+        rateNote: 'Точна сума — після фото або огляду бригадира; вказана з чисткою міжплиткових швів',
+        windowsSeparate: true,
+        quickButtons: [5, 10, 15],
         detailLink: 'services/prybyrannia-vannoi.html',
       },
       pislya_remontu: {

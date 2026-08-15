@@ -177,6 +177,8 @@
   </section>
   <script>
   (function(){
+    var API_BASE = 'https://cleaning-form-handler-azkl.onrender.com';
+
     var stars = document.querySelectorAll('.review-star');
     var ratingInput = document.getElementById('review-rating');
     stars.forEach(function(s){
@@ -190,32 +192,117 @@
       });
     });
     var form = document.getElementById('review-form');
-    if (!form) return;
-    var btn = form.querySelector('button[type=submit]');
-    var original = btn.textContent;
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      if (parseInt(ratingInput.value,10) < 1) { alert('Оберіть оцінку зірками'); return; }
-      btn.disabled = true; btn.textContent = 'Відправляємо…';
-      var data = Object.fromEntries(new FormData(form));
-      data.service = 'Відгук з сайту (' + data.rating + '★)';
-      data.city = 'Відгук';
-      data.phone = '00000000000'; // телефон не питаємо у відгуках, бекенд вимагає поле
-      data.page = location.href;
-      fetch('https://cleaning-form-handler-azkl.onrender.com/api/chistotak-order', {
-        method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data)
-      }).then(function(r){
-        if (!r.ok) throw new Error();
-        btn.textContent = '✅ Дякуємо за відгук!';
-        btn.style.background = '#059669';
-        form.reset();
-        stars.forEach(function(x){ x.classList.remove('text-gold-400'); x.classList.add('text-zinc-600'); });
-        setTimeout(function(){ btn.disabled=false; btn.textContent=original; btn.style.background=''; }, 6000);
-      }).catch(function(){
-        btn.disabled = false; btn.textContent = original;
-        alert('Помилка. Спробуйте ще раз або напишіть нам у Telegram.');
+    if (form) {
+      var btn = form.querySelector('button[type=submit]');
+      var original = btn.textContent;
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        if (parseInt(ratingInput.value,10) < 1) { alert('Оберіть оцінку зірками'); return; }
+        btn.disabled = true; btn.textContent = 'Відправляємо…';
+        var raw = Object.fromEntries(new FormData(form));
+        var data = {
+          website: raw.website || '',      // honeypot
+          name: raw.name || '',
+          rating: parseInt(raw.rating, 10),
+          text: raw.details || '',          // текстове поле форми називається "details"
+          page: location.href
+        };
+        fetch(API_BASE + '/api/chistotak-review', {
+          method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data)
+        }).then(function(r){
+          if (!r.ok) throw new Error('status ' + r.status);
+          btn.textContent = '✅ Дякуємо за відгук!';
+          btn.style.background = '#059669';
+          form.reset();
+          stars.forEach(function(x){ x.classList.remove('text-gold-400'); x.classList.add('text-zinc-600'); });
+          setTimeout(function(){ btn.disabled=false; btn.textContent=original; btn.style.background=''; }, 6000);
+        }).catch(function(){
+          btn.disabled = false; btn.textContent = original;
+          alert('Помилка. Спробуйте ще раз або напишіть нам у Telegram.');
+        });
       });
-    });
+    }
+
+    // ── Динамічна підвантаження опублікованих відгуків ────────────────
+    // Прогресивне покращення: якщо бекенд/БД ще не налаштовані — просто
+    // нічого не додається, статичні картки лишаються як є, помилок не буде.
+    var STAR_INITIALS_BG = 'linear-gradient(135deg,#FFD700,#CC9900)';
+
+    function buildReviewCard(review) {
+      var name = (review.name || '').trim() || 'Клієнт';
+      var initial = name.charAt(0).toUpperCase();
+
+      var card = document.createElement('div');
+      card.className = 'relative bg-zinc-900 border border-zinc-700 rounded-xl p-4 pt-7 overflow-hidden';
+
+      var quote = document.createElement('div');
+      quote.className = 'absolute top-1.5 left-3 font-display text-3xl font-black text-gold-400/15 select-none leading-none';
+      quote.textContent = '"';
+      card.appendChild(quote);
+
+      var starsRow = document.createElement('div');
+      starsRow.className = 'relative flex gap-0.5 text-gold-400 text-xs';
+      var r = Math.max(1, Math.min(5, parseInt(review.rating, 10) || 5));
+      starsRow.textContent = '★★★★★'.slice(0, r) + '☆☆☆☆☆'.slice(0, 5 - r);
+      card.appendChild(starsRow);
+
+      var text = document.createElement('p');
+      text.className = 'relative mt-1.5 text-zinc-300 text-sm leading-snug';
+      text.textContent = review.text || '';   // textContent — ніколи innerHTML з даних користувача
+      card.appendChild(text);
+
+      var footer = document.createElement('div');
+      footer.className = 'relative mt-3 flex items-center gap-2 pt-3 border-t border-zinc-800';
+
+      var avatar = document.createElement('div');
+      avatar.className = 'w-7 h-7 rounded-full flex items-center justify-center font-black text-xs text-zinc-900 shrink-0';
+      avatar.style.background = STAR_INITIALS_BG;
+      avatar.textContent = initial;
+      footer.appendChild(avatar);
+
+      var who = document.createElement('div');
+      var whoName = document.createElement('div');
+      whoName.className = 'font-semibold text-xs text-zinc-200';
+      whoName.textContent = name;
+      who.appendChild(whoName);
+      if (review.city) {
+        var whoCity = document.createElement('div');
+        whoCity.className = 'text-xs text-zinc-500';
+        whoCity.textContent = review.city;
+        who.appendChild(whoCity);
+      }
+      footer.appendChild(who);
+      card.appendChild(footer);
+
+      if (review.reply) {
+        var reply = document.createElement('div');
+        reply.className = 'relative mt-3 pt-3 border-t border-zinc-800 text-xs text-zinc-400';
+        var replyLabel = document.createElement('div');
+        replyLabel.className = 'font-semibold text-gold-400 mb-1';
+        replyLabel.textContent = 'Відповідь ЧистоТак:';
+        reply.appendChild(replyLabel);
+        var replyText = document.createElement('div');
+        replyText.textContent = review.reply;
+        reply.appendChild(replyText);
+        card.appendChild(reply);
+      }
+
+      return card;
+    }
+
+    function loadApprovedReviews() {
+      var grid = document.querySelector('#reviews-list .grid');
+      if (!grid) return;
+      fetch(API_BASE + '/api/chistotak-reviews')
+        .then(function(r){ return r.ok ? r.json() : { reviews: [] }; })
+        .then(function(data){
+          (data.reviews || []).forEach(function(review){
+            grid.appendChild(buildReviewCard(review));
+          });
+        })
+        .catch(function(){ /* тихо ігноруємо — статичні картки й так на місці */ });
+    }
+    loadApprovedReviews();
   })();
   </script>
 
