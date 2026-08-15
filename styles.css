@@ -758,6 +758,17 @@ section.bg-zinc-900 { background-color: rgba(10,10,11,0.72) !important; }
    same fix, otherwise it left a hard seam next to the now-translucent
    sections around it. */
 #order { background: rgba(10,10,11,0.72) !important; }
+/* Sections weren't the only opaque panels — the rounded card blocks
+   inside them (calculator card, order-form card, price cards, FAQ
+   accordion items, review cards, blog content cards) also use flat
+   bg-zinc-900, so even after the section itself went translucent, each
+   card still sat on it as a solid rectangle with a hard edge on every
+   side — the exact "separate slide" look. Scoped to rounded-2xl/3xl
+   cards specifically so buttons, inputs, selects and table rows (which
+   also use bg-zinc-900 but need to stay legible/opaque) are untouched.
+   Borders still define the card shape; only the fill goes translucent. */
+.bg-zinc-900.rounded-2xl,
+.bg-zinc-900.rounded-3xl { background-color: rgba(10,10,11,0.72) !important; }
 
 /* The glow orbs above are wide (700/500/350px) with negative offsets so
    they bleed off-screen by design on desktop — but position:fixed
