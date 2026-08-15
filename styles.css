@@ -749,3 +749,11 @@ section.bg-zinc-900 { background-color: rgba(10,10,11,0.72) !important; }
    same fix, otherwise it left a hard seam next to the now-translucent
    sections around it. */
 #order { background: rgba(10,10,11,0.72) !important; }
+
+/* The glow orbs above are wide (700/500/350px) with negative offsets so
+   they bleed off-screen by design on desktop — but position:fixed
+   elements still expand documentElement's scrollWidth in Chromium/Safari
+   when nothing clips them, which let mobile viewports pan sideways past
+   the real content. Clip it at the root; nothing visible relies on
+   horizontal overflow being scrollable. */
+html, body { overflow-x: hidden; }
