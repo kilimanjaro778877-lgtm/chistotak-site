@@ -775,6 +775,17 @@ section.bg-zinc-900 { background-color: rgba(10,10,11,0.72) !important; }
 .border-zinc-700.rounded-2xl,
 .border-zinc-700.rounded-3xl { border-color: rgba(255,255,255,0.06) !important; }
 
+/* .gradient-bg (hero + the services picker section) was a completely
+   different backdrop treatment from everything else — its own local
+   radial-gradient highlight with no darkening base — so it read
+   distinctly lighter/warmer than the bg-zinc-900 sections around it,
+   the exact "different tone per slide" the user pointed at directly in
+   a screenshot (services grid vs the calculator section right below
+   it). Giving it the same dark base brings it in line; its own gradient
+   layers still paint on top of that, so it keeps a bit of its own
+   character without standing out as a different backdrop entirely. */
+.gradient-bg { background-color: rgba(10,10,11,0.72); background-image: none; }
+
 /* The glow orbs above are wide (700/500/350px) with negative offsets so
    they bleed off-screen by design on desktop — but position:fixed
    elements still expand documentElement's scrollWidth in Chromium/Safari
