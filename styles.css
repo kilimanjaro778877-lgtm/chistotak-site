@@ -731,8 +731,8 @@ body {
   background-color: #0a0a0b;
   background-image:
     radial-gradient(rgba(255,215,0,0.06) 1px, transparent 1px),
-    radial-gradient(ellipse 1600px 1100px at 12% 0%, rgba(255,215,0,0.20), transparent 70%),
-    radial-gradient(ellipse 1400px 1000px at 88% 100%, rgba(90,70,255,0.18), transparent 70%);
+    radial-gradient(ellipse 2600px 1900px at 8% 0%, rgba(255,215,0,0.15), transparent 75%),
+    radial-gradient(ellipse 2400px 1800px at 92% 100%, rgba(90,70,255,0.13), transparent 75%);
   background-size: 26px 26px, auto, auto;
   background-attachment: fixed, fixed, fixed;
   background-repeat: repeat, no-repeat, no-repeat;
