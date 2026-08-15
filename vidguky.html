@@ -110,47 +110,67 @@
     </div>
   </section>
 
-  <!-- REVIEWS LIST (compact cards) -->
+  <!-- REVIEWS STACK (iOS-style overlapping card deck; all cards stay in the DOM for SEO —
+       only visually stacked via transform/opacity, never display:none) -->
   <section class="pb-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6" id="reviews-list">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-md mx-auto" id="review-stack-wrap">
+        <div class="relative" id="review-stack" style="height:300px">
 
-        <div class="relative bg-zinc-900 border border-zinc-700 rounded-xl p-4 pt-7 overflow-hidden">
-          <div class="absolute top-1.5 left-3 font-display text-3xl font-black text-gold-400/15 select-none leading-none">"</div>
-          <div class="relative flex gap-0.5 text-gold-400 text-xs">★★★★★</div>
-          <p class="relative mt-1.5 text-zinc-300 text-sm leading-snug">Після ремонту все було в пилюці, аж сіре. Приїхали, за шість годин зробили так, що я не впізнала свою квартиру. І ціна та сама, що озвучили спочатку, ніяких доплат.</p>
-          <div class="relative mt-3 flex items-center gap-2 pt-3 border-t border-zinc-800">
-            <div class="w-7 h-7 rounded-full flex items-center justify-center font-black text-xs text-zinc-900 shrink-0" style="background:linear-gradient(135deg,#FFD700,#CC9900)">О</div>
-            <div><div class="font-semibold text-xs text-zinc-200">Олена</div><div class="text-xs text-zinc-500">Київ, Печерськ</div></div>
-          </div>
+          <article class="review-stack-card absolute inset-0 bg-zinc-900 border border-zinc-700 rounded-2xl p-5 pt-8 overflow-hidden shadow-2xl shadow-black/40">
+            <div class="absolute top-2 left-4 font-display text-4xl font-black text-gold-400/15 select-none leading-none">"</div>
+            <div class="relative flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
+            <p class="relative mt-2 text-zinc-300 text-sm leading-relaxed line-clamp-5">Після ремонту все було в пилюці, аж сіре. Приїхали, за шість годин зробили так, що я не впізнала свою квартиру. І ціна та сама, що озвучили спочатку, ніяких доплат.</p>
+            <div class="absolute left-5 right-5 bottom-5 flex items-center gap-2 pt-3 border-t border-zinc-800">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center font-black text-xs text-zinc-900 shrink-0" style="background:linear-gradient(135deg,#FFD700,#CC9900)">О</div>
+              <div><div class="font-semibold text-sm text-zinc-200">Олена</div><div class="text-xs text-zinc-500">Київ, Печерськ</div></div>
+            </div>
+          </article>
+
+          <article class="review-stack-card absolute inset-0 bg-zinc-900 border border-zinc-700 rounded-2xl p-5 pt-8 overflow-hidden shadow-2xl shadow-black/40">
+            <div class="absolute top-2 left-4 font-display text-4xl font-black text-gold-400/15 select-none leading-none">"</div>
+            <div class="relative flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
+            <p class="relative mt-2 text-zinc-300 text-sm leading-relaxed line-clamp-5">Вікна не мили років чотири, чесно кажучи. Хлопці помили без жодних розводів, навіть по кутах усе чисто. Ціна нормальна, не накрутили нічого.</p>
+            <div class="absolute left-5 right-5 bottom-5 flex items-center gap-2 pt-3 border-t border-zinc-800">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center font-black text-xs text-zinc-900 shrink-0" style="background:linear-gradient(135deg,#FFD700,#CC9900)">С</div>
+              <div><div class="font-semibold text-sm text-zinc-200">Сергій</div><div class="text-xs text-zinc-500">Київ, Оболонь</div></div>
+            </div>
+          </article>
+
+          <article class="review-stack-card absolute inset-0 bg-zinc-900 border border-zinc-700 rounded-2xl p-5 pt-8 overflow-hidden shadow-2xl shadow-black/40">
+            <div class="absolute top-2 left-4 font-display text-4xl font-black text-gold-400/15 select-none leading-none">"</div>
+            <div class="relative flex gap-0.5 text-gold-400 text-sm">★★★★★</div>
+            <p class="relative mt-2 text-zinc-300 text-sm leading-relaxed line-clamp-5">Думав, духовку вже тільки міняти, три роки без генералки. За дві години відмили так, що блищить як нова. Реально не очікував такого результату.</p>
+            <div class="absolute left-5 right-5 bottom-5 flex items-center gap-2 pt-3 border-t border-zinc-800">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center font-black text-xs text-zinc-900 shrink-0" style="background:linear-gradient(135deg,#FFD700,#CC9900)">Д</div>
+              <div><div class="font-semibold text-sm text-zinc-200">Дмитро</div><div class="text-xs text-zinc-500">Київ, Позняки</div></div>
+            </div>
+          </article>
+
         </div>
 
-        <div class="relative bg-zinc-900 border border-zinc-700 rounded-xl p-4 pt-7 overflow-hidden">
-          <div class="absolute top-1.5 left-3 font-display text-3xl font-black text-gold-400/15 select-none leading-none">"</div>
-          <div class="relative flex gap-0.5 text-gold-400 text-xs">★★★★★</div>
-          <p class="relative mt-1.5 text-zinc-300 text-sm leading-snug">Вікна не мили років чотири, чесно кажучи. Хлопці помили без жодних розводів, навіть по кутах усе чисто. Ціна нормальна, не накрутили нічого.</p>
-          <div class="relative mt-3 flex items-center gap-2 pt-3 border-t border-zinc-800">
-            <div class="w-7 h-7 rounded-full flex items-center justify-center font-black text-xs text-zinc-900 shrink-0" style="background:linear-gradient(135deg,#FFD700,#CC9900)">С</div>
-            <div><div class="font-semibold text-xs text-zinc-200">Сергій</div><div class="text-xs text-zinc-500">Київ, Оболонь</div></div>
-          </div>
+        <div class="mt-6 flex items-center justify-center gap-5">
+          <button type="button" id="stack-prev" aria-label="Попередній відгук" class="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-700 hover:border-gold-400/60 text-zinc-300 hover:text-gold-400 transition flex items-center justify-center">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <div class="flex items-center gap-1.5" id="stack-dots"></div>
+          <button type="button" id="stack-next" aria-label="Наступний відгук" class="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-700 hover:border-gold-400/60 text-zinc-300 hover:text-gold-400 transition flex items-center justify-center">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+          </button>
         </div>
 
-        <div class="relative bg-zinc-900 border border-zinc-700 rounded-xl p-4 pt-7 overflow-hidden">
-          <div class="absolute top-1.5 left-3 font-display text-3xl font-black text-gold-400/15 select-none leading-none">"</div>
-          <div class="relative flex gap-0.5 text-gold-400 text-xs">★★★★★</div>
-          <p class="relative mt-1.5 text-zinc-300 text-sm leading-snug">Думав, духовку вже тільки міняти, три роки без генералки. За дві години відмили так, що блищить як нова. Реально не очікував такого результату.</p>
-          <div class="relative mt-3 flex items-center gap-2 pt-3 border-t border-zinc-800">
-            <div class="w-7 h-7 rounded-full flex items-center justify-center font-black text-xs text-zinc-900 shrink-0" style="background:linear-gradient(135deg,#FFD700,#CC9900)">Д</div>
-            <div><div class="font-semibold text-xs text-zinc-200">Дмитро</div><div class="text-xs text-zinc-500">Київ, Позняки</div></div>
-          </div>
+        <div class="mt-8 text-center">
+          <a href="#review-form" id="leave-review-cta" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-bold text-sm text-zinc-900 transition hover:-translate-y-0.5 shadow-lg" style="background:linear-gradient(135deg,#FFE566,#FFD700 45%,#CC9900);box-shadow:0 8px 24px -6px rgba(255,215,0,0.45)">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+            Залишити свій відгук
+          </a>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- Leave a review -->
-  <section class="pb-24">
+  <section class="pb-24" id="review-form-section">
     <div class="max-w-2xl mx-auto px-4 sm:px-6">
       <div class="bg-zinc-900 border border-zinc-700 rounded-3xl p-6 sm:p-8 text-center">
         <h2 class="font-display text-2xl font-black tracking-tight">Залишити <span class="gold-gradient-text italic">відгук</span></h2>
@@ -232,37 +252,37 @@
       var name = (review.name || '').trim() || 'Клієнт';
       var initial = name.charAt(0).toUpperCase();
 
-      var card = document.createElement('div');
-      card.className = 'relative bg-zinc-900 border border-zinc-700 rounded-xl p-4 pt-7 overflow-hidden';
+      var card = document.createElement('article');
+      card.className = 'review-stack-card absolute inset-0 bg-zinc-900 border border-zinc-700 rounded-2xl p-5 pt-8 overflow-hidden shadow-2xl shadow-black/40';
 
       var quote = document.createElement('div');
-      quote.className = 'absolute top-1.5 left-3 font-display text-3xl font-black text-gold-400/15 select-none leading-none';
+      quote.className = 'absolute top-2 left-4 font-display text-4xl font-black text-gold-400/15 select-none leading-none';
       quote.textContent = '"';
       card.appendChild(quote);
 
       var starsRow = document.createElement('div');
-      starsRow.className = 'relative flex gap-0.5 text-gold-400 text-xs';
+      starsRow.className = 'relative flex gap-0.5 text-gold-400 text-sm';
       var r = Math.max(1, Math.min(5, parseInt(review.rating, 10) || 5));
       starsRow.textContent = '★★★★★'.slice(0, r) + '☆☆☆☆☆'.slice(0, 5 - r);
       card.appendChild(starsRow);
 
       var text = document.createElement('p');
-      text.className = 'relative mt-1.5 text-zinc-300 text-sm leading-snug';
+      text.className = 'relative mt-2 text-zinc-300 text-sm leading-relaxed line-clamp-5';
       text.textContent = review.text || '';   // textContent — ніколи innerHTML з даних користувача
       card.appendChild(text);
 
       var footer = document.createElement('div');
-      footer.className = 'relative mt-3 flex items-center gap-2 pt-3 border-t border-zinc-800';
+      footer.className = 'absolute left-5 right-5 bottom-5 flex items-center gap-2 pt-3 border-t border-zinc-800';
 
       var avatar = document.createElement('div');
-      avatar.className = 'w-7 h-7 rounded-full flex items-center justify-center font-black text-xs text-zinc-900 shrink-0';
+      avatar.className = 'w-8 h-8 rounded-full flex items-center justify-center font-black text-xs text-zinc-900 shrink-0';
       avatar.style.background = STAR_INITIALS_BG;
       avatar.textContent = initial;
       footer.appendChild(avatar);
 
       var who = document.createElement('div');
       var whoName = document.createElement('div');
-      whoName.className = 'font-semibold text-xs text-zinc-200';
+      whoName.className = 'font-semibold text-sm text-zinc-200';
       whoName.textContent = name;
       who.appendChild(whoName);
       if (review.city) {
@@ -274,34 +294,117 @@
       footer.appendChild(who);
       card.appendChild(footer);
 
-      if (review.reply) {
-        var reply = document.createElement('div');
-        reply.className = 'relative mt-3 pt-3 border-t border-zinc-800 text-xs text-zinc-400';
-        var replyLabel = document.createElement('div');
-        replyLabel.className = 'font-semibold text-gold-400 mb-1';
-        replyLabel.textContent = 'Відповідь ЧистоТак:';
-        reply.appendChild(replyLabel);
-        var replyText = document.createElement('div');
-        replyText.textContent = review.reply;
-        reply.appendChild(replyText);
-        card.appendChild(reply);
-      }
-
       return card;
     }
 
     function loadApprovedReviews() {
-      var grid = document.querySelector('#reviews-list .grid');
-      if (!grid) return;
+      var stack = document.getElementById('review-stack');
+      if (!stack) return;
       fetch(API_BASE + '/api/chistotak-reviews')
         .then(function(r){ return r.ok ? r.json() : { reviews: [] }; })
         .then(function(data){
           (data.reviews || []).forEach(function(review){
-            grid.appendChild(buildReviewCard(review));
+            stack.appendChild(buildReviewCard(review));
           });
+          initStack(); // нові картки — перебудовуємо стек і крапки
         })
         .catch(function(){ /* тихо ігноруємо — статичні картки й так на місці */ });
     }
+
+    // ── Стопка відгуків (як стос повідомлень/фото в iOS) ──────────────
+    // Усі картки лишаються в DOM завжди (для SEO/індексації) — видима лише
+    // верхня, решта "виглядають" з-за неї через transform/opacity, а не
+    // display:none.
+    var stackActive = 0;
+    var stackTimer = null;
+
+    function renderStack() {
+      var cards = Array.prototype.slice.call(document.querySelectorAll('.review-stack-card'));
+      var total = cards.length;
+      if (!total) return;
+      cards.forEach(function(card, i){
+        var offset = (i - stackActive + total) % total;
+        card.style.transition = 'transform .35s ease, opacity .35s ease';
+        if (offset === 0) {
+          card.style.transform = 'translateY(0) scale(1)';
+          card.style.opacity = '1';
+          card.style.zIndex = '30';
+          card.style.pointerEvents = 'auto';
+        } else if (offset === 1) {
+          card.style.transform = 'translateY(12px) scale(0.96)';
+          card.style.opacity = '0.6';
+          card.style.zIndex = '20';
+          card.style.pointerEvents = 'none';
+        } else if (offset === 2) {
+          card.style.transform = 'translateY(22px) scale(0.92)';
+          card.style.opacity = '0.35';
+          card.style.zIndex = '10';
+          card.style.pointerEvents = 'none';
+        } else {
+          card.style.transform = 'translateY(28px) scale(0.9)';
+          card.style.opacity = '0';
+          card.style.zIndex = '0';
+          card.style.pointerEvents = 'none';
+        }
+      });
+
+      var dotsWrap = document.getElementById('stack-dots');
+      if (dotsWrap) {
+        dotsWrap.innerHTML = '';
+        cards.forEach(function(_, i){
+          var dot = document.createElement('button');
+          dot.type = 'button';
+          dot.setAttribute('aria-label', 'Відгук ' + (i+1) + ' з ' + total);
+          dot.className = 'rounded-full transition-all ' + (i === stackActive
+            ? 'w-5 h-1.5 bg-gold-400'
+            : 'w-1.5 h-1.5 bg-zinc-700 hover:bg-zinc-600');
+          dot.addEventListener('click', function(){ stackActive = i; renderStack(); });
+          dotsWrap.appendChild(dot);
+        });
+      }
+    }
+
+    function stackNext() {
+      var total = document.querySelectorAll('.review-stack-card').length;
+      if (!total) return;
+      stackActive = (stackActive + 1) % total;
+      renderStack();
+    }
+    function stackPrev() {
+      var total = document.querySelectorAll('.review-stack-card').length;
+      if (!total) return;
+      stackActive = (stackActive - 1 + total) % total;
+      renderStack();
+    }
+
+    function initStack() {
+      stackActive = Math.min(stackActive, document.querySelectorAll('.review-stack-card').length - 1);
+      renderStack();
+    }
+
+    var nextBtn = document.getElementById('stack-next');
+    var prevBtn = document.getElementById('stack-prev');
+    if (nextBtn) nextBtn.addEventListener('click', stackNext);
+    if (prevBtn) prevBtn.addEventListener('click', stackPrev);
+
+    var stackEl = document.getElementById('review-stack');
+    if (stackEl) {
+      // тап по верхній картці — теж гортає далі (звично для стосу в месенджерах)
+      stackEl.addEventListener('click', function(e){
+        if (e.target.closest('.review-stack-card')) stackNext();
+      });
+      // свайп на мобільних
+      var touchStartX = null;
+      stackEl.addEventListener('touchstart', function(e){ touchStartX = e.touches[0].clientX; }, { passive: true });
+      stackEl.addEventListener('touchend', function(e){
+        if (touchStartX === null) return;
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40) { dx < 0 ? stackNext() : stackPrev(); }
+        touchStartX = null;
+      }, { passive: true });
+    }
+
+    initStack();
     loadApprovedReviews();
   })();
   </script>
