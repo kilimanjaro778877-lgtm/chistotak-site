@@ -707,3 +707,45 @@ html { scroll-behavior: smooth; }
 @media (max-width: 360px) {
   .extras-scene { min-height: 240px; }
 }
+
+/* ЧистоТак — canonical glow + background consistency (wins the cascade:
+   the "Custom site styles" section above is an un-deduplicated concat of
+   every page's originally-extracted <style> block, so the same .orb-1/
+   .orb-2 selector is redefined ~10 times with drifting values — whichever
+   copy sits last in the file wins site-wide. This block is the single
+   source of truth going forward, so every page renders the same glow. */
+.orb { filter: blur(90px); }
+.orb-1 {
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(255,215,0,0.20), rgba(255,215,0,0) 70%);
+  top: -200px; right: -150px;
+}
+.orb-2 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(102,51,255,0.16), rgba(102,51,255,0) 70%);
+  bottom: -150px; left: -100px;
+}
+.orb-3 {
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(0,100,255,0.13), rgba(0,100,255,0) 70%);
+  top: 40%; left: 35%;
+  animation: orb-drift-3 14s ease-in-out infinite;
+}
+@keyframes orb-drift-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+  50%      { transform: translate(-50px, -30px) scale(1.15); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) { .orb-3 { animation: none; } }
+
+/* Sections used solid bg-zinc-900 to separate content blocks; since the
+   glow orbs above are position:fixed (anchored to the viewport, not the
+   page), any opaque section painted over them at a given scroll position
+   fully hid the glow there while transparent gaps let it show — that's
+   the "подсвітка ріжеться лінією" cut the user saw at every section-
+   divider. Softening to translucent lets the glow bleed through
+   continuously at any scroll position, on every page. */
+section.bg-zinc-900 { background-color: rgba(10,10,11,0.72) !important; }
+/* index.html's #order section used its own opaque zinc gradient — the
+   same fix, otherwise it left a hard seam next to the now-translucent
+   sections around it. */
+#order { background: rgba(10,10,11,0.72) !important; }
