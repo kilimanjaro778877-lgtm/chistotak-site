@@ -692,8 +692,18 @@ html { scroll-behavior: smooth; }
 .extras-hero-pin-featured .extras-hero-pin-dot::before { border-color: rgba(255,215,0,0.85); animation-duration: 1.6s; }
 @keyframes extras-pin-pulse { 0% { transform: scale(0.85); opacity: 0.9; } 70% { transform: scale(1.9); opacity: 0; } 100% { opacity: 0; } }
 .extras-hero-tooltip { min-width: 190px; max-width: 250px; pointer-events: none; }
+.extras-tab-btn { padding: 0.6rem 1.1rem; border-radius: 9999px; font-weight: 700; font-size: 0.875rem; background: #18181b; border: 1px solid #3f3f46; color: #a1a1aa; transition: all .2s ease; cursor: pointer; }
+.extras-tab-btn:hover { border-color: rgba(255,215,0,0.4); color: #f4f4f5; }
+.extras-tab-btn.is-active { background: linear-gradient(135deg,#FFE566,#FFD700 45%,#CC9900); border-color: transparent; color: #1a1400; }
 @media (max-width: 640px) {
   .extras-hero-pin { width: 24px; height: 24px; }
   .extras-hero-pin-dot { width: 13px; height: 13px; }
   .extras-hero-tooltip { max-width: 190px; min-width: 160px; }
+  /* На вузьких екранах чиста висота за aspect-ratio (2.3/1) менша, ніж
+     природна висота тултіпа (заголовок + 2-рядковий опис + ціна) — без
+     підлоги висоти тултіп фізично нікуди не вміщається. */
+  .extras-scene { min-height: 220px; }
+}
+@media (max-width: 360px) {
+  .extras-scene { min-height: 240px; }
 }
