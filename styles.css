@@ -769,6 +769,11 @@ section.bg-zinc-900 { background-color: rgba(10,10,11,0.72) !important; }
    Borders still define the card shape; only the fill goes translucent. */
 .bg-zinc-900.rounded-2xl,
 .bg-zinc-900.rounded-3xl { background-color: rgba(10,10,11,0.72) !important; }
+/* The solid border-zinc-700 outline around every one of those cards was
+   still tracing a hard rectangle regardless of fill — softened so cards
+   read as gently separated areas, not boxed slides. */
+.border-zinc-700.rounded-2xl,
+.border-zinc-700.rounded-3xl { border-color: rgba(255,255,255,0.06) !important; }
 
 /* The glow orbs above are wide (700/500/350px) with negative offsets so
    they bleed off-screen by design on desktop — but position:fixed
