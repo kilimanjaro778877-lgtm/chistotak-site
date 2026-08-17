@@ -800,3 +800,23 @@ section.bg-zinc-900 { background-color: rgba(10,10,11,0.72) !important; }
    the real content. Clip it at the root; nothing visible relies on
    horizontal overflow being scrollable. */
 html, body { overflow-x: hidden; }
+
+/* Mobile calculator reorder (price card first, inputs second, extra
+   bottom CTA button) — these Tailwind utility classes were never in the
+   precompiled bundle before (this site's styles.css is built offline
+   once, not via CDN/JIT, so a class with no prior usage has no CSS
+   behind it and silently does nothing). Added by hand instead of
+   rerunning the build pipeline. */
+.order-1 { order: 1; }
+.order-2 { order: 2; }
+/* .btn-3d already sets display:inline-flex and cascades after the base
+   .hidden{display:none} rule, so plain .hidden alone doesn't win on
+   these buttons — scoped to .btn-3d specifically (not the bare .hidden
+   class, which is reused site-wide) so nothing else is affected. */
+.btn-3d.hidden { display: none !important; }
+@media (min-width: 1024px) {
+  .lg\:order-1 { order: 1; }
+  .lg\:order-2 { order: 2; }
+  .btn-3d.lg\:hidden { display: none !important; }
+  .btn-3d.lg\:inline-flex { display: inline-flex !important; }
+}
