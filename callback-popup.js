@@ -6,7 +6,7 @@
   var SUBMIT_BLOCK_MS = 24 * 60 * 60 * 1000; // 24h, same lock as the main order form
   var SHOWN_KEY = 'ct_popup_shown';          // sessionStorage — max once per visit
   var VISIT_START_KEY = 'ct_visit_start';    // sessionStorage — persists across page views
-  var DELAY_MS = 15000;
+  var DELAY_MS = 90000; // 1.5 хв — щоб встигли ознайомитись із сайтом перед попапом
 
   function alreadyConverted() {
     var last = localStorage.getItem(SUBMIT_KEY);
