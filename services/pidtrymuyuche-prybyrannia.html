@@ -171,6 +171,35 @@
     </div>
   </section>
 
+  <!-- CALCULATOR -->
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="font-display text-4xl sm:text-5xl font-black tracking-tight">Порахуй <span class="gold-gradient-text italic">вартість</span></h2>
+        <p class="mt-4 text-zinc-400">Пересунь повзунок — побачиш ціну моментально</p>
+      </div>
+      <div class="mt-12 bg-zinc-900 border border-zinc-700 rounded-3xl p-8">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-sm font-semibold text-zinc-300">Площа квартири:</span>
+          <span class="font-display text-3xl font-black text-gold-400"><span id="pg-area">60</span> м²</span>
+        </div>
+        <input id="pg-slider" type="range" min="30" max="200" value="60" step="1" class="calc-slider" />
+        <div class="flex justify-between text-xs text-zinc-600 mt-2">
+          <span>30 м²</span><span>100 м²</span><span>200 м²</span>
+        </div>
+        <div class="mt-8 bg-zinc-900 border border-gold-400/30 rounded-2xl p-6 text-center">
+          <div class="text-sm uppercase tracking-wider text-gold-400 font-bold">Орієнтовна вартість</div>
+          <div class="mt-2 flex items-baseline justify-center gap-2">
+            <span class="font-sans text-5xl sm:text-6xl font-black text-zinc-100 tabular-nums" id="pg-price">3 000</span>
+            <span class="text-2xl font-bold text-zinc-400">₴</span>
+          </div>
+          <p id="pg-note" class="mt-2 text-sm text-zinc-400">50 ₴/м²</p>
+          <a href="#order" class="btn-3d mt-5 w-full" style="border-radius:0.75rem;padding:0.6rem 1rem">Замовити за цю ціну</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- WHAT'S INCLUDED -->
   <section class="py-20 bg-zinc-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -208,35 +237,6 @@
           <div class="w-11 h-11 rounded-xl flex items-center justify-center overflow-hidden" style="background:rgba(255,215,0,0.12);border:1px solid rgba(255,215,0,0.3)"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,215,0,0.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg></div>
           <h3 class="mt-4 font-bold text-zinc-100">Виніс сміття</h3>
           <p class="mt-2 text-sm text-zinc-400">Збираємо сміття по всіх кімнатах, виносимо в смітник.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CALCULATOR -->
-  <section class="py-20">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <div class="text-center max-w-2xl mx-auto">
-        <h2 class="font-display text-4xl sm:text-5xl font-black tracking-tight">Порахуй <span class="gold-gradient-text italic">вартість</span></h2>
-        <p class="mt-4 text-zinc-400">Пересунь повзунок — побачиш ціну моментально</p>
-      </div>
-      <div class="mt-12 bg-zinc-900 border border-zinc-700 rounded-3xl p-8">
-        <div class="flex items-center justify-between mb-4">
-          <span class="text-sm font-semibold text-zinc-300">Площа квартири:</span>
-          <span class="font-display text-3xl font-black text-gold-400"><span id="pg-area">60</span> м²</span>
-        </div>
-        <input id="pg-slider" type="range" min="30" max="200" value="60" step="1" class="calc-slider" />
-        <div class="flex justify-between text-xs text-zinc-600 mt-2">
-          <span>30 м²</span><span>100 м²</span><span>200 м²</span>
-        </div>
-        <div class="mt-8 bg-zinc-900 border border-gold-400/30 rounded-2xl p-6 text-center">
-          <div class="text-sm uppercase tracking-wider text-gold-400 font-bold">Орієнтовна вартість</div>
-          <div class="mt-2 flex items-baseline justify-center gap-2">
-            <span class="font-sans text-5xl sm:text-6xl font-black text-zinc-100 tabular-nums" id="pg-price">3 000</span>
-            <span class="text-2xl font-bold text-zinc-400">₴</span>
-          </div>
-          <p id="pg-note" class="mt-2 text-sm text-zinc-400">50 ₴/м²</p>
-          <a href="#order" class="btn-3d mt-5 w-full" style="border-radius:0.75rem;padding:0.6rem 1rem">Замовити за цю ціну</a>
         </div>
       </div>
     </div>
