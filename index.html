@@ -1680,13 +1680,17 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       });
 
       try {
-        let resp = await doFetch();
-        if (!resp.ok) {
-          // Render cold-start: wait 3s and retry once
-          await new Promise(r => setTimeout(r, 3000));
-          resp = await doFetch();
+        let resp = await doFetch().catch(() => null);
+        if (!resp || !resp.ok) {
+          // Render cold-start can take longer than 3s — retry with backoff
+          await new Promise(r => setTimeout(r, 4000));
+          resp = await doFetch().catch(() => null);
         }
-        if (!resp.ok) throw new Error('http ' + resp.status);
+        if (!resp || !resp.ok) {
+          await new Promise(r => setTimeout(r, 8000));
+          resp = await doFetch().catch(() => null);
+        }
+        if (!resp || !resp.ok) throw new Error('http ' + (resp ? resp.status : 'network'));
 
         // Conversion confirmed — server received and forwarded to Telegram
         localStorage.setItem(SUBMIT_KEY, Date.now().toString());

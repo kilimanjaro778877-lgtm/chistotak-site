@@ -94,23 +94,31 @@
       data.page = location.href;
       data.source = 'popup-15s';
 
-      fetch(HANDLER_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      })
-        .then(function (r) {
-          if (!r.ok) throw new Error('bad status');
+      var doPost = function () {
+        return fetch(HANDLER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        }).catch(function () { return null; });
+      };
+
+      (async function () {
+        var r = await doPost();
+        if (!r || !r.ok) { await new Promise(function (res) { setTimeout(res, 4000); }); r = await doPost(); }
+        if (!r || !r.ok) { await new Promise(function (res) { setTimeout(res, 8000); }); r = await doPost(); }
+
+        if (r && r.ok) {
           localStorage.setItem(SUBMIT_KEY, String(Date.now()));
           document.getElementById('ct-callback-form-state').classList.add('hidden');
           document.getElementById('ct-callback-success').classList.remove('hidden');
           setTimeout(function () { closePopup(overlay); }, 4000);
-        })
-        .catch(function () {
+        } else {
           btn.disabled = false;
           btn.textContent = original;
-          alert('Помилка. Зателефонуйте: +38 073 131 22 28');
-        });
+          var fallbackPhone = /lviv\.html/i.test(location.pathname) ? '+38 097 825 51 31' : '+38 073 131 22 28';
+          alert('Помилка. Зателефонуйте: ' + fallbackPhone);
+        }
+      })();
     });
   }
 

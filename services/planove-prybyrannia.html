@@ -401,9 +401,10 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       const postData = JSON.stringify(data);
       const doFetch = () => fetch(HANDLER_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: postData });
       try {
-        let resp = await doFetch();
-        if (!resp.ok) { await new Promise(r => setTimeout(r, 3000)); resp = await doFetch(); }
-        if (!resp.ok) throw new Error('http ' + resp.status);
+        let resp = await doFetch().catch(() => null);
+        if (!resp || !resp.ok) { await new Promise(r => setTimeout(r, 4000)); resp = await doFetch().catch(() => null); }
+        if (!resp || !resp.ok) { await new Promise(r => setTimeout(r, 8000)); resp = await doFetch().catch(() => null); }
+        if (!resp || !resp.ok) throw new Error('http ' + (resp ? resp.status : 'network'));
         localStorage.setItem(SUBMIT_KEY, Date.now().toString());
         if (typeof ttq !== 'undefined') { try { ttq.track('SubmitForm', { content_type: 'lead', content_name: data.service || 'cleaning_order' }); } catch(_) {} }
         if (typeof gtag === 'function') { try { gtag('event', 'generate_lead', { service: data.service }); } catch(_) {} }
