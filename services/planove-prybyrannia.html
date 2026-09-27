@@ -423,6 +423,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         if (typeof ttq !== 'undefined') { try { ttq.track('SubmitForm', { content_type: 'lead', content_name: data.service || 'cleaning_order' }); } catch(_) {} }
         if (typeof gtag === 'function') { try { gtag('event', 'generate_lead', { service: data.service }); } catch(_) {} }
         if (typeof gtag === 'function') { try { gtag('event', 'conversion', { send_to: 'AW-18396553965/yBuHCKL4g4YdEO3FlMRE' }); } catch(_) {} }
+        if (typeof fbq === 'function') { try { fbq('track', 'Lead', { content_name: data.service || 'cleaning_order' }); } catch(_) {} }
         submitBtn.textContent = '✅ Заявку прийнято! Передзвонимо.';
         submitBtn.style.background='#059669';
 
