@@ -982,3 +982,8 @@ thead.bg-gold-400,thead.bg-gold-400 th{color:#000!important}
   body.ct-bar-on .fixed.bottom-6.right-5{bottom:5.25rem!important;transition:bottom .25s ease}
 }
 @media (prefers-reduced-motion:reduce){.ct-pricebar{transition:none}}
+/* Площа вікон: огненні стрілки −/+ (компактні, в рядку доп.послуги) */
+.ct-stepper-sm{gap:.35rem}
+.ct-stepper-sm.hidden{display:none!important}
+.ct-stepper-sm .ct-step{width:2.25rem;height:2.25rem;font-size:1.15rem;border-radius:.6rem}
+.ct-stepper-sm .ct-zone-input{width:3.2rem;height:2.25rem;font-size:1rem!important}
