@@ -1,9 +1,9 @@
 (function () {
   'use strict';
 
-  var HANDLER_URL = 'https://cleaning-form-handler-azkl.onrender.com/api/chistotak-order';
+  // Відправка і конверсії — через спільний ct-lead.js (CTLead.send).
   var SUBMIT_KEY = 'chistotak_lastSubmit';
-  var SUBMIT_BLOCK_MS = 24 * 60 * 60 * 1000; // 24h, same lock as the main order form
+  var SUBMIT_BLOCK_MS = 24 * 60 * 60 * 1000; // 24h — не показувати попап тим, хто вже залишив заявку
   var SHOWN_KEY = 'ct_popup_shown';          // sessionStorage — max once per visit
   var VISIT_START_KEY = 'ct_visit_start';    // sessionStorage — persists across page views
   var DELAY_MS = 90000; // 1.5 хв — щоб встигли ознайомитись із сайтом перед попапом
@@ -76,10 +76,6 @@
     var form = document.getElementById('ct-callback-form');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (alreadyConverted()) {
-        closePopup(overlay);
-        return;
-      }
       var btn = form.querySelector('button[type=submit]');
       var original = btn.textContent;
       btn.disabled = true;
@@ -87,36 +83,27 @@
 
       var data = Object.fromEntries(new FormData(form));
       data.name = 'Зворотний дзвінок (спливаюче вікно)';
-      data.city = /kyiv\.html/i.test(location.pathname) ? 'Київ'
-        : /lviv\.html/i.test(location.pathname) ? 'Львів'
+      data.city = /kyiv/i.test(location.pathname) ? 'Київ'
+        : /lviv/i.test(location.pathname) ? 'Львів'
         : 'Не вказано (спливаюче вікно)';
       data.service = 'Зворотний дзвінок';
       data.page = location.href;
       data.source = 'popup-15s';
 
-      var doPost = function () {
-        return fetch(HANDLER_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        }).catch(function () { return null; });
-      };
-
       (async function () {
-        var r = await doPost();
-        if (!r || !r.ok) { await new Promise(function (res) { setTimeout(res, 4000); }); r = await doPost(); }
-        if (!r || !r.ok) { await new Promise(function (res) { setTimeout(res, 8000); }); r = await doPost(); }
+        var r = window.CTLead
+          ? await window.CTLead.send(data, { button: btn })
+          : { ok: false, status: 0 };
 
-        if (r && r.ok) {
-          localStorage.setItem(SUBMIT_KEY, String(Date.now()));
+        if (r.ok) {
           document.getElementById('ct-callback-form-state').classList.add('hidden');
           document.getElementById('ct-callback-success').classList.remove('hidden');
           setTimeout(function () { closePopup(overlay); }, 4000);
         } else {
           btn.disabled = false;
           btn.textContent = original;
-          var fallbackPhone = /lviv\.html/i.test(location.pathname) ? '+38 097 825 51 31' : '+38 073 131 22 28';
-          alert('Помилка. Зателефонуйте: ' + fallbackPhone);
+          if (window.CTLead) window.CTLead.showError(form, r.status);
+          else alert('Помилка. Зателефонуйте: ' + (/lviv/i.test(location.pathname) ? '+38 097 825 51 31' : '+38 073 131 22 28'));
         }
       })();
     });

@@ -50,6 +50,62 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Чим планувальне прибирання відрізняється від підтримуючого?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ми один раз погоджуємо день і час, і далі клінер приходить щотижня сам, без нових заявок. Маршрут плануємо наперед, тому ставка нижча — економія до 20% від разової ціни. Разовий варіант описаний на сторінці підтримуючого прибирання."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Скільки коштує один візит?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Що більша квартира, то нижча ставка: 40–60 м² — 40 ₴/м² (≈2 300 ₴ на тиждень), 70–90 м² — 35 ₴/м² (≈2 800 ₴), 100–140 м² — 25 ₴/м² (≈3 000 ₴). Точну суму для вашої квартири підтвердить менеджер."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Щоразу приходитиме той самий клінер?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Так, до вас ходить одна людина, яка вже знає квартиру й ваші побажання. Не доведеться щотижня пояснювати все заново."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Можна перенести чи призупинити графік?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Так, графік можна змінити або поставити на паузу в будь-який момент. Достатньо попередити менеджера."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Вікна й хімчистка меблів входять у тижневий візит?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ні, миття вікон і хімчистку рахуємо окремо від тижневої ставки. Їх можна замовити разом із прибиранням або окремо."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Як оплачувати прибирання?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Оплата — після виконання роботи: готівкою, переказом на карту або через термінал. Передоплату не беремо."
+        }
+      }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -103,7 +159,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
   <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />  <link rel="stylesheet" href="../styles.css" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />  <link rel="stylesheet" href="../styles.css?v=20261008" />
 </head>
 <body class="bg-zinc-950 text-zinc-100 antialiased">
   <div aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
@@ -112,7 +168,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   <header class="sticky top-0 z-50 bg-zinc-900/95 backdrop-blur-lg border-b border-zinc-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <a href="../index.html" class="flex items-center gap-2 font-bold text-xl">
-        <img src="../img/logo-chistotak.png" alt="ЧистоТак" class="h-14 w-auto" onerror="this.outerHTML='<span class=&quot;w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg text-white&quot; style=&quot;background:linear-gradient(135deg,#FFD700,#CC9900)&quot;>ЧТ</span>'">
+        <img width="318" height="280" src="../img/logo-chistotak.png" alt="ЧистоТак" class="h-14 w-auto" onerror="this.outerHTML='<span class=&quot;w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg text-white&quot; style=&quot;background:linear-gradient(135deg,#FFD700,#CC9900)&quot;>ЧТ</span>'">
         <span>Чисто<span class="text-gold-400">Так</span></span>
       </a>
       <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-400"><a href="../index.html#services" class="hover:text-zinc-100 transition">Послуги</a><a href="../prices.html" class="hover:text-zinc-100 transition">Ціни</a><a href="../blog.html" class="hover:text-zinc-100 transition">Блог</a><a href="../faq.html" class="hover:text-zinc-100 transition">FAQ</a><a href="../vidguky.html" class="hover:text-zinc-100 transition">Відгуки</a></nav>
@@ -277,12 +333,64 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
           <tbody class="divide-y divide-gray-200">
             <tr class="hover:bg-zinc-900"><td class="p-5">40–60 м²</td><td class="p-5 text-right font-bold text-gold-400">40 ₴/м²</td><td class="p-5 text-right text-zinc-400">≈2 300 ₴/тиждень</td></tr>
             <tr class="hover:bg-zinc-900"><td class="p-5">70–90 м²</td><td class="p-5 text-right font-bold text-gold-400">35 ₴/м²</td><td class="p-5 text-right text-zinc-400">≈2 800 ₴/тиждень</td></tr>
-            <tr class="hover:bg-zinc-900"><td class="p-5">100–140 м²</td><td class="p-5 text-right font-bold text-gold-400">25 ₴/м²</td><td class="p-5 text-right text-zinc-400">≈4 800 ₴/тиждень</td></tr>
+            <tr class="hover:bg-zinc-900"><td class="p-5">100–140 м²</td><td class="p-5 text-right font-bold text-gold-400">25 ₴/м²</td><td class="p-5 text-right text-zinc-400">≈3 000 ₴/тиждень</td></tr>
           </tbody>
         </table>
         </div>
       </div>
       <p class="mt-6 text-sm text-zinc-400 text-center">Миття вікон та хімчистка рахуються окремо. Графік можна змінити чи призупинити в будь-який момент.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <hr class="section-divider" />
+  <section id="faq" class="py-20 bg-zinc-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="font-display text-4xl sm:text-5xl font-black tracking-tight text-center">Часті <span class="gold-gradient-text italic">питання</span></h2>
+      <div class="mt-12 space-y-3">
+        <details class="group bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-2xl overflow-hidden transition">
+          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer font-semibold list-none">
+            <h3 class="text-base font-semibold">Чим планувальне прибирання відрізняється від підтримуючого?</h3>
+            <span class="text-gold-400 transition group-open:rotate-45 text-2xl" aria-hidden="true">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-zinc-400">Ми один раз погоджуємо день і час, і далі клінер приходить щотижня сам, без нових заявок. Маршрут плануємо наперед, тому ставка нижча — економія до 20% від разової ціни. Разовий варіант описаний на сторінці <a href="pidtrymuyuche-prybyrannia.html" class="text-gold-400 hover:text-zinc-100 underline underline-offset-2">підтримуючого прибирання</a>.</div>
+        </details>
+        <details class="group bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-2xl overflow-hidden transition">
+          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer font-semibold list-none">
+            <h3 class="text-base font-semibold">Скільки коштує один візит?</h3>
+            <span class="text-gold-400 transition group-open:rotate-45 text-2xl" aria-hidden="true">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-zinc-400">Що більша квартира, то нижча ставка: 40–60 м² — 40 ₴/м² (≈2 300 ₴ на тиждень), 70–90 м² — 35 ₴/м² (≈2 800 ₴), 100–140 м² — 25 ₴/м² (≈3 000 ₴). Точну суму для вашої квартири підтвердить менеджер.</div>
+        </details>
+        <details class="group bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-2xl overflow-hidden transition">
+          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer font-semibold list-none">
+            <h3 class="text-base font-semibold">Щоразу приходитиме той самий клінер?</h3>
+            <span class="text-gold-400 transition group-open:rotate-45 text-2xl" aria-hidden="true">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-zinc-400">Так, до вас ходить одна людина, яка вже знає квартиру й ваші побажання. Не доведеться щотижня пояснювати все заново.</div>
+        </details>
+        <details class="group bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-2xl overflow-hidden transition">
+          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer font-semibold list-none">
+            <h3 class="text-base font-semibold">Можна перенести чи призупинити графік?</h3>
+            <span class="text-gold-400 transition group-open:rotate-45 text-2xl" aria-hidden="true">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-zinc-400">Так, графік можна змінити або поставити на паузу в будь-який момент. Достатньо попередити менеджера.</div>
+        </details>
+        <details class="group bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-2xl overflow-hidden transition">
+          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer font-semibold list-none">
+            <h3 class="text-base font-semibold">Вікна й хімчистка меблів входять у тижневий візит?</h3>
+            <span class="text-gold-400 transition group-open:rotate-45 text-2xl" aria-hidden="true">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-zinc-400">Ні, миття вікон і хімчистку рахуємо окремо від тижневої ставки. Їх можна замовити разом із прибиранням або окремо.</div>
+        </details>
+        <details class="group bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-2xl overflow-hidden transition">
+          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer font-semibold list-none">
+            <h3 class="text-base font-semibold">Як оплачувати прибирання?</h3>
+            <span class="text-gold-400 transition group-open:rotate-45 text-2xl" aria-hidden="true">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-zinc-400">Оплата — після виконання роботи: готівкою, переказом на карту або через термінал. Передоплату не беремо.</div>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -343,7 +451,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       <div class="grid md:grid-cols-4 gap-10">
         <div class="md:col-span-2">
           <a href="../index.html" class="flex items-center gap-2 font-bold text-xl text-zinc-100">
-            <img src="../img/logo-chistotak.png" alt="ЧистоТак" class="h-14 w-auto" onerror="this.outerHTML='<span class=&quot;w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg text-white&quot; style=&quot;background:linear-gradient(135deg,#FFD700,#CC9900)&quot;>ЧТ</span>'">
+            <img width="318" height="280" src="../img/logo-chistotak.png" alt="ЧистоТак" class="h-14 w-auto" onerror="this.outerHTML='<span class=&quot;w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg text-white&quot; style=&quot;background:linear-gradient(135deg,#FFD700,#CC9900)&quot;>ЧТ</span>'">
             Чисто<span class="text-gold-400">Так</span>
           </a>
           <p class="mt-4 text-sm max-w-md">Професійна клінінгова компанія. Київ · Львів.</p>
@@ -395,43 +503,44 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       sl.addEventListener('input',upd); upd();
     })();
 
-    const HANDLER_URL = 'https://cleaning-form-handler-azkl.onrender.com/api/chistotak-order';
     const form = document.getElementById('order-form');
     const submitBtn = form.querySelector('button[type=submit]');
     const originalText = submitBtn.textContent;
-    const SUBMIT_KEY = 'chistotak_lastSubmit';
-    const SUBMIT_BLOCK_MS = 24 * 60 * 60 * 1000;
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const last = localStorage.getItem(SUBMIT_KEY);
-      if (last && (Date.now() - parseInt(last)) < SUBMIT_BLOCK_MS) {
-        alert('Ви вже залишили заявку. Ми передзвонимо найближчим часом!');
-        return;
-      }
+      if (submitBtn.disabled) return;
+      if (window.CTLead) CTLead.clearError(form);
       submitBtn.disabled = true;
       submitBtn.textContent = 'Відправляємо…';
       const data = Object.fromEntries(new FormData(form));
       data.page = location.href;
-      const postData = JSON.stringify(data);
-      const doFetch = () => fetch(HANDLER_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: postData });
-      try {
-        let resp = await doFetch().catch(() => null);
-        if (!resp || !resp.ok) { await new Promise(r => setTimeout(r, 4000)); resp = await doFetch().catch(() => null); }
-        if (!resp || !resp.ok) { await new Promise(r => setTimeout(r, 8000)); resp = await doFetch().catch(() => null); }
-        if (!resp || !resp.ok) throw new Error('http ' + (resp ? resp.status : 'network'));
-        localStorage.setItem(SUBMIT_KEY, Date.now().toString());
-        if (typeof ttq !== 'undefined') { try { ttq.track('SubmitForm', { content_type: 'lead', content_name: data.service || 'cleaning_order' }); } catch(_) {} }
-        if (typeof gtag === 'function') { try { gtag('event', 'generate_lead', { service: data.service }); } catch(_) {} }
-        if (typeof gtag === 'function') { try { gtag('event', 'conversion', { send_to: 'AW-18396553965/yBuHCKL4g4YdEO3FlMRE' }); } catch(_) {} }
-        if (typeof fbq === 'function') { try { fbq('track', 'Lead', { content_name: data.service || 'cleaning_order' }); } catch(_) {} }
+      // Збираємо деталі: поле форми з його підписом + розрахунок калькулятора + доп.послуги
+      const lines = [];
+      const det = form.querySelector('[name=details]');
+      if (det && data.details) {
+        const box = det.closest('div');
+        const lbl = box && box.querySelector('label');
+        lines.push((lbl ? lbl.textContent.trim() : 'Деталі') + ': ' + data.details);
+      }
+      const pa = document.getElementById('pg-area'), pp = document.getElementById('pg-price');
+      if (pa && pp) lines.push('Калькулятор: ' + pa.textContent.trim() + ' м² ≈ ' + pp.textContent.trim() + ' ₴');
+      const ex = Array.from(form.querySelectorAll('.upsell-check:checked')).map(c => c.dataset.extra).filter(Boolean);
+      if (ex.length) lines.push('Дод. послуги: ' + ex.join(', '));
+      data.details = lines.join('\n');
+      const res = window.CTLead
+        ? await CTLead.send(data, { button: submitBtn })
+        : { ok: false, status: 0 };
+      if (res.ok) {
         submitBtn.textContent = '✅ Заявку прийнято! Передзвонимо.';
-        submitBtn.style.background='#059669';
-
+        submitBtn.style.background = '#059669';
         form.reset();
-        setTimeout(() => { submitBtn.disabled = false; submitBtn.textContent = originalText; submitBtn.style.background='';  }, 6000);
-      } catch (err) {
-        submitBtn.disabled = false; submitBtn.textContent = originalText;
-        alert('Помилка надсилання. Спробуйте ще раз або зателефонуйте.');
+        setTimeout(() => { submitBtn.disabled = false; submitBtn.textContent = originalText; submitBtn.style.background = ''; }, 6000);
+      } else {
+        // дані у формі не скидаємо — можна просто натиснути ще раз
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        if (window.CTLead) CTLead.showError(form, res.status);
+        else alert('Помилка надсилання. Зателефонуйте: +38 073 131 22 28');
       }
     });
   </script>
@@ -442,6 +551,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   </div>
   <script>document.querySelector('select[name="service"]').value='Планувальне прибирання';</script>
   <script src="../address-autocomplete.js" defer></script>
-  <script src="../callback-popup.js" defer></script>
+  <script src="../ct-lead.js?v=20261008" defer></script>
+  <script src="../callback-popup.js?v=20261008" defer></script>
 </body>
 </html>
