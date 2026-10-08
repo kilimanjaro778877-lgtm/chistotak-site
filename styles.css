@@ -957,3 +957,4 @@ thead.bg-gold-400,thead.bg-gold-400 th{color:#000!important}
 .ct-win-btn{padding:.7rem .5rem;border-radius:.75rem;font-weight:700;font-size:.9rem;color:#fff;background:#141414;border:1px solid rgba(255,165,0,.3);cursor:pointer}
 .ct-win-btn[aria-checked="true"]{color:#000;border-color:transparent;background:linear-gradient(135deg,#FFC800 0%,#FFA200 50%,#FF6A00 100%)}
 .ct-zones-msg{margin-top:.75rem;padding:.7rem .9rem;border-radius:.75rem;border:1px solid #ff6a3d;background:rgba(255,106,61,.12);color:#ffd2c2;font-size:.9rem;font-weight:600}
+.ct-zones-title{font-weight:600!important;line-height:1.45;color:#ececec!important}
