@@ -271,6 +271,40 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         <div class="flex justify-between text-xs text-zinc-600 mt-2">
           <span>30 м²</span><span>100 м²</span><span>200 м²</span>
         </div>
+        <!-- Кухня і ванна рахуються окремо (віднімаються від загальної площі); вікна — явне підтвердження -->
+        <div id="calc-zones" class="ct-zones">
+          <div class="ct-zones-title">Обовʼязково вкажіть — кухня і ванна рахуються окремо:</div>
+          <div id="calc-zones-list">
+            <div class="ct-zone" data-zone="kitchen" data-rate="210" data-label="Кухня">
+              <div class="ct-zone-head"><span class="ct-zone-name">Кухня</span><span class="ct-zone-rate">210 ₴/м²</span></div>
+              <div class="ct-stepper">
+                <button type="button" class="ct-step" data-step="-1" aria-label="Менше">−</button>
+                <input type="number" inputmode="numeric" class="ct-zone-input" min="0" max="80" value="0" aria-label="Кухня, м²">
+                <span class="ct-zone-unit">м²</span>
+                <button type="button" class="ct-step" data-step="1" aria-label="Більше">+</button>
+              </div>
+              <div class="ct-zone-hint">Вкажіть площу кухні</div>
+            </div>
+            <div class="ct-zone" data-zone="bath" data-rate="190" data-label="Ванна кімната / санвузол">
+              <div class="ct-zone-head"><span class="ct-zone-name">Ванна кімната / санвузол</span><span class="ct-zone-rate">190 ₴/м²</span></div>
+              <div class="ct-stepper">
+                <button type="button" class="ct-step" data-step="-1" aria-label="Менше">−</button>
+                <input type="number" inputmode="numeric" class="ct-zone-input" min="0" max="80" value="0" aria-label="Ванна кімната / санвузол, м²">
+                <span class="ct-zone-unit">м²</span>
+                <button type="button" class="ct-step" data-step="1" aria-label="Більше">+</button>
+              </div>
+              <div class="ct-zone-hint">Вкажіть площу ванної / санвузла</div>
+            </div>
+          </div>
+          <div class="ct-zone ct-win" id="calc-win">
+            <div class="ct-zone-head"><span class="ct-zone-name">Миття вікон</span><span class="ct-zone-rate">від 110 ₴/м² скла</span></div>
+            <div class="ct-win-btns" role="radiogroup" aria-label="Миття вікон">
+              <button type="button" class="ct-win-btn" data-win="yes" role="radio" aria-checked="false">Потрібно</button>
+              <button type="button" class="ct-win-btn" data-win="no" role="radio" aria-checked="false">Не потрібно</button>
+            </div>
+            <div class="ct-zone-hint">Оберіть, чи потрібно мити вікна</div>
+          </div>
+        </div>
         <div class="mt-8 bg-zinc-900 border border-gold-400/30 rounded-2xl p-6 text-center">
           <div class="text-sm uppercase tracking-wider text-gold-400 font-bold">Орієнтовна вартість</div>
           <div class="mt-2 flex items-baseline justify-center gap-2">
@@ -529,18 +563,60 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     (function() {
       const RATES = [{max:999,rate:90,min:3500}];
       function tier(a) { return RATES.find(t=>a<=t.max)||RATES[RATES.length-1]; }
-      function calc(a) { return Math.max(a*tier(a).rate, RATES[0].min||0); }
       function fmt(n) { return n.toLocaleString('uk-UA').replace(/,/g,' '); }
       const sl=document.getElementById('pg-slider');
+      // Кухня і ванна віднімаються від загальної площі й рахуються за своєю ставкою; мінімалка — на суму
+      const zones = Array.from(document.querySelectorAll('#calc-zones-list .ct-zone')).map(r => ({ row: r, id: r.dataset.zone, rate: +r.dataset.rate, label: r.dataset.label, v: 0 }));
+      let winChoice = null;
+      const zsum = () => zones.reduce((t, z) => t + z.v, 0);
+      function calc(a) { return Math.max(Math.max(a - zsum(), 0) * tier(a).rate + zones.reduce((t, z) => t + z.v * z.rate, 0), RATES[0].min || 0); }
+      function missing() {
+        const a = parseInt(sl.value), m = zones.filter(z => !(z.v > 0)).map(z => z.id);
+        if (!winChoice) m.push('win');
+        if (zsum() >= a) m.push('overflow');
+        return m;
+      }
+      function paint() {
+        const m = missing();
+        zones.forEach(z => z.row.classList.toggle('is-missing', m.includes(z.id)));
+        document.getElementById('calc-win').classList.toggle('is-missing', m.includes('win'));
+        document.getElementById('calc-zones').classList.toggle('is-overflow', m.includes('overflow'));
+      }
       function upd() {
         const a=parseInt(sl.value);
         document.getElementById('pg-area').textContent=a;
         document.getElementById('pg-price').textContent=fmt(calc(a));
-        document.getElementById('pg-note').textContent=tier(a).rate+' ₴/м²';
+        document.getElementById('pg-note').textContent = missing().some(x => x !== 'win') ? 'Вкажіть площу кухні та ванної' : 'кімнати ' + tier(a).rate + ' ₴/м² · кухня і ванна окремо';
         sl.style.setProperty('--p',((a-30)/170*100)+'%');
-      // sync exact area to form input
-      var inp=document.querySelector("input[name=details]");if(inp)inp.value=a;
+        // sync exact area to form input
+        var inp=document.querySelector("input[name=details]");if(inp)inp.value=a;
+        paint();
       }
+      zones.forEach(z => {
+        const inp = z.row.querySelector('input');
+        const set = v => { z.v = Math.max(0, Math.min(80, parseInt(v, 10) || 0)); inp.value = z.v; upd(); };
+        inp.addEventListener('input', () => set(inp.value));
+        z.row.querySelectorAll('.ct-step').forEach(b => b.addEventListener('click', () => set(z.v + parseInt(b.dataset.step, 10))));
+      });
+      // Вікна: «Потрібно» відмічає доп.послугу «Миття вікон» у формі, «Не потрібно» — знімає
+      function winUpsell() { return Array.from(document.querySelectorAll('.upsell-check')).find(c => (c.dataset.extra || '').indexOf('Миття вікон') === 0); }
+      function setWin(v) {
+        winChoice = v;
+        document.querySelectorAll('.ct-win-btn').forEach(b => b.setAttribute('aria-checked', String(b.dataset.win === v)));
+        const cb = winUpsell();
+        if (cb && cb.checked !== (v === 'yes')) { cb.checked = (v === 'yes'); cb.dispatchEvent(new Event('change', { bubbles: true })); }
+        upd();
+      }
+      document.querySelectorAll('.ct-win-btn').forEach(b => b.addEventListener('click', () => setWin(b.dataset.win)));
+      document.addEventListener('change', e => { const cb = winUpsell(); if (e.target === cb && winChoice !== (cb.checked ? 'yes' : 'no')) setWin(cb.checked ? 'yes' : 'no'); });
+      window.ctZones = {
+        missing: missing, paint: paint,
+        line: () => {
+          const a = parseInt(sl.value);
+          return 'Площа: ' + a + ' м² (з них ' + zones.map(z => z.label.toLowerCase() + ' ' + z.v + ' м²').join(', ') + '; кімнати ' + Math.max(a - zsum(), 0) + ' м²)' +
+            (winChoice === 'no' ? '\nМиття вікон: не потрібно' : winChoice === 'yes' ? '\nМиття вікон: потрібно' : '');
+        }
+      };
       sl.addEventListener('input',upd); upd();
     })();
 
@@ -551,6 +627,21 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       e.preventDefault();
       if (submitBtn.disabled) return;
       if (window.CTLead) CTLead.clearError(form);
+      // Кухня, ванна і вікна — обовʼязкові
+      if (window.ctZones) {
+        const miss = window.ctZones.missing();
+        if (miss.length) {
+          window.ctZones.paint();
+          let msg = form.querySelector('.ct-zones-msg');
+          if (!msg) { msg = document.createElement('div'); msg.className = 'ct-zones-msg'; msg.setAttribute('role', 'alert'); submitBtn.insertAdjacentElement('afterend', msg); }
+          msg.textContent = miss.includes('overflow')
+            ? 'Площа кухні й ванної більша за площу квартири — перевірте калькулятор вище.'
+            : 'Вкажіть у калькуляторі вище площу кухні, ванної та чи потрібно мити вікна.';
+          document.getElementById('calc-zones').scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+      }
+      { const m = form.querySelector('.ct-zones-msg'); if (m) m.remove(); }
       submitBtn.disabled = true;
       submitBtn.textContent = 'Відправляємо…';
       const data = Object.fromEntries(new FormData(form));
@@ -564,6 +655,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         lines.push((lbl ? lbl.textContent.trim() : 'Деталі') + ': ' + data.details);
       }
       const pa = document.getElementById('pg-area'), pp = document.getElementById('pg-price');
+      if (window.ctZones) lines.push(window.ctZones.line());
       if (pa && pp) lines.push('Калькулятор: ' + pa.textContent.trim() + ' м² ≈ ' + pp.textContent.trim() + ' ₴');
       const ex = Array.from(form.querySelectorAll('.upsell-check:checked')).map(c => c.dataset.extra).filter(Boolean);
       if (ex.length) lines.push('Дод. послуги: ' + ex.join(', '));

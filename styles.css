@@ -935,3 +935,25 @@ html{overflow-y:auto!important}
 /* шапка таблиць цін: чорний текст на вогняному, як кнопки */
 thead.bg-gold-400{background-image:linear-gradient(135deg,#FFC800 0%,#FFA200 50%,#FF6A00 100%)!important}
 thead.bg-gold-400,thead.bg-gold-400 th{color:#000!important}
+/* Калькулятор генерального: кухня / ванна / вікна */
+.ct-zones{margin-top:1.5rem;padding:1rem;border-radius:1rem;border:1px solid rgba(255,165,0,.35);background:rgba(255,165,0,.05)}
+.ct-zones-title{font-size:.8rem;font-weight:700;color:#fff;margin-bottom:.75rem}
+.ct-zone{padding:.75rem;border-radius:.85rem;border:1px solid rgba(255,165,0,.22);background:#0b0b0b;margin-top:.6rem}
+.ct-zone:first-child{margin-top:0}
+.ct-zone-head{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;margin-bottom:.5rem}
+.ct-zone-name{font-weight:700;color:#fff;font-size:.95rem}
+.ct-zone-rate{font-size:.8rem;font-weight:700;color:#FFA200}
+.ct-stepper{display:flex;align-items:center;gap:.5rem}
+.ct-step{width:2.75rem;height:2.75rem;border-radius:.75rem;font-size:1.4rem;font-weight:900;line-height:1;color:#000;background:linear-gradient(135deg,#FFC800 0%,#FFA200 50%,#FF6A00 100%);border:none;cursor:pointer;flex:0 0 auto}
+.ct-step:active{transform:translateY(1px)}
+.ct-zone-input{width:4.5rem;height:2.75rem;text-align:center;font-size:1.25rem!important;font-weight:800;border-radius:.75rem;-moz-appearance:textfield}
+.ct-zone-input::-webkit-outer-spin-button,.ct-zone-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.ct-zone-unit{color:#cfcfcf;font-size:.9rem}
+.ct-zone-hint{display:none;margin-top:.45rem;font-size:.8rem;font-weight:600;color:#ff8a5c}
+.ct-zone.is-missing{border-color:#ff6a3d;box-shadow:0 0 0 1px rgba(255,106,61,.35)}
+.ct-zone.is-missing .ct-zone-hint{display:block}
+.ct-zones.is-overflow .ct-zones-title::after{content:" Площа кухні й ванної більша за площу квартири!";color:#ff8a5c}
+.ct-win-btns{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.ct-win-btn{padding:.7rem .5rem;border-radius:.75rem;font-weight:700;font-size:.9rem;color:#fff;background:#141414;border:1px solid rgba(255,165,0,.3);cursor:pointer}
+.ct-win-btn[aria-checked="true"]{color:#000;border-color:transparent;background:linear-gradient(135deg,#FFC800 0%,#FFA200 50%,#FF6A00 100%)}
+.ct-zones-msg{margin-top:.75rem;padding:.7rem .9rem;border-radius:.75rem;border:1px solid #ff6a3d;background:rgba(255,106,61,.12);color:#ffd2c2;font-size:.9rem;font-weight:600}
