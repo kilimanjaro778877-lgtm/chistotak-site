@@ -132,8 +132,8 @@
     var tooMany = status === 429;
     box.innerHTML =
       (tooMany ? 'Забагато спроб поспіль. ' : 'Не вдалося надіслати заявку — ваші дані збережені у формі, спробуйте ще раз. ') +
-      'Або зв\'яжіться з нами одразу: <a href="tel:' + p.replace(/\s/g, '') + '" style="color:#FFAA00;font-weight:700;text-decoration:underline">' + p + '</a>' +
-      ' · <a href="' + TELEGRAM + '" target="_blank" rel="noopener" style="color:#FFAA00;font-weight:700;text-decoration:underline">Telegram</a>';
+      'Або зв\'яжіться з нами одразу: <a href="tel:' + p.replace(/\s/g, '') + '" style="color:#EDBA4A;font-weight:700;text-decoration:underline">' + p + '</a>' +
+      ' · <a href="' + TELEGRAM + '" target="_blank" rel="noopener" style="color:#EDBA4A;font-weight:700;text-decoration:underline">Telegram</a>';
   }
 
   function clearError(form) {
