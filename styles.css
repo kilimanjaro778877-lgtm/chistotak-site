@@ -987,3 +987,14 @@ thead.bg-gold-400,thead.bg-gold-400 th{color:#000!important}
 .ct-stepper-sm.hidden{display:none!important}
 .ct-stepper-sm .ct-step{width:2.25rem;height:2.25rem;font-size:1.15rem;border-radius:.6rem}
 .ct-stepper-sm .ct-zone-input{width:3.2rem;height:2.25rem;font-size:1rem!important}
+/* Ручне введення площі: велика цифра — це поле */
+input.ct-area-input{display:inline-block;width:3.4ch;min-width:2.2ch;padding:0 .1em!important;margin:0;background:transparent!important;border:none!important;
+  border-bottom:2px dashed rgba(255,165,0,.6)!important;border-radius:0!important;color:#fff!important;font-family:inherit;font-weight:900;text-align:center;
+  line-height:1.1;-moz-appearance:textfield;box-shadow:none!important;outline:none}
+input.ct-area-input:focus{border-bottom-style:solid!important;border-bottom-color:#FFA200!important}
+input.ct-area-input::-webkit-outer-spin-button,input.ct-area-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+input.ct-area-input.text-5xl{font-size:3rem!important}
+input.ct-area-input.text-3xl{font-size:1.875rem!important}
+input.ct-area-input{font-size:inherit!important}
+input.ct-area-input.text-5xl{font-size:3rem!important}
+input.ct-area-input.text-3xl{font-size:1.875rem!important}
