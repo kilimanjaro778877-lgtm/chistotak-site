@@ -848,3 +848,55 @@ html, body { overflow-x: hidden; }
 .ct-related ul{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
 .ct-related a{color:#FFD700;font-weight:600;text-decoration:none}
 .ct-related a:hover{text-decoration:underline}
+
+/* ══ Жовто-чорна контрастна схема (2026-10) ══════════════════════════
+   Один блок переозначень у кінці файлу — розмітку не чіпає.
+   Відкат: видалити цей блок. */
+:root{--ct-y:#FFD000;--ct-y2:#FFE24D;--ct-y-dark:#9C7A00;--ct-black:#000}
+body{background-color:#030303!important;background-image:radial-gradient(rgba(255,208,0,.07) 1px,transparent 1px)!important;color:#fafafa}
+.orb-1{background:radial-gradient(ellipse,rgba(255,208,0,.30),transparent 70%)!important}
+.orb-2{background:radial-gradient(ellipse,rgba(255,170,0,.16),transparent 70%)!important}
+/* блоки — глибокий чорний */
+.bg-zinc-900,.bg-zinc-900.rounded-3xl,.gradient-bg{background-color:rgba(0,0,0,.82)!important}
+.bg-zinc-950{background-color:#000!important}
+.bg-zinc-900\/90,.bg-zinc-900\/95{background-color:rgba(0,0,0,.94)!important}
+.bg-zinc-800{background-color:#111!important}
+/* рамки з жовтим відтінком */
+.border-zinc-700,.border-zinc-600{border-color:rgba(255,208,0,.22)!important}
+.border-zinc-800{border-color:rgba(255,208,0,.12)!important}
+/* текст світліший — краще читається на чорному */
+.text-zinc-300{color:#ececec!important}
+.text-zinc-400{color:#cfcfcf!important}
+.text-zinc-500{color:#a8a8a8!important}
+.text-zinc-600{color:#8c8c8c!important}
+/* жовтий — чистий і насичений */
+.text-gold-400{color:var(--ct-y)!important}
+.bg-gold-400{background-color:var(--ct-y)!important}
+.gold-gradient-text{background:linear-gradient(135deg,#FFF06A 0%,#FFD000 45%,#FFB800 100%)!important;-webkit-background-clip:text!important;background-clip:text!important}
+/* головна кнопка: жовта з чорним текстом */
+.btn-3d{background:var(--ct-y)!important;color:#000!important;box-shadow:0 6px 0 var(--ct-y-dark),0 14px 30px -8px rgba(255,208,0,.55),inset 0 1px 0 rgba(255,255,255,.45)!important}
+.btn-3d:hover{background:var(--ct-y2)!important;box-shadow:0 8px 0 var(--ct-y-dark),0 18px 38px -8px rgba(255,208,0,.7),inset 0 1px 0 rgba(255,255,255,.5)!important}
+.btn-3d:active{box-shadow:0 2px 0 var(--ct-y-dark),0 4px 8px rgba(0,0,0,.4)!important}
+.btn-3d svg{stroke:#000}
+/* плаваючі кнопки Telegram/дзвінок: чорні іконки на жовтому */
+.fixed.bottom-6.right-5 a{background:var(--ct-y)!important;box-shadow:0 10px 30px -6px rgba(255,208,0,.6)!important}
+.fixed.bottom-6.right-5 a svg{fill:#000!important}
+/* шапка */
+header.sticky{background-color:rgba(0,0,0,.94)!important;border-bottom-color:rgba(255,208,0,.25)!important}
+/* герой */
+.ct-btn-ghost{border-color:rgba(255,208,0,.6);background:rgba(255,208,0,.06)}
+.ct-btn-ghost:hover{border-color:var(--ct-y);background:rgba(255,208,0,.14)}
+.ct-stat{background:rgba(0,0,0,.7);border-color:rgba(255,208,0,.35)}
+.ct-stat-num{color:var(--ct-y)}
+.ct-stat-cap{color:#d4d4d4}
+.ct-chip{background:rgba(0,0,0,.8);border-color:rgba(255,208,0,.22)}
+.ct-chip-stars,.ct-related a{color:var(--ct-y)}
+.ct-chip-text{color:#ececec}
+.ct-chip-author{color:#a8a8a8}
+.ct-related{background:rgba(0,0,0,.75);border-color:rgba(255,208,0,.25)}
+body{color:#fff!important}
+h1,h2,h3{color:#fff}
+.text-gray-900,.text-gray-800,.text-gray-700,article strong{color:#fff!important}
+input,select,textarea{background-color:#0d0d0d!important;color:#fff!important;border-color:rgba(255,208,0,.28)!important}
+input:focus,select:focus,textarea:focus{border-color:var(--ct-y)!important}
+input::placeholder,textarea::placeholder{color:#7a7a7a!important;opacity:1}
