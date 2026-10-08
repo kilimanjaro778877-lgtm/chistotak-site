@@ -1,0 +1,94 @@
+# Після кожного пушу в main (нова стаття блогу, правки сторінок) — подаємо змінені сторінки
+# в IndexNow (Bing, ChatGPT-пошук, Seznam, Naver…). Сайт цей файл не змінює.
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+      - 'sitemap.xml'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Зібрати змінені URL і подати в IndexNow
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          python3 - <<'PY'
+          import json, os, re, subprocess, sys, time, urllib.request
+
+          HOST = 'chisto-tak.com.ua'
+          KEY = 'd64efe5c4d3ec13d20e7fcabbaf78509'
+          BASE = 'https://' + HOST + '/'
+
+          before, after = os.environ.get('BEFORE', ''), os.environ['AFTER']
+          if os.environ.get('EVENT') == 'push' and before and not set(before) <= {'0'}:
+              out = subprocess.run(['git', 'diff', '--name-only', '--diff-filter=AM', before, after],
+                                   capture_output=True, text=True, check=True).stdout
+              files = [f for f in out.split() if f.endswith('.html')]
+          else:
+              # ручний запуск — подаємо всю карту сайту
+              files = None
+
+          def indexable(path):
+              if path in ('404.html',) or path.startswith('.'):
+                  return False
+              try:
+                  s = open(path, encoding='utf-8').read()
+              except FileNotFoundError:
+                  return False
+              return not re.search(r'<meta[^>]+name="robots"[^>]+noindex', s, re.I)
+
+          if files is None:
+              sm = open('sitemap.xml', encoding='utf-8').read()
+              urls = re.findall(r'<loc>([^<]+)</loc>', sm)
+          else:
+              urls = [BASE + ('' if f == 'index.html' else f) for f in files if indexable(f)]
+              if urls:
+                  urls += [BASE + 'blog.html', BASE + 'sitemap.xml']
+          urls = list(dict.fromkeys(urls))
+          if not urls:
+              print('Немає змінених сторінок для подачі'); sys.exit(0)
+          print('До подачі:', len(urls)); print('\n'.join(urls[:50]))
+
+          # Чекаємо, поки GitHub Pages викладе нову версію (перший змінений URL віддає 200)
+          probe = urls[0]
+          for i in range(30):
+              try:
+                  req = urllib.request.Request(probe + ('&' if '?' in probe else '?') + 'nc=' + str(int(time.time())),
+                                               headers={'User-Agent': 'indexnow-action', 'Cache-Control': 'no-cache'})
+                  if urllib.request.urlopen(req, timeout=20).status == 200:
+                      print('Сторінка доступна:', probe); break
+              except Exception as e:
+                  print('Ще не доступна:', probe, e)
+              time.sleep(20)
+
+          body = json.dumps({'host': HOST, 'key': KEY, 'keyLocation': BASE + KEY + '.txt', 'urlList': urls}).encode()
+          ok = False
+          for ep in ('https://api.indexnow.org/indexnow', 'https://www.bing.com/indexnow'):
+              try:
+                  r = urllib.request.urlopen(urllib.request.Request(ep, data=body,
+                      headers={'Content-Type': 'application/json; charset=utf-8'}), timeout=30)
+                  print(ep, '->', r.status); ok = ok or r.status in (200, 202)
+              except urllib.error.HTTPError as e:
+                  print(ep, '->', e.code, e.read()[:300])
+          sys.exit(0 if ok else 1)
+          PY
