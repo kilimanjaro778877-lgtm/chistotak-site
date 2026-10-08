@@ -2003,6 +2003,41 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     });
 </script>
   <script src="address-autocomplete.js" defer></script>
+  <!-- Мобілка: смужка з сумою внизу екрана, поки людина в калькуляторі, а основна ціна не на екрані -->
+  <div id="ct-pricebar" class="ct-pricebar" aria-hidden="true">
+    <div class="ct-pricebar-txt"><span class="ct-pricebar-cap">Орієнтовно</span><span class="ct-pricebar-sum"><span id="ct-pricebar-val">—</span> ₴</span></div>
+    <a href="#order" class="ct-pricebar-btn" tabindex="-1">Замовити</a>
+  </div>
+  <script>
+  (function () {
+    var bar = document.getElementById('ct-pricebar');
+    var val = document.getElementById('ct-pricebar-val');
+    var calc = document.getElementById('calc-block');
+    var price = document.getElementById('price-value');
+    var card = document.querySelector('#calc-block .ct-calc-price');
+    if (!bar || !calc || !price || !card) return;
+    function sync() { val.textContent = price.textContent; }
+    var raf = 0;
+    function render() {
+      raf = 0;
+      var vh = window.innerHeight, c = calc.getBoundingClientRect(), k = card.getBoundingClientRect();
+      var calcIn = c.top < vh && c.bottom > 0;
+      var cardBelow = k.top > vh - 40;          // основна ціна ще нижче екрана
+      var on = calcIn && cardBelow && window.innerWidth < 1024 && !calc.classList.contains('hidden');
+      bar.classList.toggle('is-on', on);
+      bar.setAttribute('aria-hidden', on ? 'false' : 'true');
+      bar.querySelector('a').tabIndex = on ? 0 : -1;
+      document.body.classList.toggle('ct-bar-on', on);
+    }
+    function schedule() { if (!raf) raf = requestAnimationFrame(render); }
+    new MutationObserver(sync).observe(price, { childList: true, characterData: true, subtree: true });
+    new MutationObserver(schedule).observe(calc, { attributes: true, attributeFilter: ['class'] });
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    schedule();
+    sync();
+  })();
+  </script>
   <script src="ct-lead.js?v=20261009b" defer></script>
   <script src="callback-popup.js?v=20261009b" defer></script>
 </body>

@@ -965,3 +965,20 @@ thead.bg-gold-400,thead.bg-gold-400 th{color:#000!important}
   #calc-block .ct-calc-btn-top{display:none!important}
   #calc-block .ct-calc-btn-price{display:inline-flex!important}
 }
+/* Мобілка: липка смужка з сумою калькулятора */
+.ct-pricebar{display:none}
+@media (max-width:1023px){
+  .ct-pricebar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;align-items:center;justify-content:space-between;gap:.75rem;
+    padding:.6rem 1rem calc(.6rem + env(safe-area-inset-bottom));background:rgba(0,0,0,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    border-top:1px solid rgba(255,165,0,.45);box-shadow:0 -10px 30px -10px rgba(255,140,0,.35);
+    transform:translateY(110%);transition:transform .25s ease;pointer-events:none}
+  .ct-pricebar.is-on{transform:translateY(0);pointer-events:auto}
+  .ct-pricebar-txt{display:flex;flex-direction:column;line-height:1.1}
+  .ct-pricebar-cap{font-size:.7rem;color:#cfcfcf;text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+  .ct-pricebar-sum{font-size:1.5rem;font-weight:900;font-variant-numeric:tabular-nums;color:#FFA200;
+    background-image:linear-gradient(135deg,#FFC800 0%,#FFA200 50%,#FF6A00 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .ct-pricebar-btn{flex:0 0 auto;padding:.7rem 1.2rem;border-radius:9999px;font-weight:800;font-size:.95rem;color:#000!important;
+    background:linear-gradient(135deg,#FFC800 0%,#FFA200 50%,#FF6A00 100%);box-shadow:0 4px 0 #7A2E00}
+  body.ct-bar-on .fixed.bottom-6.right-5{bottom:5.25rem!important;transition:bottom .25s ease}
+}
+@media (prefers-reduced-motion:reduce){.ct-pricebar{transition:none}}
