@@ -3,8 +3,9 @@
  * Використання у формі:
  *   const res = await CTLead.send(data, { button: submitBtn });
  *   if (res.ok) { ...успіх... } else { CTLead.showError(form, res.status); }
- * Конверсія «Заявка» відправляється всередині send() — рівно один раз і лише після
- * успішної відповіді сервера (повторне натискання не дублює конверсію).
+ * Після успішної відповіді сервера людину переводимо на /dyakuyemo.html — конверсія «Заявка»
+ * (Google Ads, Facebook Lead, TikTok SubmitForm) спрацьовує там, рівно один раз: форма ставить
+ * одноразову мітку, сторінка подяки її «гасить». Оновлення / повторний захід нічого не рахують.
  *
  * Клік по tel: / t.me / viber: відстежується автоматично на всіх сторінках.
  */
@@ -34,6 +35,9 @@
   var CONVERTED_KEY = 'chistotak_lastSubmit'; // читає callback-popup.js (не показувати попап тим, хто вже залишив заявку)
   var DEDUP_KEY = 'ct_last_lead';
   var DEDUP_MS = 2 * 60 * 1000; // повторне натискання тієї ж заявки протягом 2 хв не дублюється
+  var THANKS_KEY = 'ct_thanks';  // одноразова мітка для сторінки подяки
+  var THANKS_URL = '/dyakuyemo.html';
+  var THANKS_TTL_MS = 10 * 60 * 1000;
 
   function safe(fn) { try { fn(); } catch (_) {} }
 
@@ -101,9 +105,23 @@
     if (res.ok) {
       safe(function () { localStorage.setItem(CONVERTED_KEY, String(Date.now())); });
       safe(function () { sessionStorage.setItem(DEDUP_KEY, JSON.stringify({ fp: fingerprint(data), t: Date.now() })); });
-      trackLead(data);
+      safe(function () {
+        sessionStorage.setItem(THANKS_KEY, JSON.stringify({ t: Date.now(), service: data.service || '', city: data.city || '' }));
+      });
+      // Невелика пауза — кнопка встигає показати «Заявку прийнято», далі сторінка подяки
+      setTimeout(function () { location.assign(THANKS_URL); }, 400);
     }
     return res;
+  }
+
+  /* Сторінка подяки: конверсія лише за наявності свіжої мітки від форми, мітка одразу стирається. */
+  function fireThanks() {
+    var tok = null;
+    safe(function () { tok = JSON.parse(sessionStorage.getItem(THANKS_KEY) || 'null'); });
+    safe(function () { sessionStorage.removeItem(THANKS_KEY); });
+    if (!tok || !tok.t || Date.now() - tok.t > THANKS_TTL_MS) return null;
+    trackLead({ service: tok.service });
+    return tok;
   }
 
   /* Конверсія «Заявка» — лише після успішної відповіді сервера (викликається з send). */
@@ -167,6 +185,7 @@
     send: send,
     showError: showError,
     clearError: clearError,
+    fireThanks: fireThanks,
     phone: phone
   };
 })();

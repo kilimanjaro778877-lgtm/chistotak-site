@@ -1027,3 +1027,12 @@ input.ct-area-input.text-3xl{font-size:1.875rem!important}
   .ct-cities .text-2xl{font-size:1.25rem!important}
   .ct-cities .opacity-0{opacity:1!important}
 }
+/* Сторінка подяки */
+.ct-thanks{min-height:calc(100vh - 4rem);display:flex;align-items:center;justify-content:center;padding:3rem 1rem}
+.ct-thanks-card{max-width:32rem;width:100%;text-align:center;padding:2.5rem 1.5rem;border-radius:1.5rem;background:rgba(0,0,0,.8);border:1px solid rgba(255,165,0,.35);box-shadow:0 20px 60px -20px rgba(255,140,0,.35)}
+.ct-thanks-icon{width:4.5rem;height:4.5rem;margin:0 auto 1.25rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.4rem;font-weight:900;color:#000;background:linear-gradient(135deg,#FFC800 0%,#FFA200 50%,#FF6A00 100%)}
+.ct-thanks-title{font-size:2rem;line-height:1.15;font-weight:900;color:#fff}
+.ct-thanks-sub{margin-top:.9rem;color:#cfcfcf;font-size:1rem;line-height:1.5}
+.ct-thanks-actions{margin-top:1.75rem;display:flex;flex-direction:column;gap:.75rem;align-items:stretch}
+.ct-thanks-actions .ct-btn-ghost{justify-content:center}
+.ct-thanks-back{display:inline-block;margin-top:1.5rem;color:#a8a8a8;font-size:.9rem;text-decoration:underline}
