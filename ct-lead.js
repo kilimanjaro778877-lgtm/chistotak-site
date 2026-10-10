@@ -17,7 +17,9 @@
 
   // Google Ads: основна конверсія «Заявка» (як і раніше — не змінювати без потреби,
   // інакше кампанії втратять історію навчання).
-  var ADS_LEAD = 'AW-18396553965/yBuHCKL4g4YdEO3FlMRE';
+  // Обидва акаунти Google Ads: кампанія «Прибирання квартир у Києві» — AW-18383404362 (стара мітка конверсії),
+  // і AW-18396553965. Кожен акаунт рахує лише свою конверсію — дубля всередині акаунта немає.
+  var ADS_LEADS = ['AW-18383404362/oncCCMnI2-AcEMr68b1E', 'AW-18396553965/yBuHCKL4g4YdEO3FlMRE'];
   // Google Ads: окремі дії-конверсії для кліків. Порожньо = не відправляється в Ads.
   // Створити в Google Ads → Цілі → Конверсії → «Клік по телефону» / «Клік у Telegram»
   // і вставити сюди мітку виду 'AW-18396553965/XXXXXXXX'.
@@ -130,7 +132,7 @@
     if (typeof window.ttq !== 'undefined') safe(function () { window.ttq.track('SubmitForm', { content_type: 'lead', content_name: name }); });
     if (typeof window.gtag === 'function') {
       safe(function () { window.gtag('event', 'generate_lead', { service: name }); });
-      safe(function () { window.gtag('event', 'conversion', { send_to: ADS_LEAD }); });
+      ADS_LEADS.forEach(function (to) { safe(function () { window.gtag('event', 'conversion', { send_to: to }); }); });
     }
     if (typeof window.fbq === 'function') safe(function () { window.fbq('track', 'Lead', { content_name: name }); });
   }
