@@ -68,7 +68,7 @@
         "name": "Скільки коштує один візит?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Що більша квартира, то нижча ставка: 40–60 м² — 40 ₴/м² (≈2 300 ₴ на тиждень), 70–90 м² — 35 ₴/м² (≈2 800 ₴), 100–140 м² — 25 ₴/м² (≈3 000 ₴). Точну суму для вашої квартири підтвердить менеджер."
+          "text": "Що більша квартира, то нижча ставка: 40–60 м² — 40 ₴/м² (≈2 300 ₴ на тиждень), 70–90 м² — 35 ₴/м² (≈2 800 ₴), 100–140 м² — 25 ₴/м² (≈3 150–3 500 ₴). Точну суму для вашої квартири підтвердить менеджер."
         }
       },
       {
@@ -334,7 +334,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
           <tbody class="divide-y divide-gray-200">
             <tr class="hover:bg-zinc-900"><td class="p-5">40–60 м²</td><td class="p-5 text-right font-bold text-gold-400">40 ₴/м²</td><td class="p-5 text-right text-zinc-400">≈2 300 ₴/тиждень</td></tr>
             <tr class="hover:bg-zinc-900"><td class="p-5">70–90 м²</td><td class="p-5 text-right font-bold text-gold-400">35 ₴/м²</td><td class="p-5 text-right text-zinc-400">≈2 800 ₴/тиждень</td></tr>
-            <tr class="hover:bg-zinc-900"><td class="p-5">100–140 м²</td><td class="p-5 text-right font-bold text-gold-400">25 ₴/м²</td><td class="p-5 text-right text-zinc-400">≈3 000 ₴/тиждень</td></tr>
+            <tr class="hover:bg-zinc-900"><td class="p-5">100–140 м²</td><td class="p-5 text-right font-bold text-gold-400">25 ₴/м²</td><td class="p-5 text-right text-zinc-400">≈3 150–3 500 ₴/тиждень</td></tr>
           </tbody>
         </table>
         </div>
@@ -361,7 +361,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             <h3 class="text-base font-semibold">Скільки коштує один візит?</h3>
             <span class="text-gold-400 transition group-open:rotate-45 text-2xl" aria-hidden="true">+</span>
           </summary>
-          <div class="px-6 pb-6 text-zinc-400">Що більша квартира, то нижча ставка: 40–60 м² — 40 ₴/м² (≈2 300 ₴ на тиждень), 70–90 м² — 35 ₴/м² (≈2 800 ₴), 100–140 м² — 25 ₴/м² (≈3 000 ₴). Точну суму для вашої квартири підтвердить менеджер.</div>
+          <div class="px-6 pb-6 text-zinc-400">Що більша квартира, то нижча ставка: 40–60 м² — 40 ₴/м² (≈2 300 ₴ на тиждень), 70–90 м² — 35 ₴/м² (≈2 800 ₴), 100–140 м² — 25 ₴/м² (≈3 150–3 500 ₴). Точну суму для вашої квартири підтвердить менеджер.</div>
         </details>
         <details class="group bg-zinc-900 border border-zinc-700 hover:border-gold-400/40 rounded-2xl overflow-hidden transition">
           <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer font-semibold list-none">
@@ -490,7 +490,12 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     (function() {
       const RATES = [{max:60,rate:40},{max:90,rate:35},{max:999,rate:25}];
       function tier(a) { return RATES.find(t=>a<=t.max)||RATES[RATES.length-1]; }
-      function calc(a) { return a*tier(a).rate; }
+      // Ціна не падає при збільшенні площі: на межі діапазону тримаємо суму кінця попереднього
+      function calc(a) {
+        const t = tier(a); let floor = 0;
+        for (const r of RATES) { if (r === t || r.max >= a) break; floor = Math.max(floor, r.max * r.rate); }
+        return Math.max(a * t.rate, floor);
+      }
       function fmt(n) { return n.toLocaleString('uk-UA').replace(/,/g,' '); }
       const sl=document.getElementById('pg-slider');
       function upd() {

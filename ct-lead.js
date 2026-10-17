@@ -108,12 +108,20 @@
       safe(function () { localStorage.setItem(CONVERTED_KEY, String(Date.now())); });
       safe(function () { sessionStorage.setItem(DEDUP_KEY, JSON.stringify({ fp: fingerprint(data), t: Date.now() })); });
       safe(function () {
-        sessionStorage.setItem(THANKS_KEY, JSON.stringify({ t: Date.now(), service: data.service || '', city: data.city || '' }));
+        sessionStorage.setItem(THANKS_KEY, JSON.stringify({ t: Date.now(), service: data.service || '', city: data.city || '', phone: e164(data.phone) }));
       });
       // Невелика пауза — кнопка встигає показати «Заявку прийнято», далі сторінка подяки
       setTimeout(function () { location.assign(THANKS_URL); }, 400);
     }
     return res;
+  }
+
+  /* Телефон у форматі E.164 (+380…) — для покращених конверсій Google Ads. */
+  function e164(p) {
+    var d = String(p || '').replace(/\D/g, '');
+    if (d.length === 10 && d.charAt(0) === '0') d = '38' + d;
+    if (d.length === 9) d = '380' + d;
+    return d.length >= 11 ? '+' + d : '';
   }
 
   /* Сторінка подяки: конверсія лише за наявності свіжої мітки від форми, мітка одразу стирається. */
@@ -122,6 +130,10 @@
     safe(function () { tok = JSON.parse(sessionStorage.getItem(THANKS_KEY) || 'null'); });
     safe(function () { sessionStorage.removeItem(THANKS_KEY); });
     if (!tok || !tok.t || Date.now() - tok.t > THANKS_TTL_MS) return null;
+    // Покращені конверсії: gtag сам хешує (SHA-256) номер у браузері; працює, якщо увімкнено в налаштуваннях конверсій Ads
+    if (tok.phone && typeof window.gtag === 'function') {
+      safe(function () { window.gtag('set', 'user_data', { phone_number: tok.phone }); });
+    }
     trackLead({ service: tok.service });
     return tok;
   }
