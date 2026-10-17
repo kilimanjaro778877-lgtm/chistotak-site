@@ -1036,3 +1036,10 @@ input.ct-area-input.text-3xl{font-size:1.875rem!important}
 .ct-thanks-actions{margin-top:1.75rem;display:flex;flex-direction:column;gap:.75rem;align-items:stretch}
 .ct-thanks-actions .ct-btn-ghost{justify-content:center}
 .ct-thanks-back{display:inline-block;margin-top:1.5rem;color:#a8a8a8;font-size:.9rem;text-decoration:underline}
+/* Список «Що входить» з огненними галочками */
+.ct-check-list{list-style:none;margin:0;padding:0;display:grid;gap:.45rem}
+.ct-check-list li{position:relative;padding-left:1.5rem;font-size:.9rem;line-height:1.45;color:#dcdcdc}
+.ct-check-list li::before{content:"";position:absolute;left:0;top:.3em;width:.95rem;height:.95rem;border-radius:.3rem;
+  background:linear-gradient(135deg,#FFC800 0%,#FFA200 50%,#FF6A00 100%);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/contain no-repeat}
