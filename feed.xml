@@ -6,7 +6,15 @@
     <atom:link href="https://chisto-tak.com.ua/feed.xml" rel="self" type="application/rss+xml" />
     <description>Поради з прибирання й догляду за домом від клінінгової компанії ЧистоТак (Київ, Львів).</description>
     <language>uk</language>
-    <lastBuildDate>Mon, 19 Oct 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 23 Oct 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Як вивести плями з дивана: практичний гайд по типах забруднень</title>
+      <link>https://chisto-tak.com.ua/blog/plyamy-na-dyvani-vyvesty.html</link>
+      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/plyamy-na-dyvani-vyvesty.html</guid>
+      <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
+      <category>Поради</category>
+      <description>Кава, вино, жир, кров, фломастер — як прибрати кожну пляму з дивана вдома, не пошкодивши тканину, і коли простіше викликати хімчистку.</description>
+    </item>
     <item>
       <title>Скільки коштує генеральне прибирання у Львові: ціни 2026</title>
       <link>https://chisto-tak.com.ua/blog/skilky-koshtuie-generalne-lviv.html</link>
@@ -158,14 +166,6 @@
       <pubDate>Mon, 24 Aug 2026 09:00:00 +0000</pubDate>
       <category>Поради</category>
       <description>7 задач після відпустки, алергії на амброзію й підготовки до опалювального сезону — і чому частину з них краще довірити професіоналам.</description>
-    </item>
-    <item>
-      <title>Хімчистка стільців вдома: як почистити без розводів</title>
-      <link>https://chisto-tak.com.ua/blog/himchistka-stiltsiv-vdoma.html</link>
-      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/himchistka-stiltsiv-vdoma.html</guid>
-      <pubDate>Fri, 21 Aug 2026 09:00:00 +0000</pubDate>
-      <category>Поради</category>
-      <description>М&#x27;які стільці швидко брудняться і втрачають вигляд. Покроковий план чистки без розводів — і чому цей процес підступніший, ніж здається.</description>
     </item>
   </channel>
 </rss>
