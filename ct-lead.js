@@ -62,7 +62,10 @@
       signal: ctrl ? ctrl.signal : undefined
     }).then(function (r) {
       if (timer) clearTimeout(timer);
-      return { ok: r.ok, status: r.status };
+      // q: 'ok' | 'suspect' — оцінка антифроду сервера (підозрілі не зараховуємо в рекламу)
+      return r.json().then(function (j) {
+        return { ok: r.ok, status: r.status, q: (j && j.q) || 'ok' };
+      }, function () { return { ok: r.ok, status: r.status, q: 'ok' }; });
     }, function () {
       if (timer) clearTimeout(timer);
       return { ok: false, status: 0 }; // мережа / таймаут
@@ -92,6 +95,13 @@
 
     if (isDuplicate(data)) return { ok: true, status: 200, duplicate: true };
 
+    // Номер перевіряємо одразу у формі — людина просто виправить помилку
+    if (!phoneLooksValid(data.phone)) return { ok: false, status: 'phone' };
+
+    // Сигнали «людина чи бот» для антифроду сервера
+    data.t_ms = Math.round(typeof performance !== 'undefined' && performance.now ? performance.now() : 0);
+    data.hi = humanActions;
+
     var slowTimer = btn ? setTimeout(function () {
       btn.textContent = 'Ще кілька секунд…';
     }, 6000) : null;
@@ -107,14 +117,42 @@
     if (res.ok) {
       safe(function () { localStorage.setItem(CONVERTED_KEY, String(Date.now())); });
       safe(function () { sessionStorage.setItem(DEDUP_KEY, JSON.stringify({ fp: fingerprint(data), t: Date.now() })); });
-      safe(function () {
-        sessionStorage.setItem(THANKS_KEY, JSON.stringify({ t: Date.now(), service: data.service || '', city: data.city || '', phone: e164(data.phone) }));
-      });
+      // Підозрілу (за оцінкою сервера) заявку людина бачить як звичайну, але мітки для
+      // конверсії не ставимо — реклама не вчиться на ботах і скликуванні
+      if (res.q !== 'suspect') {
+        safe(function () {
+          sessionStorage.setItem(THANKS_KEY, JSON.stringify({ t: Date.now(), service: data.service || '', city: data.city || '', phone: e164(data.phone) }));
+        });
+      }
       // Невелика пауза — кнопка встигає показати «Заявку прийнято», далі сторінка подяки
       setTimeout(function () { location.assign(THANKS_URL); }, 400);
     }
     return res;
   }
+
+  /* Чи схожий номер на справжній: український мобільний/міський або міжнародний з «+».
+     Ті самі правила, що й на сервері (antifraud.py), — щоб людина виправила помилку одразу. */
+  var UA_MOBILE = ['39', '50', '63', '66', '67', '68', '73', '77', '89', '91', '92', '93', '94', '95', '96', '97', '98', '99'];
+  function phoneLooksValid(p) {
+    var raw = String(p || '').trim();
+    var d = raw.replace(/\D/g, '');
+    if (d.length === 10 && d.charAt(0) === '0') d = '38' + d;
+    else if (d.length === 9) d = '380' + d;
+    else if (d.length === 11 && d.slice(0, 2) === '80') d = '3' + d;
+    if (d.slice(0, 3) === '380') {
+      if (d.length !== 12) return false;
+      var rest = d.slice(3);
+      if (new Set(rest.split('')).size <= 2) return false;
+      return UA_MOBILE.indexOf(rest.slice(0, 2)) !== -1 || '3456'.indexOf(rest.charAt(0)) !== -1;
+    }
+    return raw.charAt(0) === '+' && d.length >= 10 && d.length <= 15 && new Set(d.split('')).size > 2;
+  }
+
+  // Лічильник дій людини (натискання, дотики, кліки) — боти зазвичай їх не роблять
+  var humanActions = 0;
+  ['keydown', 'pointerdown', 'touchstart'].forEach(function (ev) {
+    document.addEventListener(ev, function () { humanActions++; }, { passive: true, capture: true });
+  });
 
   /* Телефон у форматі E.164 (+380…) — для покращених конверсій Google Ads. */
   function e164(p) {
@@ -161,6 +199,13 @@
       form.appendChild(box);
     }
     var p = phone();
+    if (status === 'phone') {
+      // Помилка в номері — підказуємо формат і ставимо курсор у поле, без «страшних» повідомлень
+      box.innerHTML = 'Перевірте номер телефону — наприклад, <b>+380 50 123 45 67</b> або <b>050 123 45 67</b>.';
+      var ph = form.querySelector('[name=phone]');
+      if (ph) { try { ph.focus(); } catch (_) {} }
+      return;
+    }
     var tooMany = status === 429;
     box.innerHTML =
       (tooMany ? 'Забагато спроб поспіль. ' : 'Не вдалося надіслати заявку — ваші дані збережені у формі, спробуйте ще раз. ') +
