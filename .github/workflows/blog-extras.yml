@@ -1,13 +1,13 @@
 # Страховка для блог-агента: після кожної нової статті оновлює feed.xml і блок «Свіжі статті»
-# на головній (tools/update_blog_extras.py). Якщо агент уже оновив — нічого не робить.
+# на головній (tools/update_blog_extras.py), а також <lastmod> у sitemap.xml за реальними змінами
+# контенту (tools/sync_lastmod.py). Якщо все актуально — нічого не робить.
 name: Blog extras
 
 on:
   push:
     branches: [main]
     paths:
-      - 'blog.html'
-      - 'blog/**'
+      - '**.html'
   workflow_dispatch: {}
 
 permissions:
@@ -24,20 +24,25 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # sync_lastmod читає історію git
 
       - name: Оновити feed.xml і «Свіжі статті»
         run: python3 tools/update_blog_extras.py
 
+      - name: Оновити lastmod у sitemap.xml
+        run: python3 tools/sync_lastmod.py
+
       - name: Закомітити, якщо щось змінилось
         id: commit
         run: |
-          if git diff --quiet -- feed.xml index.html; then
+          if git diff --quiet -- feed.xml index.html sitemap.xml; then
             echo "changed=false" >> "$GITHUB_OUTPUT"; echo "Усе актуально"; exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add feed.xml index.html
-          git commit -m "chore: оновлено feed.xml і «Свіжі статті»"
+          git add feed.xml index.html sitemap.xml
+          git commit -m "chore: оновлено feed.xml, «Свіжі статті», lastmod у sitemap"
           for i in 1 2 3; do
             git pull --rebase origin main && git push origin HEAD:main && break
             sleep 5
