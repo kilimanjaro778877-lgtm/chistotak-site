@@ -6,7 +6,15 @@
     <atom:link href="https://chisto-tak.com.ua/feed.xml" rel="self" type="application/rss+xml" />
     <description>Поради з прибирання й догляду за домом від клінінгової компанії ЧистоТак (Київ, Львів).</description>
     <language>uk</language>
-    <lastBuildDate>Mon, 26 Oct 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Миття вікон восени: останній теплий тиждень і скільки це коштує</title>
+      <link>https://chisto-tak.com.ua/blog/myttya-vikon-vosenyu.html</link>
+      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/myttya-vikon-vosenyu.html</guid>
+      <pubDate>Sat, 31 Oct 2026 09:00:00 +0000</pubDate>
+      <category>Послуги</category>
+      <description>Поки не почались морози, скло ще можна помити зовні без ризику. Чому восени на вікнах більше бруду і скільки коштує викликати бригаду в Києві.</description>
+    </item>
     <item>
       <title>Увімкнули опалення — чому в квартирі більше пилу і важче дихати</title>
       <link>https://chisto-tak.com.ua/blog/pyl-pislya-vklyuchennya-opalennya.html</link>
@@ -158,14 +166,6 @@
       <pubDate>Mon, 31 Aug 2026 09:00:00 +0000</pubDate>
       <category>Послуги</category>
       <description>У вересні вільного часу на прибирання стає вдвічі менше. Чому графік прибирання ламається саме зараз і як планове прибирання за розкладом це вирішує.</description>
-    </item>
-    <item>
-      <title>Як обрати клінінгову компанію: 7 критеріїв, щоб не пошкодувати</title>
-      <link>https://chisto-tak.com.ua/blog/yak-obraty-kliniing-kompaniyu.html</link>
-      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/yak-obraty-kliniing-kompaniyu.html</guid>
-      <pubDate>Fri, 28 Aug 2026 09:00:00 +0000</pubDate>
-      <category>Поради</category>
-      <description>Прозорі ціни, обладнання, реальні фото робіт — сім конкретних речей, які варто перевірити перед тим, як платити завдаток будь-якій клінінговій компанії.</description>
     </item>
   </channel>
 </rss>
