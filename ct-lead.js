@@ -7,7 +7,8 @@
  * (Google Ads, Facebook Lead, TikTok SubmitForm) спрацьовує там, рівно один раз: форма ставить
  * одноразову мітку, сторінка подяки її «гасить». Оновлення / повторний захід нічого не рахують.
  *
- * Клік по tel: / t.me / viber: відстежується автоматично на всіх сторінках.
+ * Клік по tel: / t.me / viber: / wa.me відстежується автоматично на всіх сторінках.
+ * Онлайн-запис (ct-booking.js) додає у форму slot_date/slot_time — сервер бронює місце.
  */
 (function () {
   'use strict';
@@ -64,7 +65,7 @@
       if (timer) clearTimeout(timer);
       // q: 'ok' | 'suspect' — оцінка антифроду сервера (підозрілі не зараховуємо в рекламу)
       return r.json().then(function (j) {
-        return { ok: r.ok, status: r.status, q: (j && j.q) || 'ok' };
+        return { ok: r.ok, status: r.status, q: (j && j.q) || 'ok', slot: (j && j.slot) || '' };
       }, function () { return { ok: r.ok, status: r.status, q: 'ok' }; });
     }, function () {
       if (timer) clearTimeout(timer);
@@ -123,6 +124,10 @@
         safe(function () {
           sessionStorage.setItem(THANKS_KEY, JSON.stringify({ t: Date.now(), service: data.service || '', city: data.city || '', phone: e164(data.phone) }));
         });
+      }
+      // Обраний час запису — покажемо на сторінці подяки (held | full | wish | late)
+      if (data.slot_date && data.slot_time) {
+        safe(function () { sessionStorage.setItem('ct_slot', JSON.stringify({ d: data.slot_date, t: data.slot_time, s: res.slot || 'wish' })); });
       }
       // Невелика пауза — кнопка встигає показати «Заявку прийнято», далі сторінка подяки
       setTimeout(function () { location.assign(THANKS_URL); }, 400);
@@ -226,6 +231,7 @@
     var kind = /^tel:/i.test(href) ? 'call'
       : /^(https?:\/\/)?(t\.me|telegram\.me)\//i.test(href) ? 'telegram'
       : /^viber:/i.test(href) ? 'viber'
+      : /^(https?:\/\/)?(wa\.me|api\.whatsapp\.com)\//i.test(href) ? 'whatsapp'
       : null;
     if (!kind) return;
     var label = (a.textContent || '').trim().slice(0, 40) || kind;
@@ -238,6 +244,56 @@
     if (typeof window.ttq !== 'undefined') safe(function () { window.ttq.track('Contact', { content_name: kind }); });
   }
   document.addEventListener('click', onContactClick, true);
+
+  /* Плаваюча кнопка Telegram -> «Написати»: вибір Telegram / Viber / WhatsApp. */
+  var MESSENGERS = [
+    { name: 'Telegram', href: TELEGRAM, bg: '#2AABEE', ext: true,
+      icon: '<path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.56 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>' },
+    { name: 'Viber', href: 'viber://chat?number=%2B380731312228', bg: '#7360F2', ext: false,
+      icon: '<path d="M12 2C6.9 2 3 5.6 3 10.3c0 2.6 1.2 4.9 3.2 6.4V21l3.4-1.9c.8.2 1.6.3 2.4.3 5.1 0 9-3.6 9-8.3S17.1 2 12 2zm4.6 11.6c-.2.6-1.1 1.1-1.6 1.1-.4 0-.9.2-3-.7-2.5-1.1-4.1-3.7-4.2-3.9-.1-.2-1-1.3-1-2.5s.6-1.8.9-2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.3 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.6-.1 1.1z"/>' },
+    { name: 'WhatsApp', href: 'https://wa.me/380731312228', bg: '#25D366', ext: true,
+      icon: '<path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.2 13.9c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.6.8 2 .9 2.1.1.1.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/>' }
+  ];
+
+  function enhanceFloat() {
+    var tg = document.querySelector('.fixed a[aria-label="Написати в Telegram"]');
+    if (!tg || tg.dataset.ctMsg) return;
+    tg.dataset.ctMsg = '1';
+    var wrap = document.createElement('div');
+    wrap.className = 'ct-msg';
+    var menu = document.createElement('div');
+    menu.className = 'ct-msg-menu';
+    menu.hidden = true;
+    MESSENGERS.forEach(function (m) {
+      var a = document.createElement('a');
+      a.className = 'ct-msg-item';
+      a.href = m.href;
+      if (m.ext) { a.target = '_blank'; a.rel = 'noopener'; }
+      a.innerHTML = '<span>' + m.name + '</span><i style="background:' + m.bg + '"><svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true">' + m.icon + '</svg></i>';
+      menu.appendChild(a);
+    });
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = tg.className;
+    btn.setAttribute('style', tg.getAttribute('style') || '');
+    btn.setAttribute('aria-label', 'Написати нам у месенджер');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M4 4h16a2 2 0 012 2v10a2 2 0 01-2 2H8l-4 4V6a2 2 0 012-2zm3 6a1.3 1.3 0 100 2.6A1.3 1.3 0 007 10zm5 0a1.3 1.3 0 100 2.6 1.3 1.3 0 000-2.6zm5 0a1.3 1.3 0 100 2.6 1.3 1.3 0 000-2.6z"/></svg>';
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      menu.hidden = !menu.hidden;
+      btn.setAttribute('aria-expanded', menu.hidden ? 'false' : 'true');
+    });
+    document.addEventListener('click', function (e) {
+      if (!menu.hidden && !wrap.contains(e.target)) { menu.hidden = true; btn.setAttribute('aria-expanded', 'false'); }
+    });
+    tg.parentNode.insertBefore(wrap, tg);
+    wrap.appendChild(menu);
+    wrap.appendChild(btn);
+    tg.parentNode.removeChild(tg);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', enhanceFloat);
+  else enhanceFloat();
 
   window.CTLead = {
     API: API,

@@ -68,6 +68,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       <div class="ct-thanks-icon" aria-hidden="true">✓</div>
       <h1 class="font-display ct-thanks-title">Дякуємо! Заявку прийнято</h1>
       <p class="ct-thanks-sub" id="ct-thanks-sub">Менеджер передзвонить найближчим часом — уточнить деталі й погодить зручний час.</p>
+      <p class="ct-thanks-slot" id="ct-thanks-slot" hidden></p>
       <div class="ct-thanks-actions">
         <a href="https://t.me/jamboss8" target="_blank" rel="noopener" class="btn-3d">Написати в Telegram</a>
         <a href="tel:+380731312228" class="ct-btn-ghost" id="ct-thanks-phone">📞 +38 073 131 22 28</a>
@@ -79,6 +80,22 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   <script src="ct-lead.js?v=20261101" defer></script>
   <script>
   document.addEventListener('DOMContentLoaded', function () {
+    // Онлайн-запис: показуємо обраний час (ставить ct-lead.js після успішної заявки)
+    try {
+      var sl = JSON.parse(sessionStorage.getItem('ct_slot') || 'null');
+      sessionStorage.removeItem('ct_slot');
+      var box = document.getElementById('ct-thanks-slot');
+      if (sl && sl.d && sl.t && box) {
+        var p = sl.d.split('-'), d = new Date(+p[0], +p[1] - 1, +p[2]);
+        var lbl = ['нд', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'][d.getDay()] + ', ' + p[2] + '.' + p[1] + ' о ' + sl.t;
+        box.innerHTML = sl.s === 'held'
+          ? '📅 Ми забронювали для вас <b>' + lbl + '</b>. Менеджер передзвонить і підтвердить запис.'
+          : sl.s === 'full'
+            ? '📅 Час <b>' + lbl + '</b> щойно зайняли — менеджер запропонує найближчий вільний.'
+            : '📅 Бажаний час: <b>' + lbl + '</b> — менеджер передзвонить і погодить.';
+        box.hidden = false;
+      }
+    } catch (_) {}
     if (!window.CTLead) return;
     var tok = window.CTLead.fireThanks();   // конверсія — лише один раз і лише після реальної заявки
     if (tok && /львів/i.test(tok.city || '')) {

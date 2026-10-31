@@ -1099,3 +1099,44 @@ input.ct-area-input.text-3xl{font-size:1.875rem!important}
 .ct-about-works figcaption{margin-top:.6rem;text-align:center;font-weight:700;color:#e4e4e7;font-size:.9rem}
 .ct-about-cta{margin-top:4rem;text-align:center;background:#18181b;border:1px solid #3f3f46;border-radius:1.5rem;padding:2.5rem 1.25rem}
 .ct-about-cta p{margin-top:.5rem;color:#a1a1aa}
+/* ── Онлайн-запис (ct-booking.js) ── */
+.ct-bk{margin-top:1.25rem;padding:1rem;border:1px solid #3f3f46;border-radius:1rem;background:rgba(255,255,255,.02)}
+.ct-bk-head{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;margin-bottom:.75rem}
+.ct-bk-title{font-weight:800;color:#f4f4f5;font-size:.95rem}
+.ct-bk-opt{font-size:.75rem;color:#a1a1aa}
+.ct-bk-days{display:flex;gap:.5rem;overflow-x:auto;padding-bottom:.4rem;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.ct-bk-day{flex:0 0 3.6rem;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;gap:.05rem;padding:.5rem 0;border-radius:.8rem;border:1px solid #3f3f46;background:#18181b;color:#d4d4d8;cursor:pointer;transition:border-color .15s,background .15s}
+.ct-bk-day span{font-size:.7rem;color:#a1a1aa}
+.ct-bk-day b{font-size:1.15rem;font-weight:900;line-height:1.2}
+.ct-bk-day small{font-size:.65rem;color:#a1a1aa}
+.ct-bk-day.is-weekend span{color:#FFAA00}
+.ct-bk-day:hover{border-color:rgba(255,165,0,.6)}
+.ct-bk-day[aria-pressed=true]{border-color:#FFAA00;background:linear-gradient(135deg,rgba(255,200,0,.18),rgba(255,106,0,.22));color:#fff}
+.ct-bk-day.is-full{opacity:.45}
+.ct-bk-times{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem;margin-top:.6rem}
+.ct-bk-time{display:flex;flex-direction:column;align-items:center;padding:.6rem .25rem;border-radius:.8rem;border:1px solid #3f3f46;background:#18181b;color:#f4f4f5;cursor:pointer;transition:border-color .15s,background .15s}
+.ct-bk-time b{font-size:1.05rem;font-weight:900}
+.ct-bk-time small{font-size:.7rem;color:#86efac}
+.ct-bk-time.is-last small{color:#FFAA00}
+.ct-bk-time:hover:not(:disabled){border-color:rgba(255,165,0,.6)}
+.ct-bk-time[aria-pressed=true]{border-color:#FFAA00;background:linear-gradient(135deg,#FFC800 0%,#FFA200 50%,#FF6A00 100%);color:#000}
+.ct-bk-time[aria-pressed=true] small{color:#000}
+.ct-bk-time.is-full{cursor:not-allowed;opacity:.4}
+.ct-bk-time.is-full b{text-decoration:line-through}
+.ct-bk-time.is-full small{color:#a1a1aa}
+.ct-bk-note{margin-top:.7rem;font-size:.8rem;line-height:1.45;color:#a1a1aa}
+.ct-bk-note b{color:#FFAA00}
+.ct-thanks-slot{margin-top:.9rem;padding:.75rem 1rem;border-radius:.8rem;border:1px solid rgba(255,165,0,.45);background:rgba(255,165,0,.08);color:#f4f4f5;line-height:1.5}
+.ct-thanks-slot b{color:#FFAA00}
+/* ── Кнопка «Написати»: Telegram / Viber / WhatsApp ── */
+.ct-msg{position:relative;display:flex;flex-direction:column;align-items:flex-end}
+.ct-msg-menu{position:absolute;bottom:calc(100% + .6rem);right:0;display:flex;flex-direction:column;gap:.55rem;align-items:flex-end}
+.ct-msg-menu[hidden]{display:none}
+.ct-msg-item{display:flex;align-items:center;gap:.55rem;color:#fff;font-weight:700;font-size:.85rem;white-space:nowrap}
+.ct-msg-item span{padding:.35rem .7rem;border-radius:9999px;background:rgba(24,24,27,.95);border:1px solid #3f3f46;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+.ct-msg-item i{width:2.9rem;height:2.9rem;border-radius:9999px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.45)}
+.ct-msg-item:hover i{transform:scale(1.07)}
+.fixed.bottom-6.right-5 .ct-msg-item{background:none!important;box-shadow:none!important}
+.fixed.bottom-6.right-5 .ct-msg-item svg{fill:#fff!important}
+.fixed.bottom-6.right-5 .ct-msg>button{background:var(--ct-fire)!important;box-shadow:0 10px 30px -6px rgba(255,165,0,.6)!important}
+.fixed.bottom-6.right-5 .ct-msg>button svg{fill:#000!important}
