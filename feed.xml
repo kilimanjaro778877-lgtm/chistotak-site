@@ -6,7 +6,15 @@
     <atom:link href="https://chisto-tak.com.ua/feed.xml" rel="self" type="application/rss+xml" />
     <description>Поради з прибирання й догляду за домом від клінінгової компанії ЧистоТак (Київ, Львів).</description>
     <language>uk</language>
-    <lastBuildDate>Sat, 31 Oct 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Прибирання під час відключень світла: як підтримувати чистоту без пилососа</title>
+      <link>https://chisto-tak.com.ua/blog/prybyrannia-bez-svitla.html</link>
+      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/prybyrannia-bez-svitla.html</guid>
+      <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
+      <category>Лайфхаки</category>
+      <description>Пилосос не працює, у кухні темно, а бруд не чекає графіка відключень. Що реально можна прибрати без електрики і коли простіше викликати бригаду.</description>
+    </item>
     <item>
       <title>Миття вікон восени: останній теплий тиждень і скільки це коштує</title>
       <link>https://chisto-tak.com.ua/blog/myttya-vikon-vosenyu.html</link>
@@ -158,14 +166,6 @@
       <pubDate>Wed, 02 Sep 2026 09:00:00 +0000</pubDate>
       <category>Поради</category>
       <description>Восени тварини линяють вдвічі активніше, а вікна вже не тримають відкритими. Що реально прибрати самому, а де без хімчистки не обійтись.</description>
-    </item>
-    <item>
-      <title>Планове прибирання перед осінню: чому саме зараз варто перейти на графік</title>
-      <link>https://chisto-tak.com.ua/blog/planove-prybyrannia-pered-osinniu.html</link>
-      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/planove-prybyrannia-pered-osinniu.html</guid>
-      <pubDate>Mon, 31 Aug 2026 09:00:00 +0000</pubDate>
-      <category>Послуги</category>
-      <description>У вересні вільного часу на прибирання стає вдвічі менше. Чому графік прибирання ламається саме зараз і як планове прибирання за розкладом це вирішує.</description>
     </item>
   </channel>
 </rss>
