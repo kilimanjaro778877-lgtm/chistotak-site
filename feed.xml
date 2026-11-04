@@ -6,7 +6,15 @@
     <atom:link href="https://chisto-tak.com.ua/feed.xml" rel="self" type="application/rss+xml" />
     <description>Поради з прибирання й догляду за домом від клінінгової компанії ЧистоТак (Київ, Львів).</description>
     <language>uk</language>
-    <lastBuildDate>Mon, 02 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Генеральне прибирання будинку чи котеджу: скільки коштує і що входить</title>
+      <link>https://chisto-tak.com.ua/blog/generalne-prybyrannia-budynku-tsina.html</link>
+      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/generalne-prybyrannia-budynku-tsina.html</guid>
+      <pubDate>Wed, 04 Nov 2026 09:00:00 +0000</pubDate>
+      <category>Послуги</category>
+      <description>Будинок рахується не так, як квартира: більше кімнат, кілька санвузлів, інший масштаб. Як формується ціна і що насправді входить у роботу.</description>
+    </item>
     <item>
       <title>Прибирання під час відключень світла: як підтримувати чистоту без пилососа</title>
       <link>https://chisto-tak.com.ua/blog/prybyrannia-bez-svitla.html</link>
@@ -158,14 +166,6 @@
       <pubDate>Fri, 04 Sep 2026 09:00:00 +0000</pubDate>
       <category>Поради</category>
       <description>З першими дощами передпокій бруднішає вдвічі швидше. Що прибрати самому, а коли килимок уже не врятує звичайне миття.</description>
-    </item>
-    <item>
-      <title>Прибирання квартири з тваринами: як впоратись із шерстю та запахом</title>
-      <link>https://chisto-tak.com.ua/blog/tvaryny-i-prybyrannia.html</link>
-      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/tvaryny-i-prybyrannia.html</guid>
-      <pubDate>Wed, 02 Sep 2026 09:00:00 +0000</pubDate>
-      <category>Поради</category>
-      <description>Восени тварини линяють вдвічі активніше, а вікна вже не тримають відкритими. Що реально прибрати самому, а де без хімчистки не обійтись.</description>
     </item>
   </channel>
 </rss>
