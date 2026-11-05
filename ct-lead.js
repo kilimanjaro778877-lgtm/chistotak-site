@@ -44,6 +44,15 @@
 
   function safe(fn) { try { fn(); } catch (_) {} }
 
+  // Перша сторінка візиту з мітками реклами — у заявці видно «Джерело», навіть якщо
+  // людина залишила заявку на іншій сторінці (gclid є лише в URL сторінки входу)
+  var LANDING_KEY = 'ct_landing';
+  safe(function () {
+    if (/[?&](gclid|gbraid|wbraid|fbclid|ttclid|utm_source)=/i.test(location.search) && !sessionStorage.getItem(LANDING_KEY)) {
+      sessionStorage.setItem(LANDING_KEY, location.href.slice(0, 1000));
+    }
+  });
+
   if (GA4_ID && typeof window.gtag === 'function') {
     safe(function () { window.gtag('config', GA4_ID); });
   }
@@ -150,6 +159,7 @@
     opts = opts || {};
     var btn = opts.button;
     if (!data.page) data.page = location.href;
+    if (!data.landing) safe(function () { data.landing = sessionStorage.getItem(LANDING_KEY) || ''; });
     if (data.total == null) {
       var form = btn && btn.form;
       if (form && form.id === 'order-form') safe(function () { data.total = siteTotal(form, data.service); });
