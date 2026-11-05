@@ -89,10 +89,71 @@
   }
 
   /* Відправляє заявку. Повертає {ok, status, duplicate}. */
+  /* Сума, яку людина бачила на сайті: калькулятор саме цієї послуги + доп. послуги з фіксованою ціною.
+   * Іде в заявку окремим рядком, щоб менеджер назвав ту саму цифру. */
+  var PAGE_CALC = {
+    'generalna-prybyrannia': 'Генеральне прибирання', 'pidtrymuyuche-prybyrannia': 'Підтримуюче прибирання',
+    'mytia-vikon': 'Миття вікон', 'chystka-kylyma': 'Чистка килима', 'planove-prybyrannia': 'Планове прибирання'
+  };
+
+  function firstNum(text) {
+    var m = String(text || '').match(/\d[\d\s ]*/);
+    return m ? parseInt(m[0].replace(/\D/g, ''), 10) || 0 : 0;
+  }
+
+  function money(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₴'; }
+
+  function siteTotal(form, service) {
+    service = String(service || '').trim();
+    var baseEl = null;
+    var sum = document.getElementById('sum-total'), sumSvc = document.getElementById('sum-service');
+    var calc = document.getElementById('calc-price'), type = document.getElementById('calc-type');
+    var pg = document.getElementById('pg-price');
+    if (sum && sumSvc) {
+      if (sumSvc.textContent.trim() === service) baseEl = sum;             // головна
+    } else if (calc && type) {
+      var opt = type.options[type.selectedIndex];                           // Київ / Львів
+      if (opt && service.indexOf(opt.text.split(' ')[0]) === 0) baseEl = calc;
+    } else if (pg) {
+      var page = (location.pathname.match(/([\w-]+)\.html$/) || [])[1];    // сторінки послуг
+      if (PAGE_CALC[page] === service) baseEl = pg;
+    }
+    var baseText = baseEl ? baseEl.textContent : '';
+    var base = firstNum(baseText);
+    var from = /від/i.test(baseText);
+
+    var add = 0, parts = [], perSqm = [];
+    Array.prototype.forEach.call(form.querySelectorAll('.upsell-check:checked'), function (cb) {
+      if (cb.closest('[style*="display: none"], [style*="display:none"]')) return; // сховано: уже враховано в калькуляторі головної
+      var ex = cb.dataset.extra || '';
+      var m = ex.match(/^(.*?)\s*\+\s*([\d\s]+)\s*₴(\/м²)?/);
+      if (!m) return;
+      var price = parseInt(m[2].replace(/\D/g, ''), 10) || 0;
+      if (m[3]) perSqm.push(m[1] + ' ' + price + ' ₴/м² (за площею)');
+      else { add += price; parts.push(m[1] + ' ' + money(price)); }
+    });
+
+    if (!base && !add) {
+      if (baseEl) return baseText.replace(/₴/g, '').trim() || '—'; // напр. «Індивідуально» (офіси)
+      return perSqm.length ? 'не розраховано · ' + perSqm.join(', ') : 'не розраховувалась (для цієї послуги на сторінці немає калькулятора)';
+    }
+    var out = (from ? 'від ' : '') + money(base + add);
+    var how = [];
+    if (base && parts.length) how.push('калькулятор ' + money(base));
+    if (parts.length) how.push(parts.join(' + '));
+    if (how.length) out += ' — ' + how.join(' + ');
+    if (perSqm.length) out += '; + ' + perSqm.join(', ');
+    return out;
+  }
+
   async function send(data, opts) {
     opts = opts || {};
     var btn = opts.button;
     if (!data.page) data.page = location.href;
+    if (data.total == null) {
+      var form = btn && btn.form;
+      if (form && form.id === 'order-form') safe(function () { data.total = siteTotal(form, data.service); });
+    }
 
     if (isDuplicate(data)) return { ok: true, status: 200, duplicate: true };
 
