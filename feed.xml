@@ -6,7 +6,15 @@
     <atom:link href="https://chisto-tak.com.ua/feed.xml" rel="self" type="application/rss+xml" />
     <description>Поради з прибирання й догляду за домом від клінінгової компанії ЧистоТак (Київ, Львів).</description>
     <language>uk</language>
-    <lastBuildDate>Wed, 04 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Прибирання квартири після орендарів: скільки коштує і що встигнути до нових мешканців</title>
+      <link>https://chisto-tak.com.ua/blog/prybyrannia-kvartyry-pislya-orendariv.html</link>
+      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/prybyrannia-kvartyry-pislya-orendariv.html</guid>
+      <pubDate>Fri, 06 Nov 2026 09:00:00 +0000</pubDate>
+      <category>Послуги</category>
+      <description>Орендарі виїхали, а показ новим мешканцям уже на вихідних. Скільки коштує прибирання після орендарів у Києві та що встигнути перевірити самому.</description>
+    </item>
     <item>
       <title>Генеральне прибирання будинку чи котеджу: скільки коштує і що входить</title>
       <link>https://chisto-tak.com.ua/blog/generalne-prybyrannia-budynku-tsina.html</link>
@@ -158,14 +166,6 @@
       <pubDate>Mon, 07 Sep 2026 09:00:00 +0000</pubDate>
       <category>Поради</category>
       <description>Чому восени вікна &quot;плачуть&quot; і як не дати краплям перетворитись на чорну цвіль на підвіконні та відкосах.</description>
-    </item>
-    <item>
-      <title>Прибирання передпокою восени: бруд, сльота і мокре взуття</title>
-      <link>https://chisto-tak.com.ua/blog/prybyrannia-peredpokoyu-vosenyu.html</link>
-      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/prybyrannia-peredpokoyu-vosenyu.html</guid>
-      <pubDate>Fri, 04 Sep 2026 09:00:00 +0000</pubDate>
-      <category>Поради</category>
-      <description>З першими дощами передпокій бруднішає вдвічі швидше. Що прибрати самому, а коли килимок уже не врятує звичайне миття.</description>
     </item>
   </channel>
 </rss>
