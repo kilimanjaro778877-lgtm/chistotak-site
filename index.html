@@ -400,7 +400,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             </div>
             <!-- Генеральне: кухня і ванна рахуються окремо (віднімаються від загальної площі); вікна — явне підтвердження -->
             <div id="calc-zones" class="ct-zones hidden">
-              <div class="ct-zones-title">Кухня і ванна — найтрудомісткіші зони, тому рахуємо їх окремо. Вкажіть їхню площу — ми віднімемо її від загальної, а решту квартири порахуємо по&nbsp;90&nbsp;₴/м²</div>
+              <div class="ct-zones-title">Кухня і ванна — найтрудомісткіші зони, тому рахуємо їх окремо. Вкажіть їхню площу — ми віднімемо її від загальної, а решту квартири порахуємо по&nbsp;100&nbsp;₴/м²</div>
               <div id="calc-zones-list"></div>
               <div class="ct-zone ct-win" id="calc-win">
                 <div class="ct-zone-head"><span class="ct-zone-name">Миття вікон</span><span class="ct-zone-rate">від 220 ₴/м² скла</span></div>
@@ -1235,14 +1235,14 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         name: 'Генеральне прибирання',
         icon: '✨',
         short: 'Глибока чистка раз на сезон',
-        priceLabel: 'від 90 ₴/м²',
+        priceLabel: 'від 100 ₴/м²',
         description: 'Глибоке прибирання після ремонту, переїзду або раз на сезон. Від вимикачів і плінтусів до батарей, витяжки й сантехніки.',
         needsCalc: true,
         unit: 'м²',
         sliderLabel: 'Площа квартири',
         slider: { min: 30, max: 200, default: 50, step: 1, mid: 100 },
         rates: [
-          { max: 999, rate: 90, min: 3500 },
+          { max: 999, rate: 100, min: 3500 },
         ],
         rateNote: 'Точна сума — після фото або огляду бригадира',
         windowsSeparate: true,
@@ -1281,7 +1281,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         icon: '🪟',
         short: 'Скло, рами, підвіконня',
         priceLabel: 'від 220 ₴/м²',
-        description: 'Миття вікон — зсередини й зовні, без розводів, з очисткою рам і підвіконь. Ціна рахується від загальної площі скла.',
+        description: 'Миття вікон без розводів, з очисткою рам і підвіконь. Листопад–березень — зсередини, зовні — індивідуально. Ціна рахується від загальної площі скла.',
         needsCalc: true,
         unit: 'м²',
         sliderLabel: 'Площа вікон',
