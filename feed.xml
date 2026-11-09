@@ -6,7 +6,15 @@
     <atom:link href="https://chisto-tak.com.ua/feed.xml" rel="self" type="application/rss+xml" />
     <description>Поради з прибирання й догляду за домом від клінінгової компанії ЧистоТак (Київ, Львів).</description>
     <language>uk</language>
-    <lastBuildDate>Sun, 08 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Прибирання після тривалого блекауту: цвіль, сажа і пил у квартирі</title>
+      <link>https://chisto-tak.com.ua/blog/prybyrannia-pislya-blekautu.html</link>
+      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/prybyrannia-pislya-blekautu.html</guid>
+      <pubDate>Mon, 09 Nov 2026 09:00:00 +0000</pubDate>
+      <category>Лайфхаки</category>
+      <description>Квартира стояла холодною і закритою кілька днів без світла? Розповідаємо, що робити з конденсатом, цвіллю, сажею від свічок і пилом — і чому прибрати це самому важче, ніж здається.</description>
+    </item>
     <item>
       <title>Скільки коштує прибирання офісу в Києві та Львові</title>
       <link>https://chisto-tak.com.ua/blog/skilky-koshtuie-prybyrannia-ofisu.html</link>
@@ -158,14 +166,6 @@
       <pubDate>Mon, 28 Sep 2026 09:00:00 +0000</pubDate>
       <category>Поради</category>
       <description>Дощі й мокре взуття заганяють багнюку глибоко у ворс, а вологість заважає їй висохнути. Що можна зробити самому і коли без професійної хімчистки вже не обійтись.</description>
-    </item>
-    <item>
-      <title>Дезінфекція квартири восени: як прибирання захищає від застуди</title>
-      <link>https://chisto-tak.com.ua/blog/dezinfektsiya-proty-zastudy-vosenyu.html</link>
-      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/dezinfektsiya-proty-zastudy-vosenyu.html</guid>
-      <pubDate>Fri, 11 Sep 2026 09:00:00 +0000</pubDate>
-      <category>Здоров&#x27;я</category>
-      <description>Діти приносять зі школи й садка десятки вірусів, а закриті вікна восени лише прискорюють поширення застуди по квартирі. Як дезінфікувати оселю правильно і коли краще довірити це фахівцям.</description>
     </item>
   </channel>
 </rss>
