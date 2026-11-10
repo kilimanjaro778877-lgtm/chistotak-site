@@ -6,7 +6,15 @@
     <atom:link href="https://chisto-tak.com.ua/feed.xml" rel="self" type="application/rss+xml" />
     <description>Поради з прибирання й догляду за домом від клінінгової компанії ЧистоТак (Київ, Львів).</description>
     <language>uk</language>
-    <lastBuildDate>Mon, 09 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Скільки коштує хімчистка килима в Києві та Львові</title>
+      <link>https://chisto-tak.com.ua/blog/skilky-koshtuie-chystka-kylyma.html</link>
+      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/skilky-koshtuie-chystka-kylyma.html</guid>
+      <pubDate>Tue, 10 Nov 2026 09:00:00 +0000</pubDate>
+      <category>Послуги</category>
+      <description>Від 180 ₴/м², без перевезення до цеху. Як рахується ціна, що входить у вартість і чому самостійна чистка пилососом не дає того ж ефекту.</description>
+    </item>
     <item>
       <title>Прибирання після тривалого блекауту: цвіль, сажа і пил у квартирі</title>
       <link>https://chisto-tak.com.ua/blog/prybyrannia-pislya-blekautu.html</link>
@@ -158,14 +166,6 @@
       <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
       <category>Поради</category>
       <description>Волога білизна сохне в квартирі добу-дві, а не кілька годин, як улітку — і саме це часто стає причиною запаху вологості й перших ознак цвілі. Як сушити правильно і коли вже потрібне професійне прибирання.</description>
-    </item>
-    <item>
-      <title>Килим восени: як врятувати від бруду, вологи і запаху</title>
-      <link>https://chisto-tak.com.ua/blog/kylym-vosenyu-brud-i-vologa.html</link>
-      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/kylym-vosenyu-brud-i-vologa.html</guid>
-      <pubDate>Mon, 28 Sep 2026 09:00:00 +0000</pubDate>
-      <category>Поради</category>
-      <description>Дощі й мокре взуття заганяють багнюку глибоко у ворс, а вологість заважає їй висохнути. Що можна зробити самому і коли без професійної хімчистки вже не обійтись.</description>
     </item>
   </channel>
 </rss>
