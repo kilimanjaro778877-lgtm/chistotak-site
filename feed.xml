@@ -6,7 +6,15 @@
     <atom:link href="https://chisto-tak.com.ua/feed.xml" rel="self" type="application/rss+xml" />
     <description>Поради з прибирання й догляду за домом від клінінгової компанії ЧистоТак (Київ, Львів).</description>
     <language>uk</language>
-    <lastBuildDate>Tue, 10 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Плісень і запах у пральній машині: як прибрати</title>
+      <link>https://chisto-tak.com.ua/blog/plisniava-v-pralniy-mashyni.html</link>
+      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/plisniava-v-pralniy-mashyni.html</guid>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0000</pubDate>
+      <category>Здоров&#x27;я</category>
+      <description>Чому в пральній машині з&#x27;являються чорні крапки й запах, як прочистити манжет і фільтр самостійно та чому проблема часто повертається знову.</description>
+    </item>
     <item>
       <title>Скільки коштує хімчистка килима в Києві та Львові</title>
       <link>https://chisto-tak.com.ua/blog/skilky-koshtuie-chystka-kylyma.html</link>
@@ -158,14 +166,6 @@
       <pubDate>Fri, 02 Oct 2026 09:00:00 +0000</pubDate>
       <category>Поради</category>
       <description>Щойно вмикають опалення, по квартирі розходиться запах паленого — це пил, що за літо накопичився на батареях, і тепер підгорає на гарячому металі. Як прибрати швидко і уникнути цього наступного року.</description>
-    </item>
-    <item>
-      <title>Сушіння білизни вдома восени: як уникнути запаху вологості й цвілі</title>
-      <link>https://chisto-tak.com.ua/blog/sushinnia-bilyzny-vosenyu.html</link>
-      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/sushinnia-bilyzny-vosenyu.html</guid>
-      <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-      <category>Поради</category>
-      <description>Волога білизна сохне в квартирі добу-дві, а не кілька годин, як улітку — і саме це часто стає причиною запаху вологості й перших ознак цвілі. Як сушити правильно і коли вже потрібне професійне прибирання.</description>
     </item>
   </channel>
 </rss>
