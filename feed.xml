@@ -6,7 +6,15 @@
     <atom:link href="https://chisto-tak.com.ua/feed.xml" rel="self" type="application/rss+xml" />
     <description>Поради з прибирання й догляду за домом від клінінгової компанії ЧистоТак (Київ, Львів).</description>
     <language>uk</language>
-    <lastBuildDate>Wed, 11 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Генеральне прибирання перед Новим роком: коли починати</title>
+      <link>https://chisto-tak.com.ua/blog/generalne-prybyrannia-pered-novym-rokom.html</link>
+      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/generalne-prybyrannia-pered-novym-rokom.html</guid>
+      <pubDate>Thu, 12 Nov 2026 09:00:00 +0000</pubDate>
+      <category>Поради</category>
+      <description>Коли бронювати бригаду, що встигнути самостійно вже зараз і чому останній тиждень грудня — найгірший час для генерального прибирання.</description>
+    </item>
     <item>
       <title>Плісень і запах у пральній машині: як прибрати</title>
       <link>https://chisto-tak.com.ua/blog/plisniava-v-pralniy-mashyni.html</link>
@@ -158,14 +166,6 @@
       <pubDate>Mon, 05 Oct 2026 09:00:00 +0000</pubDate>
       <category>Поради</category>
       <description>Плед чи м&#x27;яка іграшка з літньої шафи пахнуть вологістю або нафталіном, а великий плед просто не вимивається в барабані машини. Що зробити вдома і коли без хімчистки вже не обійтись.</description>
-    </item>
-    <item>
-      <title>Запах паленого пилу від батарей на початку опалення: що робити</title>
-      <link>https://chisto-tak.com.ua/blog/zapakh-palenoho-pylu-batarei.html</link>
-      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/zapakh-palenoho-pylu-batarei.html</guid>
-      <pubDate>Fri, 02 Oct 2026 09:00:00 +0000</pubDate>
-      <category>Поради</category>
-      <description>Щойно вмикають опалення, по квартирі розходиться запах паленого — це пил, що за літо накопичився на батареях, і тепер підгорає на гарячому металі. Як прибрати швидко і уникнути цього наступного року.</description>
     </item>
   </channel>
 </rss>
