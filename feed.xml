@@ -6,7 +6,15 @@
     <atom:link href="https://chisto-tak.com.ua/feed.xml" rel="self" type="application/rss+xml" />
     <description>Поради з прибирання й догляду за домом від клінінгової компанії ЧистоТак (Київ, Львів).</description>
     <language>uk</language>
-    <lastBuildDate>Thu, 12 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Скільки коштує хімчистка дивана в Києві: як рахується ціна</title>
+      <link>https://chisto-tak.com.ua/blog/skilky-koshtuie-himchystka-dyvana.html</link>
+      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/skilky-koshtuie-himchystka-dyvana.html</guid>
+      <pubDate>Fri, 13 Nov 2026 09:00:00 +0000</pubDate>
+      <category>Послуги</category>
+      <description>Від 1 200 ₴ за двомісний диван до 2 900 ₴ за модульний. З чого складається ціна, що входить у хімчистку і чому побутовий пилосос не дає того самого результату.</description>
+    </item>
     <item>
       <title>Генеральне прибирання перед Новим роком: коли починати</title>
       <link>https://chisto-tak.com.ua/blog/generalne-prybyrannia-pered-novym-rokom.html</link>
@@ -158,14 +166,6 @@
       <pubDate>Wed, 07 Oct 2026 09:00:00 +0000</pubDate>
       <category>Послуги</category>
       <description>Восени в офісі вірус поширюється швидше через дверні ручки, кавомашину і переговорні. Що прибирати самостійно, а де вже потрібен клінінг за графіком.</description>
-    </item>
-    <item>
-      <title>Чистка пледів, покривал і м&#x27;яких іграшок восени: чому пральна машина не завжди рішення</title>
-      <link>https://chisto-tak.com.ua/blog/chystka-pledy-igrashky-vosenyu.html</link>
-      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/chystka-pledy-igrashky-vosenyu.html</guid>
-      <pubDate>Mon, 05 Oct 2026 09:00:00 +0000</pubDate>
-      <category>Поради</category>
-      <description>Плед чи м&#x27;яка іграшка з літньої шафи пахнуть вологістю або нафталіном, а великий плед просто не вимивається в барабані машини. Що зробити вдома і коли без хімчистки вже не обійтись.</description>
     </item>
   </channel>
 </rss>
