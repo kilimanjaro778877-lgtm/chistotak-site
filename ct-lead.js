@@ -21,6 +21,9 @@
   // Обидва акаунти Google Ads: кампанія «Прибирання квартир у Києві» — AW-18383404362 (стара мітка конверсії),
   // і AW-18396553965. Кожен акаунт рахує лише свою конверсію — дубля всередині акаунта немає.
   var ADS_LEADS = ['AW-18383404362/oncCCMnI2-AcEMr68b1E', 'AW-18396553965/yBuHCKL4g4YdEO3FlMRE'];
+  // Окрема конверсія «Заявка — спливаюче вікно» (ціль «Контакт», не ціль за умовчанням) — лише щоб
+  // бачити ліди з попапу окремим рядком; основна «Заявка» вище спрацьовує для попапу так само.
+  var ADS_POPUP = 'AW-18396553965/Dq-lCPXX-7cdEO3FlMRE';
   // Google Ads: окремі дії-конверсії для кліків. Порожньо = не відправляється в Ads.
   // Створити в Google Ads → Цілі → Конверсії → «Клік по телефону» / «Клік у Telegram»
   // і вставити сюди мітку виду 'AW-18396553965/XXXXXXXX'.
@@ -193,7 +196,7 @@
       // конверсії не ставимо — реклама не вчиться на ботах і скликуванні
       if (res.q !== 'suspect') {
         safe(function () {
-          sessionStorage.setItem(THANKS_KEY, JSON.stringify({ t: Date.now(), service: data.service || '', city: data.city || '', phone: e164(data.phone) }));
+          sessionStorage.setItem(THANKS_KEY, JSON.stringify({ t: Date.now(), service: data.service || '', city: data.city || '', phone: e164(data.phone), src: data.source || '' }));
         });
       }
       // Обраний час запису — покажемо на сторінці подяки (held | full | wish | late)
@@ -248,7 +251,7 @@
     if (tok.phone && typeof window.gtag === 'function') {
       safe(function () { window.gtag('set', 'user_data', { phone_number: tok.phone }); });
     }
-    trackLead({ service: tok.service });
+    trackLead({ service: tok.service, source: tok.src });
     return tok;
   }
 
@@ -259,6 +262,7 @@
     if (typeof window.gtag === 'function') {
       safe(function () { window.gtag('event', 'generate_lead', { service: name }); });
       ADS_LEADS.forEach(function (to) { safe(function () { window.gtag('event', 'conversion', { send_to: to }); }); });
+      if (/^popup/.test((data && data.source) || '')) safe(function () { window.gtag('event', 'conversion', { send_to: ADS_POPUP }); });
     }
     if (typeof window.fbq === 'function') safe(function () { window.fbq('track', 'Lead', { content_name: name }); });
   }
