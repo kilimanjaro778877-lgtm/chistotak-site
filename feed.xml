@@ -6,7 +6,15 @@
     <atom:link href="https://chisto-tak.com.ua/feed.xml" rel="self" type="application/rss+xml" />
     <description>Поради з прибирання й догляду за домом від клінінгової компанії ЧистоТак (Київ, Львів).</description>
     <language>uk</language>
-    <lastBuildDate>Fri, 13 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Як почистити кухонну мийку з нержавіючої сталі: наліт і подряпини</title>
+      <link>https://chisto-tak.com.ua/blog/yak-pochystyty-kukhonnu-myjku.html</link>
+      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/yak-pochystyty-kukhonnu-myjku.html</guid>
+      <pubDate>Sat, 14 Nov 2026 09:00:00 +0000</pubDate>
+      <category>Поради</category>
+      <description>Чому нержавійка знову тьмяніє за день після миття, і як покроково повернути їй блиск содою, оцтом і мікрофіброю — без подряпин.</description>
+    </item>
     <item>
       <title>Скільки коштує хімчистка дивана в Києві: як рахується ціна</title>
       <link>https://chisto-tak.com.ua/blog/skilky-koshtuie-himchystka-dyvana.html</link>
@@ -158,14 +166,6 @@
       <pubDate>Fri, 09 Oct 2026 09:00:00 +0000</pubDate>
       <category>Поради</category>
       <description>Перед опаленням решітка забивається пилом і жиром найшвидше — а з нею гірше тягне й зростає вологість. Як знімати, мити й коли без чистки каналу професійно не обійтись.</description>
-    </item>
-    <item>
-      <title>Дезінфекція офісу восени: як захистити команду від застуди і грипу</title>
-      <link>https://chisto-tak.com.ua/blog/dezinfektsiya-ofisu-vosenyu.html</link>
-      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/dezinfektsiya-ofisu-vosenyu.html</guid>
-      <pubDate>Wed, 07 Oct 2026 09:00:00 +0000</pubDate>
-      <category>Послуги</category>
-      <description>Восени в офісі вірус поширюється швидше через дверні ручки, кавомашину і переговорні. Що прибирати самостійно, а де вже потрібен клінінг за графіком.</description>
     </item>
   </channel>
 </rss>
