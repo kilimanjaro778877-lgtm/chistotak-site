@@ -6,7 +6,15 @@
     <atom:link href="https://chisto-tak.com.ua/feed.xml" rel="self" type="application/rss+xml" />
     <description>Поради з прибирання й догляду за домом від клінінгової компанії ЧистоТак (Київ, Львів).</description>
     <language>uk</language>
-    <lastBuildDate>Sat, 14 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Скільки коштує миття вікон у Києві: як рахується ціна за м²</title>
+      <link>https://chisto-tak.com.ua/blog/skilky-koshtuie-myttya-vikon.html</link>
+      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/skilky-koshtuie-myttya-vikon.html</guid>
+      <pubDate>Sun, 15 Nov 2026 09:00:00 +0000</pubDate>
+      <category>Послуги</category>
+      <description>Платите за площу скла, а не за кількість вікон. Формула розрахунку, мінімальний виїзд 800 ₴ і приклади для студії, 2- та 3-кімнатної квартири.</description>
+    </item>
     <item>
       <title>Як почистити кухонну мийку з нержавіючої сталі: наліт і подряпини</title>
       <link>https://chisto-tak.com.ua/blog/yak-pochystyty-kukhonnu-myjku.html</link>
@@ -158,14 +166,6 @@
       <pubDate>Mon, 12 Oct 2026 09:00:00 +0000</pubDate>
       <category>Поради</category>
       <description>За літо диван встигає набрати вологи й пилу, а взимку на ньому сидить уся сім&#x27;я. Чому поверхневе прибирання не рятує і коли варто викликати майстра.</description>
-    </item>
-    <item>
-      <title>Як почистити вентиляційну решітку вдома: покрокова інструкція</title>
-      <link>https://chisto-tak.com.ua/blog/yak-pochystyty-ventylyatsiynu-reshitku.html</link>
-      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/yak-pochystyty-ventylyatsiynu-reshitku.html</guid>
-      <pubDate>Fri, 09 Oct 2026 09:00:00 +0000</pubDate>
-      <category>Поради</category>
-      <description>Перед опаленням решітка забивається пилом і жиром найшвидше — а з нею гірше тягне й зростає вологість. Як знімати, мити й коли без чистки каналу професійно не обійтись.</description>
     </item>
   </channel>
 </rss>
