@@ -6,7 +6,15 @@
     <atom:link href="https://chisto-tak.com.ua/feed.xml" rel="self" type="application/rss+xml" />
     <description>Поради з прибирання й догляду за домом від клінінгової компанії ЧистоТак (Київ, Львів).</description>
     <language>uk</language>
-    <lastBuildDate>Sun, 15 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Кіптява та бруд від генератора на балконі й вікнах: як відмити</title>
+      <link>https://chisto-tak.com.ua/blog/kiptyava-vid-generatora-balkon.html</link>
+      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/kiptyava-vid-generatora-balkon.html</guid>
+      <pubDate>Mon, 16 Nov 2026 09:00:00 +0000</pubDate>
+      <category>Лайфхаки</category>
+      <description>Масний наліт від генератора на балконному склі й поручнях не змивається звичайною водою. Пояснюємо, чому так, і що зробити самостійно, а де вже потрібен професійний клінінг.</description>
+    </item>
     <item>
       <title>Скільки коштує миття вікон у Києві: як рахується ціна за м²</title>
       <link>https://chisto-tak.com.ua/blog/skilky-koshtuie-myttya-vikon.html</link>
@@ -158,14 +166,6 @@
       <pubDate>Wed, 14 Oct 2026 09:00:00 +0000</pubDate>
       <category>Лайфхаки</category>
       <description>Після тижнів відключень на стінах і стелі лишається жирний сірий наліт від свічок. Що можна прибрати самостійно, а де без професійного клінінгу вже не обійтись.</description>
-    </item>
-    <item>
-      <title>Хімчистка дивана восени: чому саме зараз, а не взимку</title>
-      <link>https://chisto-tak.com.ua/blog/himchistka-dyvana-vosenyu.html</link>
-      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/himchistka-dyvana-vosenyu.html</guid>
-      <pubDate>Mon, 12 Oct 2026 09:00:00 +0000</pubDate>
-      <category>Поради</category>
-      <description>За літо диван встигає набрати вологи й пилу, а взимку на ньому сидить уся сім&#x27;я. Чому поверхневе прибирання не рятує і коли варто викликати майстра.</description>
     </item>
   </channel>
 </rss>
