@@ -6,7 +6,15 @@
     <atom:link href="https://chisto-tak.com.ua/feed.xml" rel="self" type="application/rss+xml" />
     <description>Поради з прибирання й догляду за домом від клінінгової компанії ЧистоТак (Київ, Львів).</description>
     <language>uk</language>
-    <lastBuildDate>Mon, 16 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Прибирання квартири перед продажем: скільки коштує і що реально впливає на перегляд</title>
+      <link>https://chisto-tak.com.ua/blog/prybyrannia-kvartyry-pered-prodazhem.html</link>
+      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/prybyrannia-kvartyry-pered-prodazhem.html</guid>
+      <pubDate>Tue, 17 Nov 2026 09:00:00 +0000</pubDate>
+      <category>Послуги</category>
+      <description>Перше враження покупця складається ще в коридорі. Що прибрати самостійно перед показами, а коли краще замовити генеральне прибирання — і скільки це коштує.</description>
+    </item>
     <item>
       <title>Кіптява та бруд від генератора на балконі й вікнах: як відмити</title>
       <link>https://chisto-tak.com.ua/blog/kiptyava-vid-generatora-balkon.html</link>
@@ -158,14 +166,6 @@
       <pubDate>Fri, 16 Oct 2026 09:00:00 +0000</pubDate>
       <category>Здоров&#x27;я</category>
       <description>Закриті вікна, батареї ще мовчать, а на кухні сушиться білизна — вологість у квартирі зростає швидко. Пояснюємо, чим це загрожує здоров&#x27;ю і де шукати грибок, поки він непомітний.</description>
-    </item>
-    <item>
-      <title>Кіптява від свічок на стінах після відключення світла: як прибрати</title>
-      <link>https://chisto-tak.com.ua/blog/kiptyava-vid-svichok-vidklyuchennya-svitla.html</link>
-      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/kiptyava-vid-svichok-vidklyuchennya-svitla.html</guid>
-      <pubDate>Wed, 14 Oct 2026 09:00:00 +0000</pubDate>
-      <category>Лайфхаки</category>
-      <description>Після тижнів відключень на стінах і стелі лишається жирний сірий наліт від свічок. Що можна прибрати самостійно, а де без професійного клінінгу вже не обійтись.</description>
     </item>
   </channel>
 </rss>
