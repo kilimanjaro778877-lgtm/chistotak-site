@@ -6,7 +6,15 @@
     <atom:link href="https://chisto-tak.com.ua/feed.xml" rel="self" type="application/rss+xml" />
     <description>Поради з прибирання й догляду за домом від клінінгової компанії ЧистоТак (Київ, Львів).</description>
     <language>uk</language>
-    <lastBuildDate>Tue, 17 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Як почистити кавоварку від накипу: покрокова інструкція</title>
+      <link>https://chisto-tak.com.ua/blog/yak-pochystyty-kavovarku-vid-nakypu.html</link>
+      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/yak-pochystyty-kavovarku-vid-nakypu.html</guid>
+      <pubDate>Wed, 18 Nov 2026 09:00:00 +0000</pubDate>
+      <category>Поради</category>
+      <description>Кава гіркне, а машина довше нагрівається? Прибираємо накип лимонною кислотою й оцтом у краплинній, капсульній і автоматичній кавоварці.</description>
+    </item>
     <item>
       <title>Прибирання квартири перед продажем: скільки коштує і що реально впливає на перегляд</title>
       <link>https://chisto-tak.com.ua/blog/prybyrannia-kvartyry-pered-prodazhem.html</link>
@@ -158,14 +166,6 @@
       <pubDate>Mon, 19 Oct 2026 09:00:00 +0000</pubDate>
       <category>Послуги</category>
       <description>Опалювальний сезон стартує, а старий львівський фонд прибирати довше й уважніше, ніж типову панельку. Реальні ставки за м², що входить у ціну і як не переплатити.</description>
-    </item>
-    <item>
-      <title>Вологість і цвіль восени: чим це небезпечно для здоров&#x27;я</title>
-      <link>https://chisto-tak.com.ua/blog/volohist-plisniava-vosenyu.html</link>
-      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/volohist-plisniava-vosenyu.html</guid>
-      <pubDate>Fri, 16 Oct 2026 09:00:00 +0000</pubDate>
-      <category>Здоров&#x27;я</category>
-      <description>Закриті вікна, батареї ще мовчать, а на кухні сушиться білизна — вологість у квартирі зростає швидко. Пояснюємо, чим це загрожує здоров&#x27;ю і де шукати грибок, поки він непомітний.</description>
     </item>
   </channel>
 </rss>
