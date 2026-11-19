@@ -6,7 +6,15 @@
     <atom:link href="https://chisto-tak.com.ua/feed.xml" rel="self" type="application/rss+xml" />
     <description>Поради з прибирання й догляду за домом від клінінгової компанії ЧистоТак (Київ, Львів).</description>
     <language>uk</language>
-    <lastBuildDate>Wed, 18 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Білі плями від соли на підлозі взимку: звідки вони і як прибрати назавжди</title>
+      <link>https://chisto-tak.com.ua/blog/sil-na-pidlozi-zymoyu.html</link>
+      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/sil-na-pidlozi-zymoyu.html</guid>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0000</pubDate>
+      <category>Лайфхаки</category>
+      <description>Миєте біля дверей — а білі розводи з&#x27;являються знову? Пояснюємо, чому протиожеледні реагенти «їдять» ламінат і плитку, і як прибрати плями правильно.</description>
+    </item>
     <item>
       <title>Як почистити кавоварку від накипу: покрокова інструкція</title>
       <link>https://chisto-tak.com.ua/blog/yak-pochystyty-kavovarku-vid-nakypu.html</link>
@@ -158,14 +166,6 @@
       <pubDate>Wed, 21 Oct 2026 09:00:00 +0000</pubDate>
       <category>Послуги</category>
       <description>Нова квартира рідко передається ідеально чистою. Що прибрати до розставляння речей, скільки коштує генеральне в Києві та Львові й приклад розрахунку.</description>
-    </item>
-    <item>
-      <title>Скільки коштує генеральне прибирання у Львові: ціни 2026</title>
-      <link>https://chisto-tak.com.ua/blog/skilky-koshtuie-generalne-lviv.html</link>
-      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/skilky-koshtuie-generalne-lviv.html</guid>
-      <pubDate>Mon, 19 Oct 2026 09:00:00 +0000</pubDate>
-      <category>Послуги</category>
-      <description>Опалювальний сезон стартує, а старий львівський фонд прибирати довше й уважніше, ніж типову панельку. Реальні ставки за м², що входить у ціну і як не переплатити.</description>
     </item>
   </channel>
 </rss>
