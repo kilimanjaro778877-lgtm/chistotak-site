@@ -6,7 +6,15 @@
     <atom:link href="https://chisto-tak.com.ua/feed.xml" rel="self" type="application/rss+xml" />
     <description>Поради з прибирання й догляду за домом від клінінгової компанії ЧистоТак (Київ, Львів).</description>
     <language>uk</language>
-    <lastBuildDate>Thu, 19 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Скільки коштує підтримуюче прибирання на місяць: приклади для різних квартир</title>
+      <link>https://chisto-tak.com.ua/blog/skilky-koshtuie-pidtrymuyuche-na-misyats.html</link>
+      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/skilky-koshtuie-pidtrymuyuche-na-misyats.html</guid>
+      <pubDate>Fri, 20 Nov 2026 09:00:00 +0000</pubDate>
+      <category>Послуги</category>
+      <description>Рахуємо на прикладах, скільки виходить підтримуюче прибирання щотижня й раз на два тижні для квартир різної площі — і коли вигідніше перейти на плановий графік.</description>
+    </item>
     <item>
       <title>Білі плями від соли на підлозі взимку: звідки вони і як прибрати назавжди</title>
       <link>https://chisto-tak.com.ua/blog/sil-na-pidlozi-zymoyu.html</link>
@@ -158,14 +166,6 @@
       <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
       <category>Поради</category>
       <description>Кава, вино, жир, кров, фломастер — як прибрати кожну пляму з дивана вдома, не пошкодивши тканину, і коли простіше викликати хімчистку.</description>
-    </item>
-    <item>
-      <title>Прибирання після переїзду: скільки коштує і що робити першим</title>
-      <link>https://chisto-tak.com.ua/blog/prybyrannia-pislya-pereizdu.html</link>
-      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/prybyrannia-pislya-pereizdu.html</guid>
-      <pubDate>Wed, 21 Oct 2026 09:00:00 +0000</pubDate>
-      <category>Послуги</category>
-      <description>Нова квартира рідко передається ідеально чистою. Що прибрати до розставляння речей, скільки коштує генеральне в Києві та Львові й приклад розрахунку.</description>
     </item>
   </channel>
 </rss>
