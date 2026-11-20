@@ -46,6 +46,7 @@
   var THANKS_TTL_MS = 10 * 60 * 1000;
 
   function safe(fn) { try { fn(); } catch (_) {} }
+  var RU = /^ru/i.test(document.documentElement.lang || ''); // російська версія сайту (/ru/)
 
   // Перша сторінка візиту з мітками реклами — у заявці видно «Джерело», навіть якщо
   // людина залишила заявку на іншій сторінці (gclid є лише в URL сторінки входу)
@@ -103,9 +104,12 @@
   /* Відправляє заявку. Повертає {ok, status, duplicate}. */
   /* Сума, яку людина бачила на сайті: калькулятор саме цієї послуги + доп. послуги з фіксованою ціною.
    * Іде в заявку окремим рядком, щоб менеджер назвав ту саму цифру. */
+  // Назва послуги у формі сторінки (українська й російська версії сайту)
   var PAGE_CALC = {
-    'generalna-prybyrannia': 'Генеральне прибирання', 'pidtrymuyuche-prybyrannia': 'Підтримуюче прибирання',
-    'mytia-vikon': 'Миття вікон', 'chystka-kylyma': 'Чистка килима', 'planove-prybyrannia': 'Планове прибирання'
+    'generalna-prybyrannia': ['Генеральне прибирання', 'Генеральная уборка'],
+    'pidtrymuyuche-prybyrannia': ['Підтримуюче прибирання', 'Поддерживающая уборка'],
+    'mytia-vikon': ['Миття вікон', 'Мытье окон'], 'chystka-kylyma': ['Чистка килима', 'Чистка ковров'],
+    'planove-prybyrannia': ['Планове прибирання', 'Плановая уборка']
   };
 
   function firstNum(text) {
@@ -128,11 +132,11 @@
       if (opt && service.indexOf(opt.text.split(' ')[0]) === 0) baseEl = calc;
     } else if (pg) {
       var page = (location.pathname.match(/([\w-]+)\.html$/) || [])[1];    // сторінки послуг
-      if (PAGE_CALC[page] === service) baseEl = pg;
+      if ((PAGE_CALC[page] || []).indexOf(service) >= 0) baseEl = pg;
     }
     var baseText = baseEl ? baseEl.textContent : '';
     var base = firstNum(baseText);
-    var from = /від/i.test(baseText);
+    var from = /(^|\s)(від|от)\s/i.test(baseText);
 
     var add = 0, parts = [], perSqm = [];
     Array.prototype.forEach.call(form.querySelectorAll('.upsell-check:checked'), function (cb) {
@@ -178,7 +182,7 @@
     data.hi = humanActions;
 
     var slowTimer = btn ? setTimeout(function () {
-      btn.textContent = 'Ще кілька секунд…';
+      btn.textContent = RU ? 'Ещё несколько секунд…' : 'Ще кілька секунд…';
     }, 6000) : null;
 
     var body = JSON.stringify(data);
@@ -281,15 +285,19 @@
     var p = phone();
     if (status === 'phone') {
       // Помилка в номері — підказуємо формат і ставимо курсор у поле, без «страшних» повідомлень
-      box.innerHTML = 'Перевірте номер телефону — наприклад, <b>+380 50 123 45 67</b> або <b>050 123 45 67</b>.';
+      box.innerHTML = RU ? 'Проверьте номер телефона — например, <b>+380 50 123 45 67</b> или <b>050 123 45 67</b>.'
+        : 'Перевірте номер телефону — наприклад, <b>+380 50 123 45 67</b> або <b>050 123 45 67</b>.';
       var ph = form.querySelector('[name=phone]');
       if (ph) { try { ph.focus(); } catch (_) {} }
       return;
     }
     var tooMany = status === 429;
     box.innerHTML =
-      (tooMany ? 'Забагато спроб поспіль. ' : 'Не вдалося надіслати заявку — ваші дані збережені у формі, спробуйте ще раз. ') +
-      'Або зв\'яжіться з нами одразу: <a href="tel:' + p.replace(/\s/g, '') + '" style="color:#EDBA4A;font-weight:700;text-decoration:underline">' + p + '</a>' +
+      (RU
+        ? (tooMany ? 'Слишком много попыток подряд. ' : 'Не удалось отправить заявку — ваши данные сохранены в форме, попробуйте ещё раз. ') +
+          'Или свяжитесь с нами сразу: <a href="tel:'
+        : (tooMany ? 'Забагато спроб поспіль. ' : 'Не вдалося надіслати заявку — ваші дані збережені у формі, спробуйте ще раз. ') +
+          'Або зв\'яжіться з нами одразу: <a href="tel:') + p.replace(/\s/g, '') + '" style="color:#EDBA4A;font-weight:700;text-decoration:underline">' + p + '</a>' +
       ' · <a href="' + TELEGRAM + '" target="_blank" rel="noopener" style="color:#EDBA4A;font-weight:700;text-decoration:underline">Telegram</a>';
   }
 

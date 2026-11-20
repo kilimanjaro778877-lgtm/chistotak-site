@@ -1140,3 +1140,9 @@ input.ct-area-input.text-3xl{font-size:1.875rem!important}
 .fixed.bottom-6.right-5 .ct-msg-item svg{fill:#fff!important}
 .fixed.bottom-6.right-5 .ct-msg>button{background:var(--ct-fire)!important;box-shadow:0 10px 30px -6px rgba(255,165,0,.6)!important}
 .fixed.bottom-6.right-5 .ct-msg>button svg{fill:#000!important}
+
+/* Перемикач мови UA / RU у шапці */
+.ct-lang{display:inline-flex;align-items:center;justify-content:center;min-width:2.25rem;height:2rem;padding:0 .5rem;border-radius:.6rem;border:1px solid rgba(255,170,0,.35);color:#EDBA4A;font-size:.8rem;font-weight:800;letter-spacing:.03em;text-decoration:none;transition:background .2s}
+.ct-lang:hover{background:rgba(255,170,0,.1)}
+.ct-lang-m{align-self:flex-start;margin:.5rem 0 .25rem}
+@media (max-width:640px){header .ct-lang{display:none}}

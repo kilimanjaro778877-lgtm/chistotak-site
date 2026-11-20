@@ -10,8 +10,23 @@
   'use strict';
 
   var API = (window.CTLead && window.CTLead.API) || 'https://cleaning-form-handler-azkl.onrender.com';
-  var WD = ['Нд', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
-  var MON = ['січ', 'лют', 'бер', 'кві', 'тра', 'чер', 'лип', 'сер', 'вер', 'жов', 'лис', 'гру'];
+  // Мова сторінки: російська версія сайту лежить у /ru/ з <html lang="ru">
+  var RU = /^ru/i.test(document.documentElement.lang || '');
+  var T = RU ? {
+    wd: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'], mon: ['янв', 'фев', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'],
+    at: ' в ', title: 'Выберите удобный день и время', opt: 'необязательно', day: 'День', time: 'Время начала',
+    chosen: '✓ Выбрано: ', confirm: '. Менеджер подтвердит запись звонком.',
+    noteLive: 'Серым — время уже занято. Можно не выбирать — согласуем по телефону.', note: 'Можно не выбирать — согласуем время по телефону.',
+    pick: 'выбрать', full: 'занято', last: 'последнее место', free: 'свободно', allFull: 'Всё занято'
+  } : {
+    wd: ['Нд', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'], mon: ['січ', 'лют', 'бер', 'кві', 'тра', 'чер', 'лип', 'сер', 'вер', 'жов', 'лис', 'гру'],
+    at: ' о ', title: 'Оберіть зручний день і час', opt: 'необовʼязково', day: 'День', time: 'Час початку',
+    chosen: '✓ Обрано: ', confirm: '. Менеджер підтвердить запис дзвінком.',
+    noteLive: 'Сірим — час уже зайнятий. Можна не обирати — узгодимо по телефону.', note: 'Можна не обирати — узгодимо час по телефону.',
+    pick: 'обрати', full: 'зайнято', last: 'останнє місце', free: 'вільно', allFull: 'Усе зайнято'
+  };
+  var WD = T.wd;
+  var MON = T.mon;
   var REFRESH_MS = 60 * 1000;
 
   function el(tag, cls, html) {
@@ -28,7 +43,7 @@
 
   function label(iso, t) {
     var d = parseDate(iso);
-    return WD[d.getDay()].toLowerCase() + ', ' + ('0' + d.getDate()).slice(-2) + '.' + ('0' + (d.getMonth() + 1)).slice(-2) + (t ? ' о ' + t : '');
+    return WD[d.getDay()].toLowerCase() + ', ' + ('0' + d.getDate()).slice(-2) + '.' + ('0' + (d.getMonth() + 1)).slice(-2) + (t ? T.at + t : '');
   }
 
   function cityOf(form) {
@@ -46,9 +61,9 @@
     var box = el('div', 'ct-bk');
     box.hidden = true;
     box.innerHTML =
-      '<div class="ct-bk-head"><span class="ct-bk-title">Оберіть зручний день і час</span><span class="ct-bk-opt">необовʼязково</span></div>' +
-      '<div class="ct-bk-days" role="group" aria-label="День"></div>' +
-      '<div class="ct-bk-times" role="group" aria-label="Час початку"></div>' +
+      '<div class="ct-bk-head"><span class="ct-bk-title">' + T.title + '</span><span class="ct-bk-opt">' + T.opt + '</span></div>' +
+      '<div class="ct-bk-days" role="group" aria-label="' + T.day + '"></div>' +
+      '<div class="ct-bk-times" role="group" aria-label="' + T.time + '"></div>' +
       '<p class="ct-bk-note"></p>' +
       '<input type="hidden" name="slot_date" value=""><input type="hidden" name="slot_time" value="">';
     form.insertBefore(box, anchor);
@@ -62,18 +77,18 @@
 
     function setNote() {
       if (inDate.value && inTime.value) {
-        noteEl.innerHTML = '✓ Обрано: <b>' + label(inDate.value, inTime.value) + '</b>. Менеджер підтвердить запис дзвінком.';
+        noteEl.innerHTML = T.chosen + '<b>' + label(inDate.value, inTime.value) + '</b>' + T.confirm;
       } else {
         noteEl.textContent = state.live
-          ? 'Сірим — час уже зайнятий. Можна не обирати — узгодимо по телефону.'
-          : 'Можна не обирати — узгодимо час по телефону.';
+          ? T.noteLive
+          : T.note;
       }
     }
 
     function freeLabel(s) {
-      if (!state.live) return 'обрати';
-      if (s.free <= 0) return 'зайнято';
-      return s.free === 1 ? 'останнє місце' : 'вільно';
+      if (!state.live) return T.pick;
+      if (s.free <= 0) return T.full;
+      return s.free === 1 ? T.last : T.free;
     }
 
     function renderTimes() {
@@ -106,7 +121,7 @@
         var b = el('button', 'ct-bk-day',
           '<span>' + WD[dt.getDay()] + '</span><b>' + dt.getDate() + '</b><small>' + MON[dt.getMonth()] + '</small>');
         b.type = 'button';
-        if (!anyFree) { b.classList.add('is-full'); b.title = 'Усе зайнято'; }
+        if (!anyFree) { b.classList.add('is-full'); b.title = T.allFull; }
         if ([0, 6].indexOf(dt.getDay()) >= 0) b.classList.add('is-weekend');
         b.setAttribute('aria-pressed', d.date === state.day ? 'true' : 'false');
         b.addEventListener('click', function () { state.day = d.date; renderDays(); renderTimes(); });
