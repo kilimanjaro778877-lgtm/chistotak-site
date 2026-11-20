@@ -10,7 +10,7 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 # Речення про Львів (партнер зі своїм прайсом) — там свої ціни
 LVIV = re.compile(r'Льв|Lviv|партнер|прайс', re.I)
-SKIP_FILES = {'lviv.html', 'skilky-koshtuie-generalne-lviv.html', 'planove-prybyrannia.html',
+SKIP_FILES = {'lviv.html', 'skilky-koshtuie-generalne-lviv.html',
               'yak-obraty-kliniing-kompaniyu.html', 'check_prices.py'}
 P = r'(?<![\d.,])'           # число не є частиною більшого
 RUB = r'(?:\s|&nbsp;)?₴'
@@ -19,11 +19,14 @@ RULES = [
     # (назва, regex, чи пропускати речення про Львів, чи пропускати речення про килим)
     ('Генеральне в Києві — 100 ₴/м², не 90', re.compile(P + r'90' + RUB + r'/м²'), True, False),
     ('Підтримуюче в Києві — 70 ₴/м², не 50/60/65', re.compile(P + r'(?:50|60|65)' + RUB + r'/м²'), True, False),
+    ('Планове — 70 / 60 / 50 ₴/м², не 40 / 35 / 25', re.compile(P + r'(?:40|35|25)' + RUB + r'/м²'), True, False),
     ('Миття вікон — 220 ₴/м², 180 лише для килима', re.compile(P + r'180' + RUB), True, True),
     ('Замовлень 150+, не 2 500', re.compile(r'2(?:\s|&nbsp;)?500\+|2(?:\s|&nbsp;)?500 (?:замовлен|заказ)'), False, False),
     ('Хімчистка дивана як доп. послуга — 3 000 ₴', re.compile(r'(?:Хімчистка|Химчистка) дивана \+(?:1200|2400)₴'), False, False),
     ('Міста лише Київ і Львів', re.compile(r'Солоне|Харків(?!ськ)|Харьков(?!ск)|Одеса|Одесса|Дніпро(?!в)|Днепр(?!ов)'), False, False),
 ]
+# Планове прибирання (щотижневий графік): 70 / 60 / 50 ₴/м² — це не застаріле підтримуюче
+PLANNED = re.compile(r'тижд|недел|планов|плановая', re.I)
 WINDOW = re.compile(r'вік|вікон|окон|окн|скл|стекл', re.I)
 CARPET = re.compile(r'килим|ковр|ковёр', re.I)
 
@@ -52,6 +55,10 @@ def main():
                 le = text.find('\n', m.end())
                 whole_line = text[ls:le if le != -1 else len(text)]
                 if skip_lviv and (LVIV.search(s) or (f.suffix == '.txt' and LVIV.search(whole_line))):
+                    continue
+                if name.startswith('Підтримуюче') and (PLANNED.search(s) or f.name == 'planove-prybyrannia.html'):
+                    continue
+                if name.startswith('Планове') and not (PLANNED.search(s) or f.name == 'planove-prybyrannia.html'):
                     continue
                 if window_only and (not WINDOW.search(s) or CARPET.search(s)):
                     continue
