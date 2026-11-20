@@ -1146,3 +1146,32 @@ input.ct-area-input.text-3xl{font-size:1.875rem!important}
 .ct-lang:hover{background:rgba(255,170,0,.1)}
 .ct-lang-m{align-self:flex-start;margin:.5rem 0 .25rem}
 @media (max-width:640px){header .ct-lang{display:none}}
+
+/* Блок «Відгуки в Google» (ct-greviews.js) */
+.ct-gr{margin:2.5rem auto 0;max-width:72rem;text-align:left}
+.ct-gr-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;border:1px solid #3f3f46;border-radius:1.25rem;background:#18181b}
+.ct-gr-score{display:flex;align-items:center;gap:.9rem}
+.ct-gr-score .ct-gr-g{width:2.5rem;height:2.5rem;flex:none}
+.ct-gr-label{font-size:.8rem;color:#a1a1aa;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.ct-gr-num{display:flex;align-items:center;gap:.5rem;font-size:1.9rem;line-height:1.1;color:#fafafa}
+.ct-gr-num b{font-weight:900}
+.ct-gr-count{font-size:.85rem;color:#a1a1aa}
+.ct-gr-stars{color:#52525b;letter-spacing:.05em;font-size:1rem}
+.ct-gr-num .ct-gr-stars{font-size:1.25rem}
+.ct-gr-stars .on{color:#FBBC04}
+.ct-gr-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.25rem}
+.ct-gr-btn{display:inline-flex;align-items:center;padding:.6rem 1.1rem;border-radius:999px;background:#fff;color:#18181b;font-weight:700;font-size:.9rem;text-decoration:none}
+.ct-gr-btn:hover{background:#f4f4f5}
+.ct-gr-link{color:#EDBA4A;font-weight:600;font-size:.9rem;text-decoration:none}
+.ct-gr-list{display:grid;gap:1rem;margin-top:1rem;grid-template-columns:repeat(auto-fill,minmax(16rem,1fr))}
+.ct-gr-card{padding:1.1rem 1.2rem;border:1px solid #3f3f46;border-radius:1rem;background:#18181b}
+.ct-gr-head{display:flex;align-items:center;gap:.7rem}
+.ct-gr-head .ct-gr-g{width:1.1rem;height:1.1rem;margin-left:auto;flex:none}
+.ct-gr-ava{width:2.5rem;height:2.5rem;border-radius:999px;object-fit:cover;flex:none}
+.ct-gr-ava-i{display:inline-flex;align-items:center;justify-content:center;background:#3f3f46;color:#fafafa;font-weight:800}
+.ct-gr-name{font-weight:700;color:#fafafa;font-size:.95rem}
+.ct-gr-meta{font-size:.8rem;color:#a1a1aa;display:flex;align-items:center;gap:.4rem}
+.ct-gr-text{margin-top:.75rem;color:#d4d4d8;font-size:.92rem;line-height:1.55}
+.ct-gr-text.is-long{display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.ct-gr-more{margin-top:.4rem;color:#EDBA4A;font-size:.85rem;font-weight:600;background:none;border:0;padding:0;cursor:pointer}
+.ct-gr-src{margin-top:.6rem;font-size:.75rem;color:#71717a;text-align:right}
