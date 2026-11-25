@@ -6,7 +6,15 @@
     <atom:link href="https://chisto-tak.com.ua/feed.xml" rel="self" type="application/rss+xml" />
     <description>Поради з прибирання й догляду за домом від клінінгової компанії ЧистоТак (Київ, Львів).</description>
     <language>uk</language>
-    <lastBuildDate>Mon, 23 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Скільки коштує планове прибирання квартири в Києві: тижневий графік і ціни</title>
+      <link>https://chisto-tak.com.ua/blog/skilky-koshtuie-planove-prybyrannia.html</link>
+      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/skilky-koshtuie-planove-prybyrannia.html</guid>
+      <pubDate>Wed, 25 Nov 2026 09:00:00 +0000</pubDate>
+      <category>Послуги</category>
+      <description>Тарифи планового прибирання за площею, приклад розрахунку на 80 м² і коли тижневий графік вигідніший за підтримуюче прибирання, яке замовляють щоразу окремо.</description>
+    </item>
     <item>
       <title>Прибирання дитячої кімнати перед Миколаєм і Новим роком: куди діти старі іграшки</title>
       <link>https://chisto-tak.com.ua/blog/prybyrannia-dytiachoi-pered-svyatamy.html</link>
@@ -158,14 +166,6 @@
       <pubDate>Sat, 31 Oct 2026 09:00:00 +0000</pubDate>
       <category>Послуги</category>
       <description>Поки не почались морози, скло ще можна помити зовні без ризику. Чому восени на вікнах більше бруду і скільки коштує викликати бригаду в Києві.</description>
-    </item>
-    <item>
-      <title>Увімкнули опалення — чому в квартирі більше пилу і важче дихати</title>
-      <link>https://chisto-tak.com.ua/blog/pyl-pislya-vklyuchennya-opalennya.html</link>
-      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/pyl-pislya-vklyuchennya-opalennya.html</guid>
-      <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
-      <category>Здоров&#x27;я</category>
-      <description>Щойно запрацювали батареї, пил з літа піднімається в повітря, а дихати стає важче. Чому так відбувається і що прибрати вже цього тижня.</description>
     </item>
   </channel>
 </rss>
