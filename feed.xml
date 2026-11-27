@@ -6,7 +6,15 @@
     <atom:link href="https://chisto-tak.com.ua/feed.xml" rel="self" type="application/rss+xml" />
     <description>Поради з прибирання й догляду за домом від клінінгової компанії ЧистоТак (Київ, Львів).</description>
     <language>uk</language>
-    <lastBuildDate>Wed, 25 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Прибирання новобудови перед заселенням: скільки коштує і з чого починати</title>
+      <link>https://chisto-tak.com.ua/blog/prybyrannia-novobudovy-pered-zaselennyam.html</link>
+      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/prybyrannia-novobudovy-pered-zaselennyam.html</guid>
+      <pubDate>Fri, 27 Nov 2026 09:00:00 +0000</pubDate>
+      <category>Послуги</category>
+      <description>Будівельний пил, плівка на вікнах, цемент на плитці — чому прибирання новобудови складніше за звичайне генеральне, скільки воно коштує і що зробити самому до приїзду клінерів.</description>
+    </item>
     <item>
       <title>Скільки коштує планове прибирання квартири в Києві: тижневий графік і ціни</title>
       <link>https://chisto-tak.com.ua/blog/skilky-koshtuie-planove-prybyrannia.html</link>
@@ -158,14 +166,6 @@
       <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
       <category>Лайфхаки</category>
       <description>Пилосос не працює, у кухні темно, а бруд не чекає графіка відключень. Що реально можна прибрати без електрики і коли простіше викликати бригаду.</description>
-    </item>
-    <item>
-      <title>Миття вікон восени: останній теплий тиждень і скільки це коштує</title>
-      <link>https://chisto-tak.com.ua/blog/myttya-vikon-vosenyu.html</link>
-      <guid isPermaLink="true">https://chisto-tak.com.ua/blog/myttya-vikon-vosenyu.html</guid>
-      <pubDate>Sat, 31 Oct 2026 09:00:00 +0000</pubDate>
-      <category>Послуги</category>
-      <description>Поки не почались морози, скло ще можна помити зовні без ризику. Чому восени на вікнах більше бруду і скільки коштує викликати бригаду в Києві.</description>
     </item>
   </channel>
 </rss>
